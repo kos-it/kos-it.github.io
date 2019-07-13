@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://kos-it.github.io/categories/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/codeigniter/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/php/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/post/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/tutorial-project-1/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/post/tutorial-projek-1-bagian-1/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/website/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/categories/website/</loc>
+    <lastmod>2016-10-19T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/projects/</loc>
+    <lastmod>2016-10-19T22:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/projects/</loc>
+    <lastmod>2016-10-19T22:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/</loc>
+    <lastmod>2016-10-19T22:35:00+09:00</lastmod>
+  </url>
+  
+</urlset>

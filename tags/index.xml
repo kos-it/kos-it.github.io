@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on KOS-IT — Making and Developing</title>
+    <link>https://kos-it.github.io/tags/</link>
+    <description>Recent content in Tags on KOS-IT — Making and Developing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>id-id</language>
+    <lastBuildDate>Wed, 19 Oct 2016 23:35:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://kos-it.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Codeigniter</title>
+      <link>https://kos-it.github.io/tags/codeigniter/</link>
+      <pubDate>Wed, 19 Oct 2016 23:35:00 +0900</pubDate>
+      
+      <guid>https://kos-it.github.io/tags/codeigniter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://kos-it.github.io/tags/php/</link>
+      <pubDate>Wed, 19 Oct 2016 23:35:00 +0900</pubDate>
+      
+      <guid>https://kos-it.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial Project - 1</title>
+      <link>https://kos-it.github.io/tags/tutorial-project-1/</link>
+      <pubDate>Wed, 19 Oct 2016 23:35:00 +0900</pubDate>
+      
+      <guid>https://kos-it.github.io/tags/tutorial-project-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Website</title>
+      <link>https://kos-it.github.io/tags/website/</link>
+      <pubDate>Wed, 19 Oct 2016 23:35:00 +0900</pubDate>
+      
+      <guid>https://kos-it.github.io/tags/website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://kos-it.github.io/tags/projects/</link>
+      <pubDate>Wed, 19 Oct 2016 22:35:00 +0900</pubDate>
+      
+      <guid>https://kos-it.github.io/tags/projects/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

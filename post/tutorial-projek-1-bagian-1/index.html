@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter'read this article.">
+  <meta property="og:title" content="Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-10-19">
+  
+  <meta property="og:description" content=" 'Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://kos-it.github.io/img/img.svg">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 1">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Wednesday, Oct 19, 2016 23:35</time>
+        <h1>Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#apa-itu-framework">Apa itu Framework?</a></li>
+<li><a href="#kelebihan-codeigniter">Kelebihan Codeigniter</a></li>
+<li><a href="#mengenal-struktur-direktori-codeigniter">Mengenal Struktur Direktori Codeigniter</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Selamat datang di <strong>KOS-IT</strong> - Making and Developing..</p>
+
+<p>Tutorial ini berisi sedikit pegenalan tentang salah satu frameowrk <a href="https://kos-it.github.io/tags/php/">PHP</a> yakni <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a>, yang kita gunakan pada projek 1 kita yaitu <a href="https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/">Sistem Manejement Kepanitaan</a>. tutorial ini lebih ditujakan untuk yang bagi yang belum mengenal apa itu faramework <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a>, bagi kalian yang telah mengenal atau mungkin sudah tidak asing dengan <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a> dapat langsung melangkahi tutrial ini ke <a href="https://kos-it.guthub.io/tutorial-projek-1-bagian-2">Tutorial #2</a></p>
+
+<p>PHP memeliki banyak framework, yang paling populer yakni Laravel dan tentu saja Codeigniter yang kita gunakan pada projek 1 kami..</p>
+
+<p>Oke lanjut..</p>
+
+<h1 id="apa-itu-framework">Apa itu Framework?</h1>
+
+<p>Ngomong-ngomong, apa itu framework?</p>
+
+<p>Framework dalam bahasa indonesia artinya adalah kerangka kerja. Kerangka kerja untuk membuat sesuatu, sehingga <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a> merupakan sebuah kerangka kerja yang memudahkan kita dalam membuat web dengan <a href="https://kos-it.github.io/tags/php/">PHP</a>. kita dapat merumpamakan <a href="https://kos-it.github.io/tags/codeigniter">Codeigniter</a> sebuah traktor yang membantu petani membajak sawah akan lebih cepat dan efisien dibanding secara manual dengan cangkul. Dengan menggunakan framework, pembuatan web akan lebih cepat dibandingkan PHP Native. Karena kita tidak perlu membuat semuanya dari nol.</p>
+
+<p><a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a> sendiri merupakan framework <a href="https://kos-it.github.io/tags/php/">PHP</a> yang menggunakan pola desain (<em>design pattern</em>) MVC(<em>Model View Controller</em>). Sampai saat ini Codegniter telah merilis versi 3.1.10 dan untuk versi 4.x masih dalam pengembangan (beta). kalian dapat angsung mengunjungi website resminya di <a href="https://codeigniter.com/" target="_blank"><i>codeingiter.com</i></a></p>
+
+<p><img src="/img/projek1/codeigniter.png" alt="Codeigniter" /></p>
+
+<h1 id="kelebihan-codeigniter">Kelebihan Codeigniter</h1>
+
+<p>Ada beberapa kelebihan CodeIgniter (CI) dibandingkan dengan Framework PHP lain :</p>
+
+<ul>
+<li><p><strong>Performa cepat</strong> : Codeigniter merupakan framework yang paling cepat dibanding framework yang lain. Karena tidak menggunakan template engine dan ORM yang dapat memperlambat proses.</p></li>
+
+<li><p><strong>Konfigurasi yang minim</strong> (<em>nearly zero configuration</em>) : tentu saja untuk menyesuaikan dengan database dan keleluasaan routing tetap diizinkan melakukan konfigurasi dengan mengubah beberapa file konfigurasi seperti database.php atau autoload.php, namun untuk menggunakan codeigniter dengan setting standard, anda hanya perlu mengubah sedikit saja pada file di folder config.</p></li>
+
+<li><p><strong>Memiliki banyak komunitas</strong> : Komunitas CI di indonesia cukup ramai, tutorialnya pun mudah dicari.</p></li>
+
+<li><p><strong>Dokumentasi yang lengkap</strong> : Codeigniter disertai dengan user_guide yang berisi dokumentasi yang lengkap.</p></li>
+
+<li><p><strong>Mudah dipelajari pemula</strong> : Bagi pemula, CI sangat mudah dipelajari. Karena CI tidak terlalu bergantung pada tool tambahan seperti composer, ORM, Template Engine, dll.</p></li>
+</ul>
+
+<h1 id="mengenal-struktur-direktori-codeigniter">Mengenal Struktur Direktori Codeigniter</h1>
+
+<p>Tedapat dua direktori penting di dalam CI:  <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"><code>application</code> dan <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"><code>system</code>. Selain itu terdapat juga direktori <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"><code>user_guide</code> dan beberapa folder. Berikut ini penjelasannya:</p>
+
+<ol>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>applicaton</code> direktori ini merupakan tempat untuk menulis file semua kode aplikasi/web kita.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>system</code> direktori ini berisi kode sistem dari framework <a href="http://kos-it.github.io/tags/codeigniter">Codeigniter</a>. jangan merubah apapun dalam direktori ini. jika kita ingin <em>meng-upgrade</em> atau mnegganti versi <a href="htpp://kos-it.github.io/tags/codeigniter">Codeigniter</a>. kita cukup mengganti/ <em>me-replace</em> direktori ini.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>test</code> berisi file kode untuk unit testing.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>user_guide</code> merupakan direktori berisi file kode dokumentasi <a href="http://kos-it.github.io/tags/codeigniter">Codeigniter</a>. kita dapat mengaksesnya pada halaman awal codeigniter, berisi panduan penggunaan/ dokumentasi. direktori ini dapat kita hapus bila sudah tidak diperlukan.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>.editor_config</code> berisi kode konfigurasi untuk teks editor.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>.gitignore</code> berisi daftar file yang akan diabaikan oleh Git.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>.composer.json</code> file berisi keterangan projek dan keterangan library yang digunakan. File ini dibuthkan oleh komposer</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>comtributing.md</code> file yang berisi penjelasan cara berkontribusi di proyek CI. kita bisa menghapus file ini apabila telah jadi.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>license.txt</code> adalah file yang berisi keterangan lisensi dari CI.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>readme.rst</code> sama seperti file <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>contributing.md</code> file ini berisi penjelasan dan informasi tentang projek CI. kita juga dapat menghapus file ini saat apliasi/web sudah jadi.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>index.php</code> adalh file utama dari CI. file yang dibuka pertama kali saat kita mengakses web.</li>
+</ol>
+
+<p>Selanjutnya kita akan membahas isi dari direktori <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>application</code> :</p>
+
+<ul>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>cache</code> berisi cache dari aplikasi</li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>config</code> berisi konfogurasi aplikasi berupa :</p>
+
+<ul>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>autoload.php</code> tempat kita mendefinisikan autoload.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>config.php</code> konfigurasi aplikasi/web.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>constants.php</code> berisi konstanta.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>database.php</code> konfigurasi database apikasi/web.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>doctypes.php</code> berisi definisi untuk <em>doctype</em> HTML.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>foreign_chars.php</code> berisi karakter dan simbol.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>hooks.php</code> berisi konfigurasi <em>hooks</em>.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>index.html</code> untuk mencegah direct access.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>memcached.php</code> berisi konfigurasi untuk memcached.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>migration.php</code> konfigurasi untuk migrasi.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>mimes.php</code> berisi defiisi tipe file.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>profiler.php</code> berisi konfigurasi untuk profiler.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>routers.php</code> tempat kita menulis route apikasi.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>smileys.php</code> berisi kode untuk emoji.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>user_agents.php</code> berisi konfigurasi untuk <em>user agents</em>.</li>
+</ul></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>controller</code> berisi kode untuk <em>controller</em>.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>core</code> berisi code untuk custom core.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>helper</code> berisi fungsi-fungsi helper.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>hooks</code> berisi file untuk script <em>hooks</em>.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>language</code> berisi string untuk bahasa, apabila aplikasi/web mendukung multibahasa</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>libraries</code> berisi librari</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>logs</code> berisi log dari aplikasi.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>models</code> berisi kode untuk model.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>thrid_party</code> berisi librari dari pihak ketiga.</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>views</code> berisi kode untuk view</p></li>
+
+<li><p><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>index.html</code> file html untuk mencegah direct access.</p></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-1%2f&t=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%231%20%3a%20Pengenalan%20Codeigniter"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-1%2f&text=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%231%20%3a%20Pengenalan%20Codeigniter&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-1%2f&title=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%231%20%3a%20Pengenalan%20Codeigniter"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-1%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Wednesday, Oct 19, 2016 23:35</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-1">#Tutorial Project - 1</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter">#Codeigniter</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/" rel="prev">
+          <span>Projek 1 | Sistem Menegement Kepanitiaan dengan Codeigniter</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2019 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | Template by 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+
