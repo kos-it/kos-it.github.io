@@ -250,7 +250,7 @@ img {
   border-radius: 2px;
   font-size: 1.3em;
   color: #f7931e;
-  font-style: oblique
+  word-break: break-word;
 }
 .post .post-content .hljs {
   background-color: rgb(51, 51, 51);
