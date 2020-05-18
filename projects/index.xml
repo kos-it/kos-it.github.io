@@ -6,6 +6,8 @@
     <description>Recent content in Projects on KOS-IT — Making and Developing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>id-id</language>
+    <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
+    <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
     <lastBuildDate>Fri, 19 Oct 2018 22:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Projek 1 | Sistem Menegement Kepanitiaan dengan Codeigniter</title>
       <link>https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/</link>
       <pubDate>Fri, 19 Oct 2018 22:35:00 +0900</pubDate>
-      
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
       <guid>https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/</guid>
       <description>Selamat datang di KOS-IT - Making and Developing..
 Kali ini kita akan membuat sebuah software/aplikasi berbasis web yakni SIMKEP-Sistem Menejement Kepanitiaan berbasis web dengan meggunakan bahasa pemrograman PHP dan Codeigniter sebagai frameworknya

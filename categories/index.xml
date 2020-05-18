@@ -6,6 +6,8 @@
     <description>Recent content in Categories on KOS-IT — Making and Developing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>id-id</language>
+    <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
+    <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
     <lastBuildDate>Fri, 19 Oct 2018 23:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Website</title>
       <link>https://kos-it.github.io/categories/website/</link>
       <pubDate>Fri, 19 Oct 2018 23:35:00 +0900</pubDate>
-      
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
       <guid>https://kos-it.github.io/categories/website/</guid>
       <description></description>
     </item>
