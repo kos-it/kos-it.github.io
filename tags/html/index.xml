@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on KOS-IT — Making and Developing</title>
+    <link>https://kos-it.github.io/tags/html/</link>
+    <description>Recent content in HTML on KOS-IT — Making and Developing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>id-id</language>
+    <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
+    <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
+    <lastBuildDate>Sun, 02 Feb 2020 23:35:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://kos-it.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cara Menampilkan Gambar di Website Menggunakan Penyimpanan Data dari Google Drive</title>
+      <link>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</link>
+      <pubDate>Sun, 02 Feb 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</guid>
+      <description>Selamat datang di KOS-IT - Making and Developing&amp;hellip;
+Kali ini kita akan mencoba membuat sebuah gambar yang kita simpan di dalam google drive akan di tampilkan di halaman website, blog maupun wordpress, Google drive adalah salah satu layanan tempat penyimpanan dokumen yang di sediakan oleh Google dalam membuat sebuah akun Google Gmail.
+Kapasitas penyimpanan dari Google Drive versi gratis adalah 15 GB, artinya kita memiliki tempat penyimpanan file dokumen sebanyak 15 GB, penulis berpikir kenapa harus tidak memanfaatkan layanan ini untuk membuat share image di webiste maupun blog dari google drive yang disediaka secara cuma cuma.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI'read this article.">
+  <meta property="og:title" content="Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-01-01">
+  
+  <meta property="og:description" content=" 'Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-project-1-bagian-2/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://drive.google.com//uc?export=view&id=1zKgyxiCm9R2RlIFO8O1cbknZGUN8NrRC">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 1">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-project-1-bagian-2/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-project-1-bagian-2/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Wednesday, Jan 1, 2020 23:35</time>
+        <h1>Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#mengenal-konsep-mvc-pada-codeigniter">Mengenal Konsep MVC pada Codeigniter</a></li>
+<li><a href="#memahami-router-pada-codeigniter">Memahami Router pada Codeigniter</a></li>
+<li><a href="#membuat-beberapa-router">Membuat Beberapa Router</a></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Selamat datang di <strong>KOS-IT</strong> - Making and Developing&hellip;</p>
+
+<p>Pada <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1">tutorial sebelumnya</a>, kita sudah mengetahui cara menginstall <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a> dan mengenal struktur direktori dari <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a>.</p>
+
+<p>Pada tutorial kali ini kita akan belajar tentang <em>routing</em> dan MVC pada projek 1 kita yaitu <a href="https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/">Sistem Management Kepanitaan</a>.</p>
+
+<p>Namun sebelum kita melakukannya ada baiknya kita berkenalan dulu dengan konsep dasar <a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a></p>
+
+<p><a href="https://kos-it.github.io/tags/codeigniter/">Codeigniter</a> adalah framework <a href="https://kos-it.github.io/tags/php/">PHP</a> yang menggunakan konsep MVC.</p>
+
+<p>Apa itu MVC ?</p>
+
+<p>Mari kita bahas</p>
+
+<h1 id="mengenal-konsep-mvc-pada-codeigniter">Mengenal Konsep MVC pada Codeigniter</h1>
+
+<p>Model-View-Controller atau MVC adalah sebuah metode untuk membuat sebuah aplikasi dengan memisahkan data (Model) dari tampilan (View) dan cara bagaimana memprosesnya (Controller).</p>
+
+<p>MVC membagi aplikasi ke dalam tiga bagian fungsional: model, view, dan controller.</p>
+
+<ul>
+<li><strong>Model</strong>, Model mewakili struktur data. Model merupakan bagian yang bertugas untuk mengatur, menyiapkan, memanipulasi, dan mengorganisir data (biasanya dari basis data). Tugas yang ia lakukan meliputi memasukkan data ke basis data, pembaruan data, menghapus data, dan lain-lain. Model menjalankan tugasnya berdasarkan instruksi dari controller.</li>
+<li><strong>View</strong>, View merupakan bagian yang mengatur tampilan ke pengguna. Bisa dikatakan berupa halaman web.</li>
+<li><strong>Controller</strong>, Controller merupakan bagian yang menjembatani model dan view. Controller berisi perintah-perintah yang berfungsi untuk memproses suatu data dan mengirimkannya ke halaman web.</li>
+</ul>
+
+<p>Dengan menggunakan metode MVC maka aplikasi akan lebih mudah untuk dirawat dan dikembangkan. Untuk memahami metode pengembangan aplikasi menggunakan MVC diperlukan pengetahuan tentang pemrograman berorientasi objek (Object-oriented programming).</p>
+
+<p>Alur kerja seperti ini</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1IfzaXngiTMfZ1Ij89zf3BKNNaR-AR_eY" alt="MVC" /></p>
+
+<ol>
+<li>Mulai;</li>
+<li>User mengirim request ke web;</li>
+<li>File yang pertama kali dieksekusi adalah <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>index.php</code></li>
+<li>Lalu dari <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>index.php</code>, request akan diteruskan oleh <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>routers.php</code></li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>routers.php</code> akan mencari cache di server, apabila tedapat cache maka cache itu yang akan dikirim sebagai balasan (response). Apabila tidak ada cache barulah request diteruskan ke Controller</li>
+<li>Controller akan bertanggunag jawab untuk mengambil data dari Model dan me-rendernya ke dalam View dengan menggunakan library, plugin, dan helper yang ada.</li>
+<li>Hasil render (view) dikirim ke pengguna dan disimpan dalam cache, apabila fitur cache aktif</li>
+<li>Selesai.</li>
+</ol>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1WxiyhMAaIg11ZIqMoE2A-plZVj33XCG6" alt="MVC2" /></p>
+
+<h1 id="memahami-router-pada-codeigniter">Memahami Router pada Codeigniter</h1>
+
+<p>Router pada Codeigniter bertugas untuk menentukan controller dan method/fungsi yang akan dieksekusi.</p>
+
+<p>Ketika kita membuka, <a href="http://localhost/simkep/">http://localhost/simkep/</a> maka fungsi yang akan dieksekusi adalah fungsi index() yang berada di dalam controller welcome.</p>
+
+<!--<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">class Welcome extends CI_Controller {
+	public function index()
+	{
+<span style="display:block;width:100%;background-color:#3c3d38">		$this-&gt;load-&gt;view(&#39;welcome_message&#39;);
+</span>	}
+}</code></pre></td></tr></table>
+</div>
+</div>-->
+
+<pre><code class="language-php">class Welcome extends CI_Controller {
+	public function index()
+	{
+		$this-&gt;load-&gt;view('welcome_message');
+	}
+}
+</code></pre>
+
+<p>Kenapa bisa begitu?</p>
+
+<p>Ini karena konfigurasi router defaultnya adalah controller <code>welcome</code>.</p>
+
+<p>Coba saja buka pada file <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>config/routers.php</code></p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1mlQtiQTb4Iy_jcY9_OL-UO7oZQvjx4i6" alt="Router" /></p>
+
+<p>Fungsi <code>index()</code> adalah fungsi yang akan dieksekusi saat kita mengakses <em>controller</em> <code>welcome</code>.</p>
+
+<p>Sekarang coba buka:
+<a href="http://localhost/simkep/index.php/welcome/index/" target="_blank"><a href="http://localhost/simkep/index.php/welcome/index/">http://localhost/simkep/index.php/welcome/index/</a></a> , maka kita akan mendapatkan hal yang sama seperti membuka
+<a href="http://localhost/simkep/" target="_blank"><a href="http://localhost/simkep/.">http://localhost/simkep/.</a>.</a></p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1TK9aVsdHbYbsG4ePAOlbM2pNw6Swhvxz" alt="Router2" /></p>
+
+<h1 id="membuat-beberapa-router">Membuat Beberapa Router</h1>
+
+<p>Sebagai latihan, coba tambahkan route <code>/about/</code> dan <code>/contact/</code> di dalam Controller <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>Welcome</code> dengan method ini:</p>
+
+<pre><code class="language-php">public function about()
+{
+	// fungsi untuk me-load view about.php
+	$this-&gt;load-&gt;view('about');
+}
+
+public function contact()
+{
+	// fungsi untuk me-load view contact.php
+	$this-&gt;load-&gt;view('contact');
+}
+</code></pre>
+
+<p>Tambahkan di bawah method <code>index()</code>.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1mExQOG9ZTZxIDBbL_T2PuNoisnaffMMc" alt="route" /></p>
+
+<p>Setelah itu tambahkan dua buah file view di dalam direktori <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>views</code> dengan isi sebagai berikut.</p>
+
+<p><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/about.php</code></p>
+
+<pre><code class="language-html">&lt;h1&gt;About Us&lt;/h1&gt;
+&lt;p&gt;Ini adalah halaman about&lt;/p&gt;
+</code></pre>
+
+<p><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/contact.php</code></p>
+
+<pre><code class="language-html">&lt;h1&gt;Contact Us&lt;/h1&gt;
+&lt;p&gt;Ini adalah halaman Contact&lt;/p&gt;
+</code></pre>
+
+<p>Route sudah kita tambahkan.</p>
+
+<p>Sekarang coba buka:</p>
+
+<ul>
+<li><p><a href="http://localhost/simkep/index.php/welcome/about/">http://localhost/simkep/index.php/welcome/about/</a></p></li>
+
+<li><p>dan <a href="http://localhost/simkep/index.php/welcome/contact/">http://localhost/simkep/index.php/welcome/contact/</a></p></li>
+</ul>
+
+<p>Hasilnya adalah akan terjadi error 404 not found.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1rDv_QldFrb2Sy8rk0n81Smhitm3_rN5k" alt="route2" /></p>
+
+<p>Kenapa seperti itu?</p>
+
+<p>Ini karena route yang baru saja kita buat, belum didaftarkan ke dalam <code>routers.php</code>.</p>
+
+<p>Sekarang buka file <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>config/routers.php</code>, lalu tambahkan kode berikut.</p>
+
+<pre><code class="language-php">$route['about'] = 'welcome/about';
+$route['contact'] = 'welcome/contact';
+</code></pre>
+
+<p>Tambahkan di bawah kode route yang sudah ada.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1nJXhRIl8f-P0oQUn0Xif9hhxVq2NmQDV" alt="route3" /></p>
+
+<p>Hasilnya:</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Wy4IwxHaF_3jfAkx1YtMNAGalHn10SY3" alt="route4" /></p>
+
+<p><strong>Apakah kita harus menambahkan route pada routers.php di setiap pembuatan route baru?</strong></p>
+
+<p>Jawabannya:</p>
+
+<p><strong>Tidak harus</strong>, karena CI juga mampu mendeteksi otomatis route berdasarkan nama controller dan method yang dibuat.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1TK9aVsdHbYbsG4ePAOlbM2pNw6Swhvxz" alt="Router2" /></p>
+
+<p>Ini formatnya:</p>
+
+<pre><code>http://example.com/[controller-class]/[controller-method]/[arguments]
+</code></pre>
+
+<p>Penambahan route pada <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>routers.php</code> dibutuhkan saat kita ingin membuat kustom route untuk controller tertentu.</p>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<p>Kita sudah belajar tentang MVC dan Route. Ini memang masih dasar. Selanjutnya nanti kita akan banyak menggunakannya.</p>
+
+<p>Jadi, harap diphami betul dua hal ini.</p>
+
+<p>Jika masih bingung, silahkan ditanyakan melalui komentar.</p>
+
+<p>Berikutnya pelajari tentang:</p>
+
+<ul>
+<li>Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</li>
+<li>Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</li>
+<li>Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD Produk</li>
+<li>Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Upload Gambar</li>
+<li>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Login</li>
+<li>Tutorial SIMKEP dengan Codeiniter #8: Membuat Fitur Pencarian (Admin)</li>
+<li>Tutorial SIMKEP dengan Codeiniter #9: Membuat Template untuk Landing Page dan Produk</li>
+<li>Tutorial SIMKEP dengan Codeiniter #10: Membuat Pagination</li>
+<li>Tutorial SIMKEP dengan Codeiniter #11: Cara Menggunakan Databales dan Optimasi</li>
+<li>Tutorial SIMKEP dengan Codeiniter #12: Cara Membuat Laporan dengan DomPDF</li>
+</ul>
+
+<p>Selamat belajar.</p>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-project-1-bagian-2%2f&t=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%232%20%3a%20MVC%20dan%20Routing%2c%20Konsep%20dasar%20CI"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-project-1-bagian-2%2f&text=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%232%20%3a%20MVC%20dan%20Routing%2c%20Konsep%20dasar%20CI&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-project-1-bagian-2%2f&title=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%232%20%3a%20MVC%20dan%20Routing%2c%20Konsep%20dasar%20CI"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-project-1-bagian-2%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Wednesday, Jan 1, 2020 23:35</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-1">#Tutorial Project - 1</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter">#Codeigniter</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/" rel="prev">
+          <span>Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/" rel="next">
+          <span>Cara Menampilkan Gambar di Website Menggunakan Penyimpanan Data dari Google Drive</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2020 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+

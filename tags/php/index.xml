@@ -8,10 +8,36 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Fri, 19 Oct 2018 23:35:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Feb 2020 23:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cara Menampilkan Gambar di Website Menggunakan Penyimpanan Data dari Google Drive</title>
+      <link>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</link>
+      <pubDate>Sun, 02 Feb 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</guid>
+      <description>Selamat datang di KOS-IT - Making and Developing&amp;hellip;
+Kali ini kita akan mencoba membuat sebuah gambar yang kita simpan di dalam google drive akan di tampilkan di halaman website, blog maupun wordpress, Google drive adalah salah satu layanan tempat penyimpanan dokumen yang di sediakan oleh Google dalam membuat sebuah akun Google Gmail.
+Kapasitas penyimpanan dari Google Drive versi gratis adalah 15 GB, artinya kita memiliki tempat penyimpanan file dokumen sebanyak 15 GB, penulis berpikir kenapa harus tidak memanfaatkan layanan ini untuk membuat share image di webiste maupun blog dari google drive yang disediaka secara cuma cuma.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI</title>
+      <link>https://kos-it.github.io/post/tutorial-project-1-bagian-2/</link>
+      <pubDate>Wed, 01 Jan 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/tutorial-project-1-bagian-2/</guid>
+      <description>Selamat datang di KOS-IT - Making and Developing&amp;hellip;
+Pada tutorial sebelumnya, kita sudah mengetahui cara menginstall Codeigniter dan mengenal struktur direktori dari Codeigniter.
+Pada tutorial kali ini kita akan belajar tentang routing dan MVC pada projek 1 kita yaitu Sistem Management Kepanitaan.
+Namun sebelum kita melakukannya ada baiknya kita berkenalan dulu dengan konsep dasar Codeigniter
+Codeigniter adalah framework PHP yang menggunakan konsep MVC.
+Apa itu MVC ?
+Mari kita bahas</description>
+    </item>
     
     <item>
       <title>Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter</title>
@@ -20,12 +46,12 @@
       <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
       <guid>https://kos-it.github.io/post/tutorial-projek-1-bagian-1/</guid>
       <description>Selamat datang di KOS-IT - Making and Developing..
-Tutorial ini berisi sedikit pegenalan tentang salah satu frameowrk PHP yakni Codeigniter, yang kita gunakan pada projek 1 kita yaitu Sistem Manejement Kepanitaan. tutorial ini lebih ditujakan untuk yang bagi yang belum mengenal apa itu faramework Codeigniter, bagi kalian yang telah mengenal atau mungkin sudah tidak asing dengan Codeigniter dapat langsung melangkahi tutrial ini ke Tutorial #2
+Tutorial ini berisi sedikit pegenalan tentang salah satu frameowrk PHP yakni Codeigniter, yang kita gunakan pada projek 1 kita yaitu Sistem Management Kepanitaan. tutorial ini lebih ditujakan untuk yang bagi yang belum mengenal apa itu faramework Codeigniter, bagi kalian yang telah mengenal atau mungkin sudah tidak asing dengan Codeigniter dapat langsung melangkahi tutrial ini ke Tutorial #2
 PHP memeliki banyak framework, yang paling populer yakni Laravel dan tentu saja Codeigniter yang kita gunakan pada projek 1 kami.</description>
     </item>
     
     <item>
-      <title>Projek 1 | Sistem Menegement Kepanitiaan dengan Codeigniter</title>
+      <title>Projek 1 | Sistem Management Kepanitiaan dengan Codeigniter</title>
       <link>https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/</link>
       <pubDate>Fri, 19 Oct 2018 22:35:00 +0900</pubDate>
       <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>

@@ -171,7 +171,7 @@ img {
 }
 .post .post-meta h1 {
   color: #f7931e;
-  margin: -4px 0px 40px 0px;
+  margin: -4px 0px 40px 53px;
   line-height: 1.2em;
 }
 .post .post-meta time {
@@ -525,7 +525,7 @@ img {
 
 /* emoji */
 .emoji{
-  height: 12px;
+  height: 14px;
   /* display: inline-block !important;
   border: none !important;
   box-shadow: none !important;
@@ -534,4 +534,8 @@ img {
   margin: 0 .07em .1em !important;
   background: 0 0 !important;
   padding: 0 !important; */
+}
+
+pre {
+  font-size: 1.5em;
 }
