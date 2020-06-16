@@ -3,14 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
+    <loc>https://kos-it.github.io/categories/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://kos-it.github.io/categories/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
+    <loc>https://kos-it.github.io/tags/codeigniter/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/php/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/post/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/tutorial-project-1/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/post/tutorial-projek-1-bagian-3/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/categories/website/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/website/</loc>
+    <lastmod>2020-06-01T23:35:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</loc>
+    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
   </url>
   
   <url>
@@ -20,55 +73,7 @@
   </url>
   
   <url>
-    <loc>https://kos-it.github.io/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/php/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/post/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/categories/website/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/website/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/codeigniter/</loc>
-    <lastmod>2020-01-01T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/tutorial-project-1/</loc>
-    <lastmod>2020-01-01T23:35:00+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/post/tutorial-project-1-bagian-2/</loc>
+    <loc>https://kos-it.github.io/post/tutorial-projek-1-bagian-2/</loc>
     <lastmod>2020-01-01T23:35:00+09:00</lastmod>
   </url>
   

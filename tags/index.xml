@@ -8,10 +8,46 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Sun, 02 Feb 2020 23:35:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 23:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Codeigniter</title>
+      <link>https://kos-it.github.io/tags/codeigniter/</link>
+      <pubDate>Mon, 01 Jun 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/tags/codeigniter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://kos-it.github.io/tags/php/</link>
+      <pubDate>Mon, 01 Jun 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial Project - 1</title>
+      <link>https://kos-it.github.io/tags/tutorial-project-1/</link>
+      <pubDate>Mon, 01 Jun 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/tags/tutorial-project-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Website</title>
+      <link>https://kos-it.github.io/tags/website/</link>
+      <pubDate>Mon, 01 Jun 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/tags/website/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HTML</title>
@@ -19,42 +55,6 @@
       <pubDate>Sun, 02 Feb 2020 23:35:00 +0900</pubDate>
       <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
       <guid>https://kos-it.github.io/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PHP</title>
-      <link>https://kos-it.github.io/tags/php/</link>
-      <pubDate>Sun, 02 Feb 2020 23:35:00 +0900</pubDate>
-      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
-      <guid>https://kos-it.github.io/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Website</title>
-      <link>https://kos-it.github.io/tags/website/</link>
-      <pubDate>Sun, 02 Feb 2020 23:35:00 +0900</pubDate>
-      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
-      <guid>https://kos-it.github.io/tags/website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Codeigniter</title>
-      <link>https://kos-it.github.io/tags/codeigniter/</link>
-      <pubDate>Wed, 01 Jan 2020 23:35:00 +0900</pubDate>
-      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
-      <guid>https://kos-it.github.io/tags/codeigniter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorial Project - 1</title>
-      <link>https://kos-it.github.io/tags/tutorial-project-1/</link>
-      <pubDate>Wed, 01 Jan 2020 23:35:00 +0900</pubDate>
-      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
-      <guid>https://kos-it.github.io/tags/tutorial-project-1/</guid>
       <description></description>
     </item>
     

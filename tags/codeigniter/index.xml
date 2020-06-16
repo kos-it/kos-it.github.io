@@ -8,17 +8,30 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Wed, 01 Jan 2020 23:35:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 23:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/tags/codeigniter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</title>
+      <link>https://kos-it.github.io/post/tutorial-projek-1-bagian-3/</link>
+      <pubDate>Mon, 01 Jun 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/tutorial-projek-1-bagian-3/</guid>
+      <description>Bootstrap adalah framework CSS untuk membaut tampilan web. Bootstrap meneydiakan class dan komponen yang siap dipakai, sehingga kita tidak perlu menulis kode CSS dari nol.
+Bootstrap awalnya dikembangkan oleh developer Twitter, lalu dibuat open source agar semua orang dapat berkontribusi di dalamnya.
+Pada tutorial kali ini kita akan mengguanakan salah satu template Bootstrap yakni Template SB Admin sebagai theme layout kita pada projek ini.
+Kenapa SB Admin?
+Karena sederhana, gartis, menggunkan Bootstrap 4, dan mudah diimplementasikan pada Codeigniter.</description>
+    </item>
+    
+    <item>
       <title>Tutorial SIMKEP dengan Codeiniter #2 : MVC dan Routing, Konsep dasar CI</title>
-      <link>https://kos-it.github.io/post/tutorial-project-1-bagian-2/</link>
+      <link>https://kos-it.github.io/post/tutorial-projek-1-bagian-2/</link>
       <pubDate>Wed, 01 Jan 2020 23:35:00 +0900</pubDate>
       <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
-      <guid>https://kos-it.github.io/post/tutorial-project-1-bagian-2/</guid>
+      <guid>https://kos-it.github.io/post/tutorial-projek-1-bagian-2/</guid>
       <description>Selamat datang di KOS-IT - Making and Developing&amp;hellip;
 Pada tutorial sebelumnya, kita sudah mengetahui cara menginstall Codeigniter dan mengenal struktur direktori dari Codeigniter.
 Pada tutorial kali ini kita akan belajar tentang routing dan MVC pada projek 1 kita yaitu Sistem Management Kepanitaan.
