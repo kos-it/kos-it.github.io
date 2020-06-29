@@ -8,10 +8,26 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Mon, 01 Jun 2020 23:35:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 23:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/tags/tutorial-project-1/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</title>
+      <link>https://kos-it.github.io/post/tutorial-projek-1-bagian-4/</link>
+      <pubDate>Sun, 28 Jun 2020 23:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/tutorial-projek-1-bagian-4/</guid>
+      <description>Pada tutorial sebelumnya, kita sudah berhasil menambahkan Bootstrap Template SB Admin pada proyek CI.
+Tapi, masih belum selesai…
+Template yang kita buat masih dibuat dalam satu file saja. Ini akan bermasalah ketika kita membuat halaman baru.
+Permsalahannya:
+Kita akan menulis kode template yang sama berulang-ulang dalam file view yang berbeda.
+Bagaimana nanti kalau ada perubahan?
+Misal, perubahan link pada navbar.
+Maka kita harus mengubah semua file template yang kita buat satu per satu.</description>
+    </item>
     
     <item>
       <title>Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</title>

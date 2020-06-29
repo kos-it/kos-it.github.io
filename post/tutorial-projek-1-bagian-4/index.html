@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin'read this article.">
+  <meta property="og:title" content="Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-06-28">
+  
+  <meta property="og:description" content=" 'Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://drive.google.com//uc?export=view&id=1zKgyxiCm9R2RlIFO8O1cbknZGUN8NrRC">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 1">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Sunday, Jun 28, 2020 23:35</time>
+        <h1>Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#membuat-partials-template">Membuat Partials Template</a></li>
+<li><a href="#partial-head-php">Partial <code>head.php</code></a></li>
+<li><a href="#partial-navbar-php">Partial <code>navbar.php</code></a></li>
+<li><a href="#partial-sidebar-php">Partial <code>sidebar.php</code></a></li>
+<li><a href="#partial-broadcrump-php">Partial <code>broadcrump.php</code></a></li>
+<li><a href="#partial-scrolltop-php">Partial <code>scrolltop.php</code></a></li>
+<li><a href="#partial-footer-php">Partial <code>footer.php</code></a></li>
+<li><a href="#partial-modal-php">Partial <code>modal.php</code></a></li>
+<li><a href="#partial-js-php">Partial <code>js.php</code></a></li>
+<li><a href="#menggunakan-partials-pada-template">Menggunakan Partials pada Template</a>
+<ul>
+<li><a href="#overview-php">overview.php</a></li>
+</ul></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+<li><a href="#tutorial-sebelumnya">Tutorial Sebelumnya :</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Pada tutorial sebelumnya, kita sudah berhasil menambahkan Bootstrap <a href="https://startbootstrap.com/template-overviews/sb-admin/">Template SB Admin</a> pada proyek CI.</p>
+
+<p>Tapi, masih belum selesai…</p>
+
+<p>Template yang kita buat masih dibuat dalam satu file saja. Ini akan bermasalah ketika kita membuat halaman baru.</p>
+
+<p>Permsalahannya:</p>
+
+<p>Kita akan menulis kode template yang sama berulang-ulang dalam file <code>view</code> yang berbeda.</p>
+
+<p>Bagaimana nanti kalau ada perubahan?</p>
+
+<p>Misal, perubahan link pada navbar.</p>
+
+<p>Maka kita harus mengubah semua file template yang kita buat satu per satu.</p>
+
+<p>Tentu ini kurang efektif, karena kita akan menghabiskan banyak waktu dan tentaga untuk mengubahnya.</p>
+
+<p>Salah satu solusi dari permasalahan ini yaitu dengan menggunakan partials. Dengan partials kita akan membagi template menjadi bagian-bagian kecil yang akan kita panggil kedalam file <code>view</code> menggunakan fungsi <code>$this-&gt;load-&gt;view()</code>. yang fungsinya yaitu untuk me-load sebuah view.</p>
+
+<p>Fungsi <code>$this-&gt;load-&gt;view()</code> ini, nanti akan kita gunakan untuk me-load partials ke dalam template.</p>
+
+<h1 id="membuat-partials-template">Membuat Partials Template</h1>
+
+<p>Partial merupakan teknik untuk membagi template menjadi bagian-bagian kecil agar mudah digunakan.
+<div class="figure">
+    <img draggable="true" alt="image" src="https://drive.google.com/uc?export=view&id=1KL1aqt_uPMtNgCgXp_IIxaytqeh9H196">
+    <p>Partials Template</p>
+</div></p>
+
+<p>Sekarang coba buka file <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>index.html</code> pada SB Admin dan perhatikan, apa saja partial yang bisa kita buat dari sana?</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1-40t06Sk8ZOeCTnYYfEKn7ypqzyldqUU" alt="partials" /></p>
+
+<p>Berdasarkan gambar di atas ditambah beberapa kode asser, berikut ini partial yang akan kita buat:</p>
+
+<ul>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>head.php</code> untuk meinyimpan isi dari tag <code>&lt;head&gt;</code></li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>navbar.php</code> untuk menyimpan kode navbar</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>sidebar.php</code> untuk menyimpan kode menu bagian samping (sidebar)</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>breadcrumb.php</code> untuk menyimpan kode link breadcrumb</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>scrolltop.php</code> untuk menyimpan kode tombol scrolltop</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>footer.php</code> untuk menyimpan kode footer</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>modal.php</code> untuk menyimpan kode modal</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>js.php</code> untuk meload javascript</li>
+</ul>
+
+<p>Mari kita buat satu per satu…</p>
+
+<p>Tapi sebelum itu, silahkan buat dulu direktori baru bernama <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>_partials</code> di dalam <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>views/admin/</code>.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=13MhRIMXFrcTDyrCvDhKmSie6uQJfmKRi" alt="createpartials" /></p>
+
+<p>Apakah nama direktorinya harus <code>_partials</code>?</p>
+
+<p>Tidak harus, karena ada juga membarikan nama includes atau _includes.</p>
+
+<p>Nama _partials menurut kami lebih jelas dan menggambarkan isinya.</p>
+
+<p>Kenapa ada garis bawah (underscore) di depannya?</p>
+
+<p>Ini untuk memudahkan dalam membedakan view dan partial. View akan kita load dari Controller, sedangkan partial akan kita load dari view.</p>
+
+<p>Biasanya dalam penulisan kode (OOP), sesuatu yang bersifat private dan lokal kadang ditulis dengan garis bawah di depannya.</p>
+
+<p>Oke, lanjut…</p>
+
+<p>Berikutnya kita akan membuat semua partial yang telah kita tentukan di atas.</p>
+
+<h1 id="partial-head-php">Partial <code>head.php</code></h1>
+
+<p>Partial ini berisi kode-kode untuk tag <head>. Kita bisa copy dari file views/admin/overview.php mulai dari tag <head> sampai penutupnya </head>.</p>
+
+<p>Sehinggak kode untuk partial head.php akan menjadi seperti ini:</p>
+
+<pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, shrink-to-fit=no&quot;&gt;
+
+    &lt;title&gt;&lt;?php echo SITE_NAME .&quot;: &quot;. ucfirst($this-&gt;uri-&gt;segment(1)) .&quot; - &quot;. ucfirst($this-&gt;uri-&gt;segment(2)) ?&gt;&lt;/title&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;&lt;?php echo base_url('assets/img/ppptk.png')?&gt;&quot;&gt;
+
+    &lt;!-- Bootstrap core CSS--&gt;
+    &lt;link href=&quot;&lt;?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?&gt;&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- Custom fonts for this template--&gt;
+    &lt;link href=&quot;&lt;?php echo base_url('assets/fontawesome-free/css/all.min.css') ?&gt;&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+
+    &lt;!-- Page level plugin CSS--&gt;
+    &lt;link href=&quot;&lt;?php echo base_url('assets/datatables/dataTables.bootstrap4.css') ?&gt;&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- Custom styles for this template--&gt;
+    &lt;link href=&quot;&lt;?php echo base_url('css/sb-admin.css') ?&gt;&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>Perhatikan kode pada tag <code>&lt;title&gt;</code>, di sana kita menggunakan sebuah konstanta <code>SITE_NAME</code> untuk mengambil nama web.</p>
+
+<p>Konstanta ini sudah kita buat pada <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-3/">tutorial sebelumnya</a>.</p>
+
+<p>Berikutnya perhatikan di bagian:</p>
+
+<pre><code>ucfirst($this-&gt;uri-&gt;segment(1)) .&quot; - &quot;. ucfirst($this-&gt;uri-&gt;segment(2))
+</code></pre>
+
+<p>Ini akan menjadi judul yang akan tampil di browser. Fungsi ucfirst() untuk membuat huruf besar di awal kata. Lalu judulnya kita ambil dari segment URL.</p>
+
+<p>Sehingga nanti pada browser akan tampil seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=14QgWAGLTf7EUF352YMjHsZKF4KOKFDfk" alt="createpartials" /></p>
+
+<h1 id="partial-navbar-php">Partial <code>navbar.php</code></h1>
+
+<p>Partial ini hanya berisi kode untuk menu navbar. Berikut ini isi kode dari partial <code>navbar.php</code>:</p>
+
+<pre><code class="language-html">&lt;nav class=&quot;navbar navbar-expand navbar-dark bg-secondary static-top&quot;&gt;
+
+&lt;img width=&quot;60&quot; height=&quot;50&quot; src=&quot;&lt;?php echo base_url()?&gt;assets/img/ppptk.png&quot;/&gt;
+    &lt;a class=&quot;navbar-brand mr-1&quot; href=&quot;&lt;?php echo site_url('admin') ?&gt;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;?php echo SITE_NAME ?&gt;&lt;/a&gt;
+
+    &lt;button class=&quot;btn btn-link btn-sm text-white order-1 order-sm-0&quot; id=&quot;sidebarToggle&quot; href=&quot;#&quot;&gt;
+        &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+
+    &lt;!-- Navbar Search --&gt;
+    &lt;form class=&quot;d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search for...&quot; aria-label=&quot;Search&quot; aria-describedby=&quot;basic-addon2&quot;&gt;
+            &lt;div class=&quot;input-group-append&quot;&gt;
+                &lt;button class=&quot;btn btn-light&quot; type=&quot;button&quot;&gt;
+                    &lt;i class=&quot;fas fa-search&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+
+    &lt;!-- Navbar --&gt;
+    &lt;ul class=&quot;navbar-nav ml-auto ml-md-0&quot;&gt;
+        &lt;li class=&quot;nav-item dropdown no-arrow mx-1&quot;&gt;
+            &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;alertsDropdown&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+                aria-expanded=&quot;false&quot;&gt;
+                &lt;i class=&quot;fas fa-bell fa-fw&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;badge badge-danger&quot;&gt;9+&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;dropdown-menu dropdown-menu-right&quot; aria-labelledby=&quot;alertsDropdown&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
+                &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+
+        &lt;li class=&quot;nav-item dropdown no-arrow mx-1&quot;&gt;
+            &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;messagesDropdown&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+                aria-expanded=&quot;false&quot;&gt;
+                &lt;i class=&quot;fas fa-envelope fa-fw&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;badge badge-danger&quot;&gt;7&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;dropdown-menu dropdown-menu-right&quot; aria-labelledby=&quot;messagesDropdown&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
+                &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+
+        &lt;li class=&quot;nav-item dropdown no-arrow&quot;&gt;
+            &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;userDropdown&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+                aria-expanded=&quot;false&quot;&gt;
+                &lt;i class=&quot;fas fa-user-circle fa-fw&quot;&gt;&lt;/i&gt; Admin
+            &lt;/a&gt;
+            &lt;div class=&quot;dropdown-menu dropdown-menu-right&quot; aria-labelledby=&quot;userDropdown&quot;&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Settings&lt;/a&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Activity Log&lt;/a&gt;
+                &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot; data-toggle=&quot;modal&quot; data-target=&quot;#logoutModal&quot;&gt;Logout&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/nav&gt;
+</code></pre>
+
+<p>Pada kode navbar, kita menggunakan konstanta <code>SITE_NAME</code> untuk menampilkan nama web di navbar.</p>
+
+<p>Lalu kita menggunakan class <code>bg-secondary</code> untuk mengubah warnanya menjadi lebih ke-abu-abu. Supaya selaras dengan brand aplikasinya.</p>
+
+<p>Ini tampilannya:
+<img src="https://drive.google.com/uc?export=view&amp;id=1XoeCXO0mgbSpvw7cxOvYEIB-5OrCQShq" alt="navbar" /></p>
+
+<h1 id="partial-sidebar-php">Partial <code>sidebar.php</code></h1>
+
+<p>Partial ini berisi kode untuk menampilkan menu bagian samping (sidebar). Berikut ini isi kode sidebar.php:</p>
+
+<pre><code class="language-html">&lt;ul class=&quot;sidebar navbar-nav&quot;&gt;
+    &lt;li class=&quot;nav-item &lt;?php echo $this-&gt;uri-&gt;segment(2) == '' ? 'active': '' ?&gt;&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;&lt;?php echo site_url('admin') ?&gt;&quot;&gt;
+            &lt;i class=&quot;fas fa-fw fa-tachometer-alt&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Overview&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item dropdown &lt;?php echo $this-&gt;uri-&gt;segment(2) == 'staff' ? 'active': '' ?&gt;&quot;&gt;
+        &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;pagesDropdown&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+            aria-expanded=&quot;false&quot;&gt;
+            &lt;i class=&quot;fas fa-fw fa-users&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Staff&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;pagesDropdown&quot;&gt;
+            &lt;a class=&quot;dropdown-item&quot; href=&quot;&lt;?php echo site_url('admin/staff/add') ?&gt;&quot;&gt;New Staff&lt;/a&gt;
+            &lt;a class=&quot;dropdown-item&quot; href=&quot;&lt;?php echo site_url('admin/staff') ?&gt;&quot;&gt;List Staff&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item dropdown &lt;?php echo $this-&gt;uri-&gt;segment(2) == 'devisi' ? 'active': '' ?&gt;&quot;&gt;
+        &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;pagesDropdown&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot;
+            aria-expanded=&quot;false&quot;&gt;
+            &lt;i class=&quot;fas fa-fw fa-address-book&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Penanggung Jawab&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;pagesDropdown&quot;&gt;
+            &lt;a class=&quot;dropdown-item&quot; href=&quot;&lt;?php echo site_url('admin/devisi/add') ?&gt;&quot;&gt;New P. J.&lt;/a&gt;
+            &lt;a class=&quot;dropdown-item&quot; href=&quot;&lt;?php echo site_url('admin/devisi') ?&gt;&quot;&gt;List P. J.&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item &lt;?php echo $this-&gt;uri-&gt;segment(2) == 'kepanitiaan' ? 'active': '' ?&gt;&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;&lt;?php echo site_url('admin/kepanitiaan') ?&gt;&quot;&gt;
+            &lt;i class=&quot;fas fa-fw fa-boxes&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Kepanitiaan&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-item &lt;?php echo $this-&gt;uri-&gt;segment(2) == 'guide' ? 'active': '' ?&gt;&quot;&gt;
+        &lt;a class=&quot;nav-link&quot; href=&quot;&lt;?php echo site_url('admin/guide') ?&gt;&quot;&gt;
+            &lt;i class=&quot;fas fa-fw fa-cog&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Guide&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>Pada kode di atas, kita menggunakan segment URI untuk mengecek apakah menu itu sedang dibuka atau tidak.</p>
+
+<p>Jika menu sedang dibuka, maka tambahkan class <code>active</code>.</p>
+
+<p>Misalnya ini:</p>
+
+<pre><code class="language-php">&lt;?php echo $this-&gt;uri-&gt;segment(2) == 'staff' ? 'active': '' ?&gt;&quot;&gt;
+</code></pre>
+
+<p>Kode ini akan mengecek, apakah halaman <code>/admin/staff</code> sedang dibuka atau tidak.</p>
+
+<p>Oya, halaman untuk menu <strong><em>staff</em></strong>, <strong><em>kepanitiaan</em></strong>, dan <strong><em>devisi</em></strong> belum kita buat. Insya’allah di tutorial berikutnya akan kita buat.</p>
+
+<h1 id="partial-broadcrump-php">Partial <code>broadcrump.php</code></h1>
+
+<p>Partial ini berisi kode untuk menampilkan <em>breadcrumb</em>. Breadcrumbs adalah sebuah link navigasi yang menampilkan link halaman sebelumnya dari halaman tempat kita berada.</p>
+
+<p>Berikut ini kode untuk parital breadcrumb.php:</p>
+
+<pre><code class="language-html">&lt;ol class=&quot;breadcrumb&quot;&gt;
+&lt;?php foreach ($this-&gt;uri-&gt;segments as $segment): ?&gt;
+	&lt;?php 
+		$url = substr($this-&gt;uri-&gt;uri_string, 0, strpos($this-&gt;uri-&gt;uri_string, $segment)) . $segment;
+		$is_active =  $url == $this-&gt;uri-&gt;uri_string;
+	?&gt;
+	&lt;li class=&quot;breadcrumb-item &lt;?php echo $is_active ? 'active': '' ?&gt;&quot;&gt;
+		&lt;?php if($is_active): ?&gt;
+			&lt;?php echo ucfirst($segment) ?&gt;
+		&lt;?php else: ?&gt;
+			&lt;a href=&quot;&lt;?php echo site_url($url) ?&gt;&quot;&gt;&lt;?php echo ucfirst($segment) ?&gt;&lt;/a&gt;
+		&lt;?php endif; ?&gt;
+	&lt;/li&gt;
+&lt;?php endforeach; ?&gt;
+&lt;/ol&gt;
+</code></pre>
+
+<h1 id="partial-scrolltop-php">Partial <code>scrolltop.php</code></h1>
+
+<p>Partial ini berisi kode untuk tombol <em>scrolltop</em>. Berikut ini isinya:</p>
+
+<pre><code class="language-html">&lt;a class=&quot;scroll-to-top rounded&quot; href=&quot;#page-top&quot;&gt;
+	&lt;i class=&quot;fas fa-angle-up&quot;&gt;&lt;/i&gt;
+&lt;/a&gt;
+</code></pre>
+
+<h1 id="partial-footer-php">Partial <code>footer.php</code></h1>
+
+<p>Partial ini berisi kode untuk bagian footer, berikut ini isi kode untuk partial footer.php:</p>
+
+<pre><code class="language-html">&lt;footer class=&quot;sticky-footer&quot;&gt;
+  &lt;div class=&quot;container my-auto&quot;&gt;
+    &lt;div class=&quot;copyright text-center my-auto&quot;&gt;
+      &lt;span&gt;Copyright © &lt;?php echo SITE_NAME .&quot; &quot;. Date('Y') ?&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+
+<p>Pada kode partial <code>footer.php</code>, kita menggunakan konstanta <code>SITE_NAME</code> untuk menampilkan nama website. Lalu menggunakan fungsi <code>Date('Y')</code> untuk menampilkan tahun saat ini.</p>
+
+<h1 id="partial-modal-php">Partial <code>modal.php</code></h1>
+
+<p>Partial ini berisi kode-kode untuk <em>modal</em>. Berikut ini isinya:</p>
+
+<pre><code class="language-html">&lt;div class=&quot;modal fade&quot; id=&quot;logoutModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Ready to Leave?&lt;/h5&gt;
+        &lt;button class=&quot;close&quot; type=&quot;button&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;
+          &lt;span aria-hidden=&quot;true&quot;&gt;×&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;Select &quot;Logout&quot; below if you are ready to end your current session.&lt;/div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot; data-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+        &lt;a class=&quot;btn btn-primary&quot; href=&quot;login.html&quot;&gt;Logout&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Logout Delete Confirmation--&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;deleteModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Are you sure?&lt;/h5&gt;
+        &lt;button class=&quot;close&quot; type=&quot;button&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;
+          &lt;span aria-hidden=&quot;true&quot;&gt;×&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;Data yang dihapus tidak akan bisa dikembalikan.&lt;/div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot; data-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+        &lt;a id=&quot;btn-delete&quot; class=&quot;btn btn-danger&quot; href=&quot;#&quot;&gt;Delete&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Kita juga nanti bisa tambahkan beberapa modal di sini.</p>
+
+<h1 id="partial-js-php">Partial <code>js.php</code></h1>
+
+<p>Partial ini berisi kode-kode untuk me-load <em>Javascript</em>. Berikut ini kode untuk js.php:</p>
+
+<pre><code class="language-html">&lt;script src=&quot;&lt;?php echo base_url('assets/jquery/jquery.min.js') ?&gt;&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?&gt;&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Core plugin JavaScript--&gt;
+&lt;script src=&quot;&lt;?php echo base_url('assets/jquery-easing/jquery.easing.min.js') ?&gt;&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Page level plugin JavaScript--&gt;
+&lt;script src=&quot;&lt;?php echo base_url('assets/chart.js/Chart.min.js') ?&gt;&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;?php echo base_url('assets/datatables/jquery.dataTables.js') ?&gt;&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;?php echo base_url('assets/datatables/dataTables.bootstrap4.js') ?&gt;&quot;&gt;&lt;/script&gt;
+&lt;!-- Custom scripts for all pages--&gt;
+&lt;script src=&quot;&lt;?php echo base_url('js/sb-admin.min.js') ?&gt;&quot;&gt;&lt;/script&gt;
+&lt;!-- Demo scripts for this page--&gt;
+&lt;script src=&quot;&lt;?php echo base_url('js/demo/datatables-demo.js') ?&gt;&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;?php echo base_url('js/demo/chart-area-demo.js') ?&gt;&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Kita juga nanti bisa tambahkan beberapa kode javascript di sini.</p>
+
+<h1 id="menggunakan-partials-pada-template">Menggunakan Partials pada Template</h1>
+
+<p>Kita sudah membuat semua partial yang dibutuhkan:</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1v3xXkAC8c5pYsSacZkDuyM9t74u-S_oi" alt="_partials" /></p>
+
+<p>Langkah berikutnya, kita harus menggunakannya dalam template.</p>
+
+<p>Silahkan ubah isi <code>views/admin/overview.php</code></p>
+
+<p><details>
+  <summary>Sehingga file <code>overview.php</code> akan terisi seperti ini: (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="overview-php">overview.php</h2>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+
+&lt;div id=&quot;wrapper&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+	&lt;div id=&quot;content-wrapper&quot;&gt;
+
+		&lt;div class=&quot;container-fluid&quot;&gt;
+
+        &lt;!-- 
+        karena ini halaman overview (home), kita matikan partial breadcrumb.
+        Jika anda ingin mengampilkan breadcrumb di halaman overview,
+        silahkan hilangkan komentar (//) di tag PHP di bawah.
+        --&gt;
+		&lt;?php //$this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+        &lt;!-- Icon Cards--&gt;
+        &lt;div class=&quot;row&quot;&gt;
+          &lt;div class=&quot;col-xl-3 col-sm-6 mb-3&quot;&gt;
+            &lt;div class=&quot;card text-white bg-primary o-hidden h-100&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;div class=&quot;card-body-icon&quot;&gt;
+                  &lt;i class=&quot;fas fa-fw fa-comments&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;mr-5&quot;&gt;26 New Messages!&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;a class=&quot;card-footer text-white clearfix small z-1&quot; href=&quot;#&quot;&gt;
+                &lt;span class=&quot;float-left&quot;&gt;View Details&lt;/span&gt;
+                &lt;span class=&quot;float-right&quot;&gt;
+                  &lt;i class=&quot;fas fa-angle-right&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-xl-3 col-sm-6 mb-3&quot;&gt;
+            &lt;div class=&quot;card text-white bg-warning o-hidden h-100&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;div class=&quot;card-body-icon&quot;&gt;
+                  &lt;i class=&quot;fas fa-fw fa-list&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;mr-5&quot;&gt;11 New Tasks!&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;a class=&quot;card-footer text-white clearfix small z-1&quot; href=&quot;#&quot;&gt;
+                &lt;span class=&quot;float-left&quot;&gt;View Details&lt;/span&gt;
+                &lt;span class=&quot;float-right&quot;&gt;
+                  &lt;i class=&quot;fas fa-angle-right&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-xl-3 col-sm-6 mb-3&quot;&gt;
+            &lt;div class=&quot;card text-white bg-success o-hidden h-100&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;div class=&quot;card-body-icon&quot;&gt;
+                  &lt;i class=&quot;fas fa-fw fa-shopping-cart&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;mr-5&quot;&gt;123 New Orders!&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;a class=&quot;card-footer text-white clearfix small z-1&quot; href=&quot;#&quot;&gt;
+                &lt;span class=&quot;float-left&quot;&gt;View Details&lt;/span&gt;
+                &lt;span class=&quot;float-right&quot;&gt;
+                  &lt;i class=&quot;fas fa-angle-right&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-xl-3 col-sm-6 mb-3&quot;&gt;
+            &lt;div class=&quot;card text-white bg-danger o-hidden h-100&quot;&gt;
+              &lt;div class=&quot;card-body&quot;&gt;
+                &lt;div class=&quot;card-body-icon&quot;&gt;
+                  &lt;i class=&quot;fas fa-fw fa-life-ring&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;mr-5&quot;&gt;13 New Tickets!&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;a class=&quot;card-footer text-white clearfix small z-1&quot; href=&quot;#&quot;&gt;
+                &lt;span class=&quot;float-left&quot;&gt;View Details&lt;/span&gt;
+                &lt;span class=&quot;float-right&quot;&gt;
+                  &lt;i class=&quot;fas fa-angle-right&quot;&gt;&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Area Chart Example--&gt;
+        &lt;div class=&quot;card mb-3&quot;&gt;
+          &lt;div class=&quot;card-header&quot;&gt;
+            &lt;i class=&quot;fas fa-chart-area&quot;&gt;&lt;/i&gt;
+            Area Chart Example&lt;/div&gt;
+          &lt;div class=&quot;card-body&quot;&gt;
+            &lt;canvas id=&quot;myAreaChart&quot; width=&quot;100%&quot; height=&quot;30&quot;&gt;&lt;/canvas&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;card-footer small text-muted&quot;&gt;Updated yesterday at 11:59 PM&lt;/div&gt;
+        &lt;/div&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /.container-fluid --&gt;
+
+		&lt;!-- Sticky Footer --&gt;
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /.content-wrapper --&gt;
+
+&lt;/div&gt;
+&lt;!-- /#wrapper --&gt;
+
+
+&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/modal.php&quot;) ?&gt;
+&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p></details></p>
+
+<p>Pada kode template tersebut, kita me-load partial dengan fungsi <code>$this-&gt;load-&gt;view()</code>.</p>
+
+<p>Maka hasilnya akan seperti ini:
+<img src="https://drive.google.com/uc?export=view&amp;id=168OUlj8dO2xPH5b-Ww6RKMgKLVUOyUBN" alt="overviewnew" /></p>
+
+<p>Mantul..</p>
+
+<p>oh iya pada gambar diatas sudah terdapat chart yang terhubung dengan database.. kita akan membahas cara membuat chart setelah kiata belajar membuat CRUD pada codeigniter
+bagi kalian yang ingin full source code dari Sistem Manegement Keapanitiaan ini:
+🎁 <a href="https://kos-it.github.io/projects/projek-sistem-menejement-kepanitiaan/">Download Source Code SIMKEP</a></p>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<p>Sepertinya masalah template sudah selesai. Kalian juga bisa mengembangkannya sesuai kreasi sendiri.</p>
+
+<p>Silahkan pelajari Bootstrap untuk mengetahui class-class CSS yang dapat digunakan.</p>
+
+<p>Berikutnya kita bisa mulai membuat CRUD</p>
+
+<ul>
+<li>Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD Produk</li>
+<li>Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Upload Gambar</li>
+<li>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Login</li>
+<li>Tutorial SIMKEP dengan Codeiniter #8: Membuat Fitur Pencarian (Admin)</li>
+<li>Tutorial SIMKEP dengan Codeiniter #9: Membuat Template untuk Landing Page dan Produk</li>
+<li>Tutorial SIMKEP dengan Codeiniter #10: Membuat Pagination</li>
+<li>Tutorial SIMKEP dengan Codeiniter #11: Cara Menggunakan Databales dan Optimasi</li>
+<li>Tutorial SIMKEP dengan Codeiniter #12: Cara Membuat Laporan dengan DomPDF</li>
+</ul>
+
+<h1 id="tutorial-sebelumnya">Tutorial Sebelumnya :</h1>
+
+<ul>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/">Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-2/">Tutorial SIMKEP dengan Codeiniter #2: (Controller) MVC dan Routing, Konsep dasar CI yang Harus Dipahami</a>
+
+<ul>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-3/">Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</a></li>
+</ul></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-4%2f&t=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%234%3a%20%28View%29%20Membuat%20Template%20Admin"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-4%2f&text=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%234%3a%20%28View%29%20Membuat%20Template%20Admin&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-4%2f&title=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%234%3a%20%28View%29%20Membuat%20Template%20Admin"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-4%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Sunday, Jun 28, 2020 23:35</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-1">#Tutorial Project - 1</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter">#Codeigniter</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-3/" rel="prev">
+          <span>Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2020 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+
