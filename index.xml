@@ -8,10 +8,24 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Sun, 28 Jun 2020 23:35:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2020 11:35:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik dan Benar</title>
+      <link>https://kos-it.github.io/post/tutorial-projek-1-bagian-5/</link>
+      <pubDate>Mon, 29 Jun 2020 11:35:00 +0900</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/tutorial-projek-1-bagian-5/</guid>
+      <description>Pada tutorial sebelumnya, kita sudah belajar bagaimana cara membuat template admin yang benar dan efisien.
+Kita juga sudah membahas tentang Controller dan routing pada Codeigniter.
+Tahap selanjutnya adalah… Pembahasan tentang database dan model.
+Oke, judulnya ini cukup clickbait: “Cara Membuat Fitur CRUD di Codeigniter yang Baik dan Benar!&amp;rdquo;.
+Mengapa saya bilang demikian?
+Karena, beberapa tutorial Codeigniter yang pernah saya ikuti tidak mengajari praktek terbaik (best practice) dalam ngoding CI.</description>
+    </item>
     
     <item>
       <title>Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</title>

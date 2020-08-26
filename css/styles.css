@@ -258,8 +258,12 @@ img {
   margin-bottom: .5rem !important;
 }
 .post .post-content blockquote {
-  border-left: #717171 solid 4px;
+  border-left: #f7931e solid 4px;
   padding-left: 10px;
+  padding: 1em;
+  color: #505050;
+  background-color: #fffacd;
+  font-family: Lato,pt sans,Roboto,sans-serif;
 }
 .post .post-content dt {
   font-weight: bold;

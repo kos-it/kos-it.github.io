@@ -1,0 +1,2964 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik dan Benar  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik dan Benar'read this article.">
+  <meta property="og:title" content="Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik dan Benar">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-06-29">
+  
+  <meta property="og:description" content=" 'Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik dan Benar'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-projek-1-bagian-5/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://drive.google.com//uc?export=view&id=1zKgyxiCm9R2RlIFO8O1cbknZGUN8NrRC">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 1">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-projek-1-bagian-5/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-5/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Monday, Jun 29, 2020 11:35</time>
+        <h1>Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik dan Benar</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#membuat-database-untuk-codeigniter">Membuat Database untuk Codeigniter</a>
+<ul>
+<li><a href="#tabel-devisi">Tabel <code>devisi</code></a></li>
+<li><a href="#tabel-kepanititaan">Tabel <code>kepanititaan</code></a></li>
+<li><a href="#tabel-staff">Tabel <code>staff</code></a></li>
+</ul></li>
+<li><a href="#konfigurasi-codeigniter">Konfigurasi Codeigniter</a></li>
+<li><a href="#membuat-model-untuk-tabel">Membuat Model untuk Tabel</a>
+<ul>
+<li><a href="#devisi-model-php">Devisi_model.php</a></li>
+<li><a href="#kepanitiaan-model-php">Kepanitiaan_model.php</a></li>
+<li><a href="#staff-model-php">Staff_model.php</a></li>
+</ul></li>
+<li><a href="#membuat-contoller">Membuat Contoller</a>
+<ul>
+<li><a href="#devisi-php">Devisi.php</a></li>
+<li><a href="#kepanitiaan-php">Kepanitiaan.php</a></li>
+<li><a href="#staff-php">Staff.php</a>
+<ul>
+<li><a href="#1-method-construct">1. Method <code>__construct()</code></a></li>
+<li><a href="#2-method-index">2. Method <code>index()</code></a></li>
+<li><a href="#3-method-add">3. Method <code>add()</code></a></li>
+<li><a href="#4-method-edit">4. Method <code>edit()</code></a></li>
+<li><a href="#5-method-delete">5. Method <code>delete()</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#membuat-view">Membuat View</a>
+<ul>
+<li><a href="#1-view-list-data">1. View List Data</a></li>
+<li><a href="#2-membuat-form-add">2. Membuat Form Add</a></li>
+<li><a href="#3-membuat-form-edit">3. Membuat Form Edit</a></li>
+<li><a href="#4-membuat-form-edit-panitia-terpilih">4. Membuat Form Edit Panitia Terpilih</a></li>
+<li><a href="#5-membuat-tampilan-detail-kepanitiaan">5. Membuat Tampilan Detail Kepanitiaan</a></li>
+</ul></li>
+<li><a href="#uji-coba-aplikasi">Uji Coba Aplikasi</a></li>
+<li><a href="#fitur-untuk-menghapus-data">Fitur Untuk Menghapus Data</a></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+<li><a href="#tutorial-sebelumnya">Tutorial Sebelumnya :</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Pada tutorial sebelumnya, kita sudah belajar bagaimana <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/">cara membuat template admin yang benar dan efisien</a>.</p>
+
+<p>Kita juga sudah membahas tentang <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-2/">Controller dan routing pada Codeigniter</a>.</p>
+
+<p>Tahap selanjutnya adalah… Pembahasan tentang <strong>database</strong> dan <strong>model</strong>.</p>
+
+<p>Oke, judulnya ini cukup clickbait: <strong>“Cara Membuat Fitur CRUD di Codeigniter yang Baik dan Benar!&rdquo;</strong>.</p>
+
+<p>Mengapa saya bilang demikian?</p>
+
+<p>Karena, beberapa tutorial Codeigniter yang pernah saya ikuti tidak mengajari praktek terbaik (<em>best practice</em>) dalam ngoding CI.</p>
+
+<p>Bukan berarti mereka salah…</p>
+
+<p>…dan mengklaim cara pada tutorial ini yang paling benar.</p>
+
+<p>Semua cara dan solusi, benar.</p>
+
+<p>Hanya saja, jika kita menulis kode sembarangan, akibatnya bisa rugi.</p>
+
+<p>Saya pernah mengerjakan project menggunakan Codeigniter, lalu kode-kode yang saya tulis sangat berantakan dan kotor.</p>
+
+<p>Hasilnya:</p>
+
+<p>Project gagal, karena saya tidak mau mengembangkannya lagi.</p>
+
+<p>Ribet!</p>
+
+<p>Saya lebih memilih ngoding ulang dari awal daripada mengembangkan kode tersebut.</p>
+
+<p>Seperti itulah rasanya menulis kode yang buruk dan kotor.</p>
+
+<p>Namun, dari hasil pengulangan tersebut. Saya belajar banyak hal.</p>
+
+<p>Seperti, bagaimana sebaiknya cara menerima data dari form. Apakah langsung di simpan ke database, atauhkah divalidasi dulu.</p>
+
+<p>Ternyata yang benar adalah:</p>
+
+<p>Data harus divalidasi dulu.</p>
+
+<p>Jika tidak divalidasi, bisa jadi nanti akan banyak bugs dan rentan dengan serangan XSS.</p>
+
+<p>Tambah kerjaan lagi… 😫</p>
+
+<p>Belajar dari pengalaman, saya tidak ingin kamu bernasib sama seperti saya yang gagal menyelesaikan project.</p>
+
+<p>Maka saya membuat tutorial ini…</p>
+
+<p><em>Jika ada solusi yang lebih baik lagi, silahkan diusulkan di komentar!</em></p>
+
+<p>Oke, kita masuk ke tutorial.</p>
+
+<p>Pada tutorial ini, kita akan mengerjakan banyak hal. Mulai dari membuat database, menyiapkan library, membuat model, sampai membuat CRUD.</p>
+
+<p>CRUD (Create, Read, Update Delete) adalah fitur dasar yang harus kita buat saat bekerja dengan database.</p>
+
+<p>Berikut ini daftar pekerjaannya…</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Database</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Konfigurasi Codeigntier</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Model untuk Tabel</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Controller</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat View</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Add</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Edit</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Fitur Hapus Data</li>
+</ol>
+</blockquote>
+
+<p>Mari kita mulai kerjakan…</p>
+
+<h1 id="membuat-database-untuk-codeigniter">Membuat Database untuk Codeigniter</h1>
+
+<p>Silahkan buka <a href="localhost/phpmyadmin">PHPMyadmin</a>, kemudian buatlah database baru dengan nama <code>simkep</code>.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1QYa74vJRTx8gTnfPMi_ZMQqX18d426XG" alt="database0" />
+<img src="https://drive.google.com/uc?export=view&amp;id=1TWNKguvMLAGITmTstQjHSHlke0IQVl6L" alt="database1" /></p>
+
+<h2 id="tabel-devisi">Tabel <code>devisi</code></h2>
+
+<p>Setelah itu, buat tabel <code>devisi</code> dengan 4 kolom. Tabel ini nanti akan menyimpan data devisi kepanitiaan.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Kz-_F2kFIqs1sYpsbjLoQle_Tew9XtG3" alt="database2" /></p>
+
+<p>Kolom yang dibutuhkan:</p>
+
+<ol>
+<li><code>devisi_id</code> (<em>Primary Key</em>) bertipe <em>int</em> dengan panjang 10</li>
+<li><code>devisi</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>nama</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>keterangan</code> bertipe <em>text</em>.</li>
+</ol>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1P3dZIYoiWKgW4gATvggA2xd-TMMEscd4" alt="database3" /></p>
+
+<p>…dan jangan lupa jadikan kolom <code>devisi_id</code> sebagai <strong>primary key</strong>, dan lakukan <strong>auto increment</strong> pada extra, <em>auto increment</em> disini bertujuan untuk memberikan nilai dalam kolom <code>devisi_id</code> secara otomatis dan berurutan&hellip;</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1lzFeyG_l1loE9IiiUnv_42iYMN4R8f7y" alt="database4" /></p>
+
+<p>Terakhir, klik <strong>Save</strong> untuk menyimpan.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1IgoT1HskA1gEeJ1Zce7AIgPoxsX_5Eoq" alt="database5" /></p>
+
+<p>Sehingga kita sekarang punya tabel <code>devisi</code> dengan struktur seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1Bn4PEid8v5kxpqz1yTctVh_LZz8zh_cf" alt="databaase6" /></p>
+
+<p>Kode <strong>SQL</strong>-nya:</p>
+
+<pre><code class="language-sql">CREATE TABLE `devisi` (
+  `devisi_id` int(10) NOT NULL,
+  `devisi` varchar(64) NOT NULL,
+  `nama` varchar(64) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `devisi`
+  ADD PRIMARY KEY (`devisi_id`);
+
+ALTER TABLE `devisi`
+  MODIFY `devisi_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+</code></pre>
+
+<p>selain tabel <code>devisi</code> kita jega perlu membuat tabel <code>kepanitiaan</code> dan <code>staff</code> lakukan langkah yang sama atau menggunakan kode <strong>SQL</strong> yang telah kami sediakan</p>
+
+<h2 id="tabel-kepanititaan">Tabel <code>kepanititaan</code></h2>
+
+<p>Kolom yang dibutuhkan:</p>
+
+<ol>
+<li><code>kepanitiaan_id</code> (<em>Primary Key</em>) bertipe int dengan panjang 64</li>
+<li><code>no_surat</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>nama</code> bertipe <em>varchar</em> dengan panjang 255</li>
+<li><code>tanggal</code> bertipe <em>date</em></li>
+<li><code>keterangan</code> bertipe <em>text</em></li>
+<li><code>relasi</code> bertipe <em>varchar</em> dengan panjang 64</li>
+</ol>
+
+<p>Kode <strong>SQL</strong>-nya:</p>
+
+<pre><code class="language-sql">CREATE TABLE `kepanitiaan` (
+  `kepanitiaan_id` int(64) NOT NULL,
+  `no_surat` varchar(64) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `keterangan` text NOT NULL,
+  `relasi` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `kepanitiaan`
+  ADD PRIMARY KEY (`kepanitiaan_id`);
+
+ALTER TABLE `kepanitiaan`
+  MODIFY `kepanitiaan_id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+</code></pre>
+
+<h2 id="tabel-staff">Tabel <code>staff</code></h2>
+
+<p>Kolom yang dibutuhkan :</p>
+
+<ol>
+<li><code>staff_id</code> (<em>Primary Key</em>) bertipe <em>int</em> dengan panjang 10</li>
+<li><code>no_absen</code> bertipe <em>int</em> dengan panjang 11</li>
+<li><code>name</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>status</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>jabatan</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>keterangan</code> bertipe <em>text</em></li>
+<li><code>prioritas</code> bertipe <em>int</em> dengan panjang 11</li>
+<li><code>panitia_id</code> bertipe <em>varchar</em> dengan panjang 64</li>
+<li><code>kep_dev</code> bertipe <em>int</em> dengan panjang 11</li>
+<li><code>foto</code> bertipe <em>varchar</em> dengan panjang 255</li>
+</ol>
+
+<p>Kode <strong>SQL</strong>-nya:</p>
+
+<pre><code class="language-sql">CREATE TABLE `staff` (
+  `staff_id` int(10) NOT NULL,
+  `no_absen` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `status` varchar(64) NOT NULL,
+  `jabatan` varchar(64) NOT NULL,
+  `keterangan` text NOT NULL,
+  `prioritas` int(11) NOT NULL,
+  `panitia_id` varchar(64) NOT NULL,
+  `kep_dev` int(11) NOT NULL
+  `foto` varchar(255) NOT NULL DEFAULT 'default.jpg',
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`staff_id`);
+
+ALTER TABLE `staff`
+  MODIFY `staff_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+</code></pre>
+
+<p>Satu pekerjaan sudah selesai…</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Database</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Konfigurasi Codeigntier</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Model untuk Tabel</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Controller</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat View</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Add</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Edit</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Fitur Hapus Data</li>
+</ol>
+</blockquote>
+
+<p>Berikutnya kita akan melakukan konfigurasi pada Codeigniter agar dapat terhubung dengan database.</p>
+
+<h1 id="konfigurasi-codeigniter">Konfigurasi Codeigniter</h1>
+
+<p>Silahkan buka <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>config/database.php</code>, kemudian isi seperti ini:</p>
+
+<pre><code class="language-php">$db['default'] = array(
+	'dsn'	=&gt; '',
+	'hostname' =&gt; 'localhost',
+	'username' =&gt; 'root',
+	'password' =&gt; '',
+	'database' =&gt; 'simkep',
+	'dbdriver' =&gt; 'mysqli',
+	'dbprefix' =&gt; '',
+	'pconnect' =&gt; FALSE,
+	'db_debug' =&gt; (ENVIRONMENT !== 'production'),
+	'cache_on' =&gt; FALSE,
+	'cachedir' =&gt; '',
+	'char_set' =&gt; 'utf8',
+	'dbcollat' =&gt; 'utf8_general_ci',
+	'swap_pre' =&gt; '',
+	'encrypt' =&gt; FALSE,
+	'compress' =&gt; FALSE,
+	'stricton' =&gt; FALSE,
+	'failover' =&gt; array(),
+	'save_queries' =&gt; TRUE
+);
+</code></pre>
+
+<p>Perhatikan pada item berikut:</p>
+
+<pre><code class="language-php">'hostname' =&gt; 'localhost',
+'username' =&gt; 'root',
+'password' =&gt; '',
+'database' =&gt; 'simkep',
+</code></pre>
+
+<p>Silahkan ubah sesuai dengan konfigurasi server mysql pada komputermu.</p>
+
+<p>Pada komputer saya, username MySQL-nya adalah <code>root</code> dan password-nya kosong. ini sudah bawaan konfigurasi XAMPP pada windows, silahkan disesuikan saja.</p>
+
+<p>Berikutnya, silahkan buka <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>config/autoload.php</code>.</p>
+
+<p>Kemudian cari <code>$autoload['libraries']</code> dan tambahkan database dan session di sana.</p>
+
+<pre><code class="language-php">$autoload['libraries'] = array('database', 'session');
+</code></pre>
+
+<p>Ini artinya, kita akan me-load library <code>database</code> dan <code>session</code> secara otomatis.</p>
+
+<p>Apa fungsinya?</p>
+
+<ul>
+<li>Library <code>database</code> akan menyediakan fungsi-fungsi untuk operasi database. Kita butuh ini, karena kita akan menggunakan database dalam aplikasi,</li>
+<li>Library <code>session</code> menyediakan fungsi-fungsi untuk mengakses variabel <code>$_SESSION</code>. Kita butuh ini untuk menampilkan <em>flash message</em> dan membuat <em>login</em>.</li>
+</ul>
+
+<p>Dengan demikian konfigurasi selesai…</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Database</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Konfigurasi Codeigntier</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Model untuk Tabel</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Controller</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat View</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Add</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Edit</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Fitur Hapus Data</li>
+</ol>
+</blockquote>
+
+<p>Jika ada yang ingin kita konfigurasi lagi atau mau tambah library lagi, nanti kita bisa ubah konfigurasinya.</p>
+
+<p>Untuk saat ini, kita cukup butuh konfigurasi <em>database8</em> dan <em>autoload</em> library saja.</p>
+
+<p>Berikutnya, kita akan mulai menulis kode untuk model.</p>
+
+<h1 id="membuat-model-untuk-tabel">Membuat Model untuk Tabel</h1>
+
+<p>Model merupakan <em>class</em> atau kode yang berhubungan dengan data.</p>
+
+<p>Di dalam model, kita akan membuat pemodelan data dari <em>database</em>. Sehingga kita akan lebih mudah mengaksesnya.</p>
+
+<p>Biasanya satu tabel, dibuatkan satu modelnya.</p>
+
+<p>Silahkan buat folder baru di dalam direktori <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>application/model/</code> dengan nama <code>admin</code>, kemudian buat file model baru dengan nama <code>Devisi_model.php</code>, <code>Kepanitiaan_model.php</code> dan <code>Staff_model.php</code></p>
+
+<p>Perhatikan, namanya harus diawali dengan huruf kapital.</p>
+
+<p>Pada contoh di atas, <code>Devisi</code> &ldquo;D&rdquo; adalah huruf kapital.</p>
+
+<p>Lalu untuk akhiran _model ini bersifat opsional.</p>
+
+<p>Saya sengaja membuat akhiran ini untuk memudahkan dalam membedakan <em>class</em> <em>Controller</em> dengan <em>class</em> <em>Model</em>.</p>
+
+<p>Nanti kita juga akan membuat <em>class Controller</em> yang bernama <code>Devisi.php</code>, karena itu kita sebaiknya menggunakan akhiran _model pada <em>class Model</em>.</p>
+
+<p>Setelah membuat file, lalu apa lagi?</p>
+
+<p>Selanjutnya kita akan mulai menulis kode setiap file yang telah kita buat</p>
+
+<p>Silahkan ketik kode berikut…</p>
+
+<p>(<em>ketik ya! jangan copas, agar dapat pengalaman coding, bukan pengalaman copas</em> 😄)</p>
+
+<p><details>
+  <summary> <code>Devisi_model.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="devisi-model-php">Devisi_model.php</h2>
+
+<pre><code class="language-php">&lt;?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Devisi_model extends CI_Model
+{
+    private $_table = &quot;devisi&quot;;
+    private $_table1 = &quot;staff&quot;;
+
+    public $devisi_id;
+    public $devisi;
+    public $nama;
+    public $keterangan;
+
+    public function rules()
+    {
+        return [
+
+            ['field' =&gt; 'devisi',
+            'label' =&gt; 'Devisi',
+            'rules' =&gt; 'required'],
+
+            ['field' =&gt; 'nama',
+            'label' =&gt; 'Nama',
+            'rules' =&gt; 'required'],
+            
+
+        ];
+    }
+
+    public function getAll()
+    {
+        // return $this-&gt;db-&gt;get($this-&gt;_table)-&gt;result();
+
+        $query=&quot;SELECT de.devisi_id, de.devisi, de.nama, st.jabatan, de.keterangan
+        FROM devisi as de, staff as st 
+        WHERE de.nama=st.name order by de.devisi asc&quot;;
+        return $this-&gt;db-&gt;query($query)-&gt;result();
+        
+    }
+
+    public function getStaff()
+    {
+        return $this-&gt;db-&gt;get($this-&gt;_table1)-&gt;result();
+    }
+
+    public function getStaffId($id)
+    {
+        return $this-&gt;db-&gt;get_where($this-&gt;_table1, [&quot;staff_id&quot; =&gt; $id])-&gt;row();
+    }
+    
+    public function getById($id)
+    {
+        return $this-&gt;db-&gt;get_where($this-&gt;_table, [&quot;devisi_id&quot; =&gt; $id])-&gt;row();
+    }
+    public function getCount()
+    {
+        return $this-&gt;db-&gt;select('*')-&gt;from('devisi')-&gt;get()-&gt;num_rows();
+    }
+
+    public function save()
+    {
+        // $query=&quot;SELECT staff_id FROM staff WHERE name = 'nama'&quot;;
+        // $data[&quot;staff_id&quot;]=$this-&gt;db-&gt;query($query)-&gt;result();
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;devisi = $post[&quot;devisi&quot;];
+        $this-&gt;nama= $post[&quot;nama&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;db-&gt;insert($this-&gt;_table, $this);
+
+        $query=&quot;UPDATE staff, devisi
+        SET staff.kep_dev=2
+        WHERE staff.name=devisi.nama&quot;;
+        return $this-&gt;db-&gt;query($query);
+    }
+
+    public function update()
+    {
+        $query=&quot;UPDATE staff, devisi
+        SET staff.kep_dev=1
+        WHERE staff.name=devisi.nama&quot;;
+        $this-&gt;db-&gt;query($query);
+
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;devisi_id = $post[&quot;id&quot;];
+        $this-&gt;devisi = $post[&quot;devisi&quot;];
+        $this-&gt;nama= $post[&quot;nama&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;db-&gt;update($this-&gt;_table, $this, array('devisi_id' =&gt; $post['id']));
+
+        // $nama=$_POST['nama'];
+        // $query=&quot;UPDATE staff 
+        // SET kep_dev=2
+        // WHERE name=$nama&quot;;
+        // $this-&gt;db-&gt;query($query);
+
+        $query=&quot;UPDATE staff, devisi 
+        SET staff.kep_dev=2
+        WHERE staff.name=devisi.nama&quot;;
+        return $this-&gt;db-&gt;query($query);
+    }
+
+    public function delete($id)
+    {
+        $query=&quot;UPDATE staff, devisi
+        SET staff.kep_dev=1
+        WHERE staff.name=devisi.nama AND devisi.devisi_id=$id&quot;;
+        $this-&gt;db-&gt;query($query);
+        return $this-&gt;db-&gt;delete($this-&gt;_table, array(&quot;devisi_id&quot; =&gt; $id));
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p>Sudah selesai ngetiknya?</p>
+
+<p>Baik, sekarang giliran kami menjelaskan:</p>
+
+<p>Kode di atas memang belum bisa kita coba, karena ini hanya pemodelan data saja.</p>
+
+<p>Nanti kita akan gunakan fungsi-fungsi atau method yang ada di dalam kode ini pada <em>class Controller</em>.</p>
+
+<p>Pertama silahkan perhtaikan bagian ini:</p>
+
+<pre><code class="language-php">private $_table = &quot;devisi&quot;;
+private $_table1 = &quot;staff&quot;;
+
+// nama kolom di tabel, harus sama huruf besar dan huruf kecilnya!
+public $devisi_id;
+public $devisi;
+public $nama;
+public $keterangan;
+</code></pre>
+
+<p>Ini adalah properti atau <em>variabel</em> yang kita butuhkan dalam model Devisi.</p>
+
+<p>Pada properti <code>$_tabel</code> kita memberikan modifier private, karena properti ini hanya akan digunakan pada class ini saja.</p>
+
+<p>Jika kamu pernah belajar OOP, pasti paham.</p>
+
+<p>Selanjutnya silahkan perhatikan method <code>rules()</code>:</p>
+
+<pre><code class="language-php">public function rules()
+{
+    return [
+
+        ['field' =&gt; 'devisi',
+        'label' =&gt; 'Devisi',
+        'rules' =&gt; 'required'],
+
+        ['field' =&gt; 'nama',
+        'label' =&gt; 'Nama',
+        'rules' =&gt; 'required'],
+
+    ];
+}
+</code></pre>
+
+<p>Method ini akan mengembalikan sebuah <em>array</em> yang berisi <em>rules</em>.</p>
+
+<p><em>Rules</em> ini nanti kita butuhkan untuk <em>validasi input</em>.</p>
+
+<p>Pada <em>Rules</em> di atas, kita memberikan aturan untuk wajib mengisi (<em>required</em>) field <code>devisi</code> dan <code>nama</code>. adapun untuk field <code>keterangan</code> tidak kita berikan <em>rules</em> dan <code>devisi_id</code> akan terisi secara otomatis, karna kita telah mmberikan attribut <em>auto_increment</em> pada saat pembuatannya.</p>
+
+<p>Berikutnya, silahkan perhatikan method <code>get()</code> dan <code>getAll()</code>. Kedua method ini akan kita gunakan untuk mengambil data dari <em>database</em>.</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=18_SeoPJ_NHsPuHE6FkYemfQNsjS6GeOJ" alt="model1" /></p>
+
+<p>Berikutnya perhatikan method <code>save()</code>:</p>
+
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1zuyaHSJNFxfyi-dzw0hFGH58I-TxUwaS" alt="model2" /></p>
+
+<p>Method ini akan kita gunakan untuk menyimpan data ke tabel devisi dan imbasnya (<em>update</em>) pada tabel staff.</p>
+
+<p>Kita mengambil input yang dikirim dari form menggunakan <code>$this-&gt;input-&gt;post()</code>.</p>
+
+<p>Mengapa ini ditulis di <em>Model</em>?</p>
+
+<p>Biasanya orang menuliskannya pada <em>Controller</em>. Namun, biar <em>Controller</em> lebih fokus mengatur hubungan <em>Model</em> dengan <em>View</em>, maka sebaiknya ini kita tulis di <em>Model</em>.</p>
+
+<p>Karena nanti pada <em>Controller</em>, kita tinggal validasi saja inputannya.</p>
+
+<p>Untuk method berikutnya hampir sama.</p>
+
+<p>Method <code>update()</code> untuk update data dan <code>delete()</code> untuk menghapus data.</p>
+
+<p>Pada method <code>update()</code>, kita mengisi <code>$this-&gt;devisi_id</code> dengan id yang didapatkan dari form (<code>$post['id']</code>). Karena ini untuk update.</p>
+
+<p>kemudian untuk <em>Model</em> <code>Kepanitiaan_model.php</code> dan <code>Staff_model.php</code> kodenya dapat kalihan lihat berikut ini :</p>
+
+<p><details>
+  <summary> <code>Kepanitiaan_model.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="kepanitiaan-model-php">Kepanitiaan_model.php</h2>
+
+<pre><code class="language-php">&lt;?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Kepanitiaan_model extends CI_Model
+{
+    private $_table1 = &quot;devisi&quot;;
+    private $_table2 = &quot;staff&quot;;
+    private $_table3 = &quot;kepanitiaan&quot;;
+
+    public $kepanitiaan_id;
+    public $no_surat;
+    public $nama;
+    public $tanggal;
+    public $keterangan;
+    public $relasi;
+
+    public function rules()
+    {
+        return [
+
+            ['field' =&gt; 'nama',
+            'label' =&gt; 'Nama',
+            'rules' =&gt; 'required'],
+
+            ['field' =&gt; 'tanggal',
+            'label' =&gt; 'Tanggal',
+            'rules' =&gt; 'required'],
+            
+            // ['field' =&gt; 'jumlah',
+            // 'label' =&gt; 'Jumlah',
+            // 'rules' =&gt; 'required'],
+
+            ['field' =&gt; 'relasi',
+            'label' =&gt; 'Relasi',
+            'rules' =&gt; 'required']
+
+        ];
+    }
+
+    public function getAll()
+    {
+        // return $this-&gt;db-&gt;get($this-&gt;_table)-&gt;result();
+        $query=&quot;SELECT ke.kepanitiaan_id, ke.no_surat, ke.nama, ke.tanggal, ke.keterangan
+        FROM kepanitiaan as ke&quot;;
+        return $this-&gt;db-&gt;query($query)-&gt;result();
+
+        // $query=&quot;SELECT de.devisi_id, de.devisi, de.nama, st.jabatan, de.keterangan
+        // FROM devisi as de, staff as st 
+        // WHERE de.nama=st.name order by de.devisi asc&quot;;
+        // return $this-&gt;db-&gt;query($query)-&gt;result();
+
+    //     function cariSaldoCustomer($nama)
+    // {
+    //     $this-&gt;db-&gt;distinct();
+    //     $this-&gt;db-&gt;select(&quot;*&quot;);
+    //     $this-&gt;db-&gt;from(&quot;kartu&quot;);
+    //     $this-&gt;db-&gt;join(&quot;user&quot;,&quot;user.id_user=kartu.id_user&quot;);
+    //     $this-&gt;db-&gt;where(&quot;user.id_user&quot;,$nama);
+    //     return $this-&gt;db-&gt;get()-&gt;row();
+    // }
+
+    // function get_data(){
+    //     $this-&gt;db-&gt;select('year,purchase,sale,profit');
+    //     $result = $this-&gt;db-&gt;get('account');
+    //     return $result;
+        
+    // }
+    }
+
+    //&lt;&lt;------fungsi get----------&gt;&gt;
+    public function getCount()
+    {
+        return $this-&gt;db-&gt;select('*')-&gt;from('staff')-&gt;get()-&gt;num_rows();
+    }
+    public function getCountKepanitiaan()
+    {
+        return $this-&gt;db-&gt;select('*')-&gt;from('kepanitiaan')-&gt;get()-&gt;num_rows();
+    }
+
+    public function getCountDevisi()
+    {
+        return $this-&gt;db-&gt;select('*')-&gt;from('devisi')-&gt;get()-&gt;num_rows();
+    }
+  
+    public function getById($id)
+    {
+        return $this-&gt;db-&gt;get_where($this-&gt;_table3, [&quot;kepanitiaan_id&quot; =&gt; $id])-&gt;row();
+    }
+
+    public function getStaff()
+    {
+        return $this-&gt;db-&gt;get($this-&gt;_table2)-&gt;result();
+    }
+    public function getStaffId($id)
+    {
+        return $this-&gt;db-&gt;get_where($this-&gt;_table2, [&quot;staff_id&quot; =&gt; $id])-&gt;row();
+    }
+
+    function get_data_stok(){
+        $query = $this-&gt;db-&gt;query(&quot;SELECT name, prioritas FROM staff &quot;);
+        foreach($query-&gt;result() as $data)
+        {
+            $hasil[] = $data;
+        }
+            return $hasil;
+    }
+
+    public function getDevisi()
+    {
+        // return $this-&gt;db-&gt;get($this-&gt;_table1)-&gt;result();
+        $query=&quot;SELECT de.devisi, de.nama, st.name, st.no_absen 
+        FROM devisi as de, staff as st
+        WHERE de.nama=st.name&quot;;
+        return $this-&gt;db-&gt;query($query)-&gt;result();
+        // return $this-&gt;db-&gt;get($this-&gt;_table1)-&gt;result();
+    }
+
+    public function getRelasi()
+    {
+            $query=&quot;SELECT st.staff_id, ke.kepanitiaan_id, st.no_absen, st.name, st.panitia_id, ke.relasi
+            FROM staff as st, kepanitiaan as ke
+            WHERE st.panitia_id=ke.relasi order by st.no_absen asc&quot;;
+            return $this-&gt;db-&gt;query($query)-&gt;result();
+    }
+
+    public function save()
+    {
+        // $query=&quot;SELECT staff_id FROM staff WHERE name = 'nama'&quot;;
+        // $data[&quot;staff_id&quot;]=$this-&gt;db-&gt;query($query)-&gt;result();
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;no_surat = $post[&quot;surat&quot;];
+        $this-&gt;nama = $post[&quot;nama&quot;];
+        $this-&gt;tanggal = $post[&quot;tanggal&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;relasi = $post[&quot;relasi&quot;];
+        $this-&gt;db-&gt;insert($this-&gt;_table3, $this);
+    }
+    
+    public function update()
+    {
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;kepanitiaan_id = $post[&quot;id&quot;];
+        $this-&gt;no_surat = $post[&quot;surat&quot;];
+        $this-&gt;nama = $post[&quot;nama&quot;];
+        $this-&gt;tanggal = $post[&quot;tanggal&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;relasi = $post[&quot;relasi&quot;];
+        $this-&gt;db-&gt;update($this-&gt;_table3, $this, array('kepanitiaan_id' =&gt; $post['id']));
+    }
+    
+    public function buat()
+    {
+            // menyimpan data kedalam variabel
+            $var0 = $_POST['jumlah'];
+            $var10 = $_POST['relasi'];
+
+            $query=&quot;UPDATE staff 
+            SET panitia_id='$var10', prioritas=0
+            WHERE kep_dev=1 AND status='aktiv' ORDER BY prioritas desc 
+            LIMIT $var0&quot;;
+            $this-&gt;db-&gt;query($query);
+            $query=&quot;UPDATE staff 
+            SET prioritas=prioritas+15
+            WHERE kep_dev=1&quot;;
+            return $this-&gt;db-&gt;query($query); 
+
+        //     // // query SQL untuk insert data
+        //     // $query=&quot;UPDATE mahasiswa SET
+        //     // nim='$nim',nama='$nama',jurusan='$jurusan',jenis_kelamin='$jenis_kelamin',alamat='$alamat' where
+        //     // id_mahasiswa='$id_mahasiswa'&quot;;
+        //     // mysqli_query($koneksi, $query);    
+    }
+
+    public function delete($id)
+    {
+        $query=&quot;UPDATE staff, kepanitiaan
+        SET staff.panitia_id=0
+        WHERE staff.panitia_id=kepanitiaan.relasi AND kepanitiaan.kepanitiaan_id=$id&quot;;
+        $this-&gt;db-&gt;query($query);
+        return $this-&gt;db-&gt;delete($this-&gt;_table3, array(&quot;kepanitiaan_id&quot; =&gt; $id));
+    }
+
+    public function conf()
+    {
+        $var0 = $_POST['ganti1'];
+        $var1 = $_POST['ganti2'];
+        $query=&quot;UPDATE staff, panitia 
+        SET staff.panitia_id=$var1
+        WHERE staff.name=$var0&quot;;
+        $this-&gt;db-&gt;query($query);
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p><details>
+  <summary> <code>Staff_model.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="staff-model-php">Staff_model.php</h2>
+
+<pre><code class="language-php">&lt;?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Staff_model extends CI_Model
+{
+    private $_table = &quot;staff&quot;;
+
+    public $staff_id;
+    public $no_absen;
+    public $name;
+    public $status;
+    public $jabatan;
+    public $keterangan;
+
+    public function rules()
+    {
+        return [
+
+            ['field' =&gt; 'absen',
+            'label' =&gt; 'Absen',
+            'rules' =&gt; 'numeric'],
+
+            ['field' =&gt; 'name',
+            'label' =&gt; 'Name',
+            'rules' =&gt; 'required'],
+
+            ['field' =&gt; 'status',
+            'label' =&gt; 'Status',
+            'rules' =&gt; 'required'],
+            
+            ['field' =&gt; 'jabatan',
+            'label' =&gt; 'Jabatan',
+            'rules' =&gt; 'required'],
+
+        ];
+    }
+
+    public function getAll()
+    {
+        return $this-&gt;db-&gt;get($this-&gt;_table)-&gt;result();
+    }
+    
+    public function getById($id)
+    {
+        return $this-&gt;db-&gt;get_where($this-&gt;_table, [&quot;staff_id&quot; =&gt; $id])-&gt;row();
+    }
+
+    public function save()
+    {
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;no_absen = $post[&quot;absen&quot;];
+        $this-&gt;name = $post[&quot;name&quot;];
+        $this-&gt;status = $post[&quot;status&quot;];
+        $this-&gt;jabatan = $post[&quot;jabatan&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;prioritas = '100';
+        $this-&gt;db-&gt;insert($this-&gt;_table, $this);
+    }
+
+    public function update()
+    {
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;staff_id = $post[&quot;id&quot;];
+        $this-&gt;no_absen = $post[&quot;absen&quot;];
+        $this-&gt;name = $post[&quot;name&quot;];
+        $this-&gt;status = $post[&quot;status&quot;];
+        $this-&gt;jabatan = $post[&quot;jabatan&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;db-&gt;update($this-&gt;_table, $this, array('staff_id' =&gt; $post['id']));
+    }
+
+    public function delete($id)
+    {
+        return $this-&gt;db-&gt;delete($this-&gt;_table, array(&quot;staff_id&quot; =&gt; $id));
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p>Baik, dengan demikian…</p>
+
+<p>…kita sudah selesai membuat model.</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Database</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Konfigurasi Codeigntier</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Model untuk Tabel</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Controller</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat View</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Add</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Edit</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Fitur Hapus Data</li>
+</ol>
+</blockquote>
+
+<p>Berikutnya kita akan membuat Controller.</p>
+
+<h1 id="membuat-contoller">Membuat Contoller</h1>
+
+<p>Seperti yang sudah kita pelajari pada <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-2/">tutorial sebelumnya</a>, <em>Controller</em> adalah bagian dari CI yang bertugas untuk menangani HTTP request dan menghubungan <em>Model</em> dengan <em>View</em>.</p>
+
+<p>Pada <em>Controller</em>, kita akan memanggil method-method yang ada di dalam <em>Model</em> untuk mendapatkan data.</p>
+
+<p>Setelah itu data tersebut di-render ke dalam <em>View</em> dengan me-load-nya.</p>
+
+<p>Untuk lebih jelasnya…</p>
+
+<p>Mari kita mulai coding.</p>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>application/controllers/admin/</code> dengan nama <code>Devisi.php</code>, <code>Kepanitiaan.php</code>, <code>Staff.php</code>. Kemudian isi file <code>Devisi.php</code>, <code>Kepanitiaan.php</code>, <code>Staff.php</code> dengan kode berikut:</p>
+
+<p><details>
+  <summary> <code>Devisi.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="devisi-php">Devisi.php</h2>
+
+<pre><code class="language-php">&lt;?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Devisi extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this-&gt;load-&gt;model(&quot;devisi_model&quot;);
+        $this-&gt;load-&gt;library('form_validation');
+    }
+
+    public function index()
+    {
+        $data[&quot;devisi&quot;] = $this-&gt;devisi_model-&gt;getAll();
+        $this-&gt;load-&gt;view(&quot;admin/devisiv/list&quot;, $data);
+    }
+
+    public function add()
+    {
+        $data[&quot;devisi&quot;] = $this-&gt;devisi_model-&gt;getStaff();
+        $data[&quot;count&quot;] = $this-&gt;devisi_model-&gt;getCount();
+        $devisi = $this-&gt;devisi_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($devisi-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $devisi-&gt;save();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $this-&gt;load-&gt;view(&quot;admin/devisiv/new_form&quot;, $data);
+    }
+
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('admin/devisi');
+        
+        $data[&quot;devisii&quot;] = $this-&gt;devisi_model-&gt;getStaff();
+        $devisi = $this-&gt;devisi_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($devisi-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $devisi-&gt;update();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data[&quot;devisi&quot;] = $devisi-&gt;getById($id);
+        if (!$data[&quot;devisi&quot;]) show_404();
+        
+        $this-&gt;load-&gt;view(&quot;admin/devisiv/edit_form&quot;, $data);
+    }
+
+    public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this-&gt;devisi_model-&gt;delete($id)) {
+            redirect(site_url('admin/devisi'));
+        }
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p><details>
+  <summary> <code>Kepanitiaan.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="kepanitiaan-php">Kepanitiaan.php</h2>
+
+<pre><code class="language-php">&lt;?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Kepanitiaan extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this-&gt;load-&gt;model(&quot;kepanitiaan_model&quot;);
+        $this-&gt;load-&gt;library('form_validation');
+    }
+
+    public function index()
+    {
+        $data[&quot;panitia&quot;] = $this-&gt;kepanitiaan_model-&gt;getAll();
+        $this-&gt;load-&gt;view(&quot;admin/kepanitiaanv/list&quot;, $data);   
+    }
+
+    public function detail($id = null)
+    {
+        if (!isset($id)) redirect('admin/kepanitiaan');
+
+        $data[&quot;panitia&quot;] = $this-&gt;kepanitiaan_model-&gt;getById($id);
+
+        if (!$data[&quot;panitia&quot;]) show_404();
+
+        $data['devisi'] =$this-&gt;kepanitiaan_model-&gt;getDevisi();
+
+        $data['relasi'] =$this-&gt;kepanitiaan_model-&gt;getRelasi();
+        
+        $this-&gt;load-&gt;view(&quot;admin/kepanitiaanv/detail&quot;, $data);
+    }
+
+    public function add()
+    {
+        $data[&quot;devisi&quot;] = $this-&gt;kepanitiaan_model-&gt;getDevisi();
+        $data[&quot;devisicount&quot;] = $this-&gt;kepanitiaan_model-&gt;getCountDevisi();
+        $data[&quot;panitiacount&quot;] = $this-&gt;kepanitiaan_model-&gt;getCountKepanitiaan();        
+        $kepanitiaan = $this-&gt;kepanitiaan_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($kepanitiaan-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $kepanitiaan-&gt;save();        
+            $kepanitiaan-&gt;buat();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+        $this-&gt;load-&gt;view(&quot;admin/kepanitiaanv/new_form&quot;, $data);
+    }
+
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('admin/kepanitiaan');
+        
+        $panitia = $this-&gt;kepanitiaan_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($panitia-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $panitia-&gt;update();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data[&quot;panitia&quot;] = $panitia-&gt;getById($id);
+        if (!$data[&quot;panitia&quot;]) show_404();
+        
+        $this-&gt;load-&gt;view(&quot;admin/kepanitiaanv/edit_form&quot;, $data);
+    }
+
+    public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this-&gt;kepanitiaan_model-&gt;delete($id)) {
+            redirect(site_url('admin/kepanitiaan'));
+        }
+    }
+
+    public function config($id = null)
+    {
+        if (!isset($id)) redirect('admin/kepanitiaan');
+        
+        $panitia = $this-&gt;kepanitiaan_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($panitia-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $panitia-&gt;conf();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data[&quot;panitia&quot;] = $panitia-&gt;getById($id);
+        if (!$data[&quot;panitia&quot;]) show_404();
+
+        $data[&quot;staff&quot;] = $this-&gt;kepanitiaan_model-&gt;getStaff();
+        
+        $this-&gt;load-&gt;view(&quot;admin/kepanitiaanv/edit_panitia&quot;, $data);
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p><details>
+  <summary> <code>Staff.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<h2 id="staff-php">Staff.php</h2>
+
+<pre><code class="language-php">&lt;?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Staff extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this-&gt;load-&gt;model(&quot;staff_model&quot;);
+        $this-&gt;load-&gt;library('form_validation');
+    }
+
+    public function index()
+    {
+        $data[&quot;staff&quot;] = $this-&gt;staff_model-&gt;getAll();
+        $this-&gt;load-&gt;view(&quot;admin/staffv/list&quot;, $data);
+    }
+
+    public function add()
+    {
+        $staff = $this-&gt;staff_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($staff-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $staff-&gt;save();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $this-&gt;load-&gt;view(&quot;admin/staffv/new_form&quot;);
+    }
+
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('admin/staff');
+       
+        $staff = $this-&gt;staff_model;
+        $validation = $this-&gt;form_validation;
+        $validation-&gt;set_rules($staff-&gt;rules());
+
+        if ($validation-&gt;run()) {
+            $staff-&gt;update();
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data[&quot;staff&quot;] = $staff-&gt;getById($id);
+        if (!$data[&quot;staff&quot;]) show_404();
+        
+        $this-&gt;load-&gt;view(&quot;admin/staffv/edit_form&quot;, $data);
+    }
+
+    public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this-&gt;staff_model-&gt;delete($id)) {
+            redirect(site_url('admin/staff'));
+        }
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p>Sudah selesai?</p>
+
+<p>Sekarang mari kita perhatikan penjelasannya… kita akan fokus pada <em>Controller</em> <code>Staff.php</code></p>
+
+<p>Ada lima method dalam class tersebut:</p>
+
+<h3 id="1-method-construct">1. Method <code>__construct()</code></h3>
+
+<p>Method <code>__construct()</code> merupakan sebuah konstruktor. Method ini yang akan dieksekusi pertama kali saat Controller diakses.</p>
+
+<p>Pada method ini, kita melakukan load model (<code>porduct_model</code>) dan library (<code>form_validation</code>).</p>
+
+<pre><code>    public function __construct()
+    {
+        parent::__construct();
+        $this-&gt;load-&gt;model(&quot;staff_model&quot;);
+        $this-&gt;load-&gt;library('form_validation');
+    }
+</code></pre>
+
+<p>Library <code>form_validation</code> akan kita gunakan untuk memvalidasi input pada method <code>add()</code> dan <code>edit()</code>.</p>
+
+<p>Mengapa harus divalidasi?</p>
+
+<p>Karena bisa saja pengguna menginputkan data sembarang. Misalnya, sengaja mengisi dengan data kosong, script jahat seperti: serangan XSS, dll.</p>
+
+<p>Intinya:</p>
+
+<p>Sebelum menyimpan data ke database, pastikan data tersebut sudah benar.</p>
+
+<h3 id="2-method-index">2. Method <code>index()</code></h3>
+
+<p>Pada method ini, kita akan mengambil data dari model dengan memanggil method <code>Staff_model-&gt;getAll()</code>.</p>
+
+<p>Lalu kita me-rendernya ke dalam view <code>admin/staffv/list</code>.</p>
+
+<pre><code>    public function index()
+    {
+        $data[&quot;staff&quot;] = $this-&gt;staff_model-&gt;getAll();
+        $this-&gt;load-&gt;view(&quot;admin/staffv/list&quot;, $data);
+    }
+</code></pre>
+
+<p>View <code>admin/staff/list</code> belum ada. Nati kita akan membuatnya.</p>
+
+<h3 id="3-method-add">3. Method <code>add()</code></h3>
+
+<p>Method ini bertugas untuk menampilkan form add dan menyimpan data ke database. Tentunya dengan memanggil method <code>save()</code> yang ada pada model.</p>
+
+<p>Namun, sebelum memanggil method <code>save()</code>, kita lakukan validasi terlebih dahulu dengan mengeksekusi method <code>run()</code> pada objek <code>$validation</code>.</p>
+
+<pre><code>    public function add()
+    {
+        $staff = $this-&gt;staff_model; //object model
+        $validation = $this-&gt;form_validation; //object form validation
+        $validation-&gt;set_rules($staff-&gt;rules()); //terapkan rules
+
+        if ($validation-&gt;run()) { //melakukan validasi
+            $staff-&gt;save(); //simpan data kedatabase
+            $this-&gt;session-&gt;set_flashdata('success', 'Berhasil disimpan'); //tampilkan pesan berhasil
+        }
+
+        $this-&gt;load-&gt;view(&quot;admin/staffv/new_form&quot;); //tampilkan form add
+    }
+</code></pre>
+
+<p>Jika berhasil, maka pesan <code>&quot;Berhasil disimpan&quot;</code> akan ditampilkan.</p>
+
+<p>Terakhir, kita akan menampilkan view <code>staffv/new_form</code>. View ini berisi sebuah form untuk menambah data.</p>
+
+<p>View ini juga belum ada.</p>
+
+<p>Nanti kita akan membuatnya.</p>
+
+<h3 id="4-method-edit">4. Method <code>edit()</code></h3>
+
+<p>Hampir sama dengan method <code>add()</code>, method <code>edit()</code> juga bertugas untuk menampilkan form dan menyimpan data.</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=1Xr9ZV0KhSXbGgFPxhsiD9p-BZNO4fSuA" alt="contoller1" /></p>
+
+<p>Mungkin kamu akan bertanya…</p>
+
+<p>Nilai <code>$id</code> akan didapatkan dari mana?</p>
+
+<p>Nilai <code>$id</code> akan kita dapatkan dari parameter atau argumen pada URL.</p>
+
+<p>Ini sudah pernah kita bahas pada <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-2/">tutorial routing pada CI</a>.</p>
+
+<h3 id="5-method-delete">5. Method <code>delete()</code></h3>
+
+<p>Method <code>delete()</code> befungsi untuk menangni penghapusan data.</p>
+
+<p>Prinsipnya hampir sama seperti method <code>edit()</code>, method <code>delete()</code> juga membutuhkan <code>$id</code> untuk menentukan data mana yang akan dihapus.</p>
+
+<pre><code>  public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this-&gt;staff_model-&gt;delete($id)) {
+            redirect(site_url('admin/staff'));
+        }
+    }
+</code></pre>
+
+<p>Apabila data berhasil dihapus, maka kita langsung alihkan (<code>redirect()</code>) menuju ke halaman <code>admin/staffv/</code>.</p>
+
+<p>Dengan demikian…</p>
+
+<p>Kita sudah selesai membuat Controller. 👏👏👏</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Database</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Konfigurasi Codeigntier</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Model untuk Tabel</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Controller</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat View</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Add</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Form Edit</li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Fitur Hapus Data</li>
+</ol>
+</blockquote>
+
+<p>Tugas kita masih belum selesai dan aplikasi masih belum dapat dicoba, karena kita belum membuat view-nya.</p>
+
+<h1 id="membuat-view">Membuat View</h1>
+
+<p>View merupakan bagian yang bertugas mengurus tampilan.</p>
+
+<p>Ada tiga macam view yang harus kita buat dalam aplikasi ini untuk <em>Controller</em> <code>Devisi.php</code> dan <code>Staff.php</code> yang kita buat, yaitu:</p>
+
+<ol>
+<li><code>list.php</code> untuk menampilkan data;</li>
+<li><code>new_form.php</code> untuk menampilkan form tambah data;</li>
+<li>dan <code>edit_form.php</code> untuk menampilkan form edit data.</li>
+</ol>
+
+<p>sedangkan untuk <em>Controller</em> <code>Kepanitiaan.php</code> sama seperti <em>Controller</em> lainnya namun ada penambahan yaitu</p>
+
+<ol>
+<li><code>detail.php</code> untuk menampikan detail (anggota panitia) yang telah terpilih</li>
+<li><code>edit_panitia.php</code> untuk menampilkan form mengganti panitia yang bertugas (jika panitia terpilih berhalangan)</li>
+</ol>
+
+<p>Mari kita buat semuanya.</p>
+
+<p>Tapi sebelum itu, silahkan buat folder baru pada direktori <code>views/admin</code> dengan nama <code>devisiv</code>, <code>Staffv</code>, <code>Kepanitiaanv</code>.</p>
+
+<p>Setelah itu, kita akan membuat view di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/devisiv/</code>, <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/staffv/</code>, dan <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/kepanitiaanv/</code>sesuai dengan yang kita sebutkan diatas.</p>
+
+<p>Kami akan jelaskan untuk pembuatan view <code>kepanitiaanv</code> untuk dua yang lainnya kalian bisa menyesuaikan</p>
+
+<h2 id="1-view-list-data">1. View List Data</h2>
+
+<p>Buatlah file baru dengan nama <code>list.php</code> di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/kepanitiaanv/</code>.</p>
+
+<p>Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;!-- DataTables --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/add') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-plus&quot;&gt;&lt;/i&gt; Add
+							New&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;div class=&quot;table-responsive&quot;&gt;
+							&lt;table class=&quot;table table-hover&quot; id=&quot;dataTable&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th&gt;No. Surat&lt;/th&gt;
+										&lt;th&gt;Nama Kegiatan&lt;/th&gt;
+										&lt;th&gt;Tanggal&lt;/th&gt;
+										&lt;th&gt;Keterangan&lt;/th&gt;
+										&lt;th&gt;Action&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;?php foreach ($panitia as $panitiav): ?&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+											&lt;?php echo $panitiav-&gt;no_surat ?&gt;
+										&lt;/td&gt;
+										&lt;td width=&quot;150&quot;&gt;
+											&lt;?php echo $panitiav-&gt;nama ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $panitiav-&gt;tanggal ?&gt;
+										&lt;/td&gt;
+										&lt;td class=&quot;small&quot;&gt;
+											&lt;?php echo substr($panitiav-&gt;keterangan, 0, 120) ?&gt;...&lt;/td&gt;
+										&lt;td width=&quot;200&quot;&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/detail/'.$panitiav-&gt;kepanitiaan_id) ?&gt;&quot;
+												class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-eye&quot;&gt;&lt;/i&gt; Detail&lt;/a&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/edit/'.$panitiav-&gt;kepanitiaan_id) ?&gt;&quot;
+												class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-edit&quot;&gt;&lt;/i&gt; Edit&lt;/a&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/cetak/') ?&gt;&quot;
+												class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-print&quot;&gt;&lt;/i&gt; Print&lt;/a&gt;
+											&lt;a onclick=&quot;deleteConfirm('&lt;?php echo site_url('admin/kepanitiaan/delete/'.$panitiav-&gt;kepanitiaan_id) ?&gt;')&quot;
+												href=&quot;#!&quot; class=&quot;btn btn-small text-danger&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt;
+												Hapus&lt;/a&gt;
+										&lt;/td&gt;
+									&lt;/tr&gt;
+									&lt;?php endforeach; ?&gt;
+
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.container-fluid --&gt;
+
+			&lt;!-- Sticky Footer --&gt;
+			&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /.content-wrapper --&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /#wrapper --&gt;
+
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/modal.php&quot;) ?&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+	&lt;script&gt;
+		function deleteConfirm(url) {
+			$('#btn-delete').attr('href', url);
+			$('#deleteModal').modal();
+		}
+
+	&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>View <code>kepanitiaanv/list.php</code> bertugas untuk menampilkan data pada halaman admin.</p>
+
+<p>Datanya didapat dari mana?</p>
+
+<p>Datanya kita dapat dari Controller, coba saja perhatikan method <code>index()</code> pada controller <code>Kepanitiaan.php</code>.</p>
+
+<pre><code>    public function index()
+    {
+        $data[&quot;panitia&quot;] = $this-&gt;kepanitiaan_model-&gt;getAll();
+        $this-&gt;load-&gt;view(&quot;admin/kepanitiaanv/list&quot;, $data);   
+    }
+</code></pre>
+
+<h2 id="2-membuat-form-add">2. Membuat Form Add</h2>
+
+<p>View berikutnya yang harus kita buat adalah <code>new_form.php</code>.</p>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>view/admin/kepanitiaanv/</code> dengan nama <code>new_form.php</code>.</p>
+
+<p>Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt; Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/kepanitiaan/add') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; &gt;
+							
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;surat&quot;&gt;No. Surat&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('surat') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;surat&quot; placeholder=&quot;No. Surat Kegiatan&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('surat') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;relasi&quot; value=&quot;&lt;?php echo uniqid();?&gt;&quot; /&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;nama&quot;&gt;Jenis Kegiatan*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('nama') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;nama&quot; placeholder=&quot;Jenis Kegiatan&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('nama') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+							
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;tanggal&quot;&gt;Waktu Pelaksana*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('tanggal') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;date&quot; name=&quot;tanggal&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('tanggal') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+							
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;jumlah&quot;&gt;Jumlah Staff yang akan Berpartisipasi*&lt;/label&gt;&lt;br/&gt;
+								&lt;select name=&quot;jumlah&quot;class=&quot;form-control &lt;?php echo form_error('jumlah') ? 'is-invalid':'' ?&gt;&quot;&gt;
+									&lt;option value=&quot;0&quot;&gt;-PILIH-&lt;/option&gt;
+									&lt;?php for($i=1; $i&lt;100; $i++) {
+	                    			echo &quot;&lt;option value=$i&gt;$i&lt;/option&gt;&quot;;
+									} ?&gt;
+	                    		&lt;/select&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('jumlah') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;input type=&quot;hidden&quot; name=&quot;count&quot; value=&quot;&lt;?php echo $devisicount?&gt;&quot; /&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;Keterangan...&quot;&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;count&quot; value=&quot;&lt;?php echo $devisicount?&gt;&quot; /&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>View <code>new_form.php</code> betugas untuk menampilkan form input untuk pembuatan data baru.</p>
+
+<p>Form ini akan mengirim data ke: <code>/admin/kepanitiaan/add</code> (<em>Controller</em> <code>Kepanitiaan</code>, method <code>add</code>).</p>
+
+<p>Perhatikan pada form-nya.</p>
+
+<pre><code>&lt;form action=&quot;&lt;?php echo site_url('admin/kepanitiaan/add') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; &gt;
+...
+&lt;/form&gt;
+</code></pre>
+
+<p>Pada form tersebut, kita menggunakan enctype=&ldquo;multipart/form-data&rdquo;. Ini nanti akan kita gunakan untuk upload file.</p>
+
+<p>Untuk saat ini fitur upload belum kita buat.</p>
+
+<h2 id="3-membuat-form-edit">3. Membuat Form Edit</h2>
+
+<p>View selanjutnya yang harus kita buat adalah <code>edit_form.php</code>. Isi kodenya hampir sama seperti <code>new_form.php</code>.</p>
+
+<p>Bedanya, di <code>edit_form.php</code> kita menampilkan nilai untuk setiap field-nya.</p>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/kepanitiaan/</code> dengan nama <code>edit_form.php</code>.</p>
+
+<p>Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;!-- Card  --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+
+						&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt;
+							Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/kepanitiaan/edit') ?&gt;&quot; method=&quot;post&quot;
+							enctype=&quot;multipart/form-data&quot;&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?php echo $panitia-&gt;kepanitiaan_id?&gt;&quot; /&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;surat&quot;&gt;No. Surat&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('surat') ? 'is-invalid':'' ?&gt;&quot;
+									type=&quot;text&quot; name=&quot;surat&quot; placeholder=&quot;No. Surat&quot;
+									value=&quot;&lt;?php echo $panitia-&gt;no_surat ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('surat') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;nama&quot;&gt;Jenis Kegiatan*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('nama') ? 'is-invalid':'' ?&gt;&quot;
+									type=&quot;text&quot; name=&quot;nama&quot; placeholder=&quot;Jenis Kegiatan&quot;
+									value=&quot;&lt;?php echo $panitia-&gt;nama ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('panitia') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;tanggal&quot;&gt;Waktu Kegiatan*&lt;/label&gt;&lt;br /&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('tanggal') ? 'is-invalid':'' ?&gt;&quot;
+									type=&quot;date&quot; name=&quot;tanggal&quot; value=&quot;&lt;?php echo $panitia-&gt;tanggal ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('nama') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+									name=&quot;keterangan&quot;
+									placeholder=&quot;keterangan kegiatan...&quot;&gt;&lt;?php echo $panitia-&gt;keterangan ?&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;relasi&quot; value=&quot;&lt;?php echo $panitia-&gt;relasi?&gt;&quot; /&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="4-membuat-form-edit-panitia-terpilih">4. Membuat Form Edit Panitia Terpilih</h2>
+
+<p>View selanjutnya yang harus kita buat adalah <code>edit_panitia.php</code>. form ini bertujuan mengganti anggota panitia yang telah terpilih oleh sistem berrasarkan prioritas mereka jika orang yang bersangkutan berhalangan/ tidak sanggup</p>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/kepanitiaan/</code> dengan nama <code>edit_panitia.php</code>.</p>
+
+<p>Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;!-- Card  --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+
+						&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt;
+							Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/kepanitiaan/config') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+                        &lt;input type=&quot;hidden&quot; name=&quot;ganti1&quot; value=&quot;&lt;?php echo $panitia-&gt;relasi?&gt;&quot; /&gt;
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;ganti2&quot;&gt;Staff Pengganti*&lt;/label&gt;&lt;br/&gt;
+								&lt;select name=&quot;ganti2&quot;class=&quot;form-control &lt;?php echo form_error('ganti2') ? 'is-invalid':'' ?&gt;&quot;&gt;
+									&lt;?php foreach($staff as $relasiv):?&gt;
+	                    			&lt;option value=&quot;&lt;?php echo $relasiv-&gt;name;?&gt;&quot;&gt;&lt;?php echo $relasiv-&gt;name;?&gt;&lt;/option&gt;
+	                    			&lt;?php endforeach;?&gt;
+	                    		&lt;/select&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('ganti') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<h2 id="5-membuat-tampilan-detail-kepanitiaan">5. Membuat Tampilan Detail Kepanitiaan</h2>
+
+<p>View terakhir yang harus kita buat pada folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/kepanitiaan/</code> adalah <code>detail.php</code>. Isi kodenya hampir sama seperti <code>list.php</code>.</p>
+
+<p>Bedanya, di <code>detail.php</code> kita menampilkan list anggota kepanitiaan yang terpilih berdasarkan prioritas dan kepala devisi yang bertugas pada kepanitaan yang kita buat.</p>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/kepanitiaan/</code> dengan nama <code>detail.php</code>.</p>
+
+<p>Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;!-- 
+        karena ini halaman overview (home), kita matikan partial breadcrumb.
+        Jika anda ingin mengampilkan breadcrumb di halaman overview,
+        silahkan hilangkan komentar (//) di tag PHP di bawah.
+        --&gt;
+				&lt;?php //$this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;!-- Icon Cards--&gt;
+				&lt;div class=&quot;row&quot; align=&quot;center&quot;&gt;
+					&lt;div class=&quot;col-xl-31 mb-3&quot;&gt;
+						&lt;div class=&quot;card text-white bg-danger o-hidden h-100&quot;&gt;
+							&lt;div class=&quot;card-body&quot;&gt;
+								&lt;div class=&quot;card-body-icon&quot;&gt;
+									&lt;i class=&quot;fas fa-fw fa-list&quot;&gt;&lt;/i&gt;
+								&lt;/div&gt;
+								&lt;div class=&quot;mr-5&quot;&gt;Paitia Pelaksana : &lt;?php echo $panitia-&gt;nama ?&gt;&lt;br /&gt;Tanggal
+									&lt;?php echo $panitia-&gt;tanggal ?&gt;&lt;/div&gt;
+							&lt;/div&gt;
+							&lt;a class=&quot;card-footer text-white clearfix small z-1&quot;
+								href=&quot;&lt;?php echo site_url('admin/kepanitiaan/') ?&gt;&quot;&gt;
+								&lt;span class=&quot;float-left&quot;&gt;
+									&lt;i class=&quot;fas fa-angle-left&quot;&gt;-&lt;/i&gt;
+								&lt;/span&gt;
+								&lt;span class=&quot;float-left&quot;&gt;Kembali&lt;/span&gt;
+							&lt;/a&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;a href=&quot;&lt;?php echo site_url('admin/cetak/') ?&gt;&quot;
+				class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-print&quot;&gt;&lt;/i&gt; Print&lt;/a&gt;
+				&lt;br&gt;
+				&lt;!-- DataTables --&gt;
+				&lt;label&gt;
+					&lt;h2&gt;Staff Panitia Pelaksana&lt;/h2&gt;
+				&lt;/label&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+						&lt;div class=&quot;table-responsive&quot;&gt;
+							&lt;table class=&quot;table table-hover&quot; id=&quot;dataTable&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th&gt;No. Absen&lt;/th&gt;
+										&lt;th&gt;Nama&lt;/th&gt;
+										&lt;th&gt;Action&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;?php foreach ($relasi as $staffv): ?&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;no_absen ?&gt;
+										&lt;/td&gt;
+										&lt;td width=&quot;500&quot;&gt;
+											&lt;?php echo $staffv-&gt;name ?&gt;
+										&lt;/td&gt;
+										&lt;td width=&quot;250&quot;&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/kepanitiaan/config/'.$staffv-&gt;kepanitiaan_id) ?&gt;&quot;
+												class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-edit&quot;&gt;&lt;/i&gt; Edit&lt;/a&gt;
+											&lt;!-- &lt;a onclick=&quot;deleteConfirm('&lt;?php echo site_url('admin/staff/delete/'.$staffv-&gt;panitia_id) ?&gt;')&quot;
+												href=&quot;#!&quot; class=&quot;btn btn-small text-danger&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt;
+												Hapus&lt;/a&gt; --&gt;
+										&lt;/td&gt;
+									&lt;/tr&gt;
+									&lt;?php endforeach; ?&gt;
+
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				
+
+				&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+
+				&lt;label&gt;
+					&lt;h2&gt;Panitia Penaggung Jawab&lt;/h2&gt;
+				&lt;/label&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+						&lt;div class=&quot;table-responsive&quot;&gt;
+							&lt;table class=&quot;table table-hover&quot; id=&quot;dataTable&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th&gt;No. Absen&lt;/th&gt;
+										&lt;th&gt;Kepla Penaggung Jawab&lt;/th&gt;
+										&lt;th&gt;Tanggung Jawab&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;?php foreach ($devisi as $devisiv): ?&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+											&lt;?php echo $devisiv-&gt;no_absen ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $devisiv-&gt;nama ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $devisiv-&gt;devisi ?&gt;
+										&lt;/td&gt;
+									&lt;/tr&gt;
+									&lt;?php endforeach; ?&gt;
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;!-- Area Chart Example--&gt;
+
+		&lt;!-- /.container-fluid --&gt;
+
+		&lt;!-- Sticky Footer --&gt;
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /.content-wrapper --&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /#wrapper --&gt;
+
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/modal.php&quot;) ?&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>untuk kode script dua view yang lainnya dapat kalian lihat berikut :</p>
+
+<p><details>
+  <summary> <code>devisiv</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! -->
+  Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/devisiv/</code> dengan nama <code>list.php</code>. Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;!-- DataTables --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/devisi/add') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-plus&quot;&gt;&lt;/i&gt; Add New&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;div class=&quot;table-responsive&quot;&gt;
+							&lt;table class=&quot;table table-hover&quot; id=&quot;dataTable&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th&gt;P. J.&lt;/th&gt;
+										&lt;th&gt;Kepla PJ&lt;/th&gt;
+										&lt;th&gt;Jabatan&lt;/th&gt;
+										&lt;th&gt;Keterangan&lt;/th&gt;
+										&lt;th&gt;Action&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;?php foreach ($devisi as $devisiv): ?&gt;
+									&lt;tr&gt;
+										&lt;td width=&quot;150&quot;&gt;
+											&lt;?php echo $devisiv-&gt;devisi ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $devisiv-&gt;nama ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $devisiv-&gt;jabatan ?&gt;
+										&lt;/td&gt;
+										&lt;td class=&quot;small&quot;&gt;
+											&lt;?php echo substr($devisiv-&gt;keterangan, 0, 120) ?&gt;...&lt;/td&gt;
+										&lt;td width=&quot;250&quot;&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/devisi/edit/'.$devisiv-&gt;devisi_id) ?&gt;&quot;
+											 class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-edit&quot;&gt;&lt;/i&gt; Edit&lt;/a&gt;
+											&lt;a onclick=&quot;deleteConfirm('&lt;?php echo site_url('admin/devisi/delete/'.$devisiv-&gt;devisi_id) ?&gt;')&quot;
+											 href=&quot;#!&quot; class=&quot;btn btn-small text-danger&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt; Hapus&lt;/a&gt;
+										&lt;/td&gt;
+									&lt;/tr&gt;
+									&lt;?php endforeach; ?&gt;
+
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.container-fluid --&gt;
+
+			&lt;!-- Sticky Footer --&gt;
+			&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /.content-wrapper --&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /#wrapper --&gt;
+
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/modal.php&quot;) ?&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+	&lt;script&gt;
+	function deleteConfirm(url)
+	{
+		$('#btn-delete').attr('href', url);
+		$('#deleteModal').modal();
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/devisiv/</code> dengan nama <code>new_form.php</code>. Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/devisi/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt; Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/devisi/add') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; &gt;
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;devisi&quot;&gt;Tanggung Jawab*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('devisi') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;devisi&quot; placeholder=&quot;Jenis Tanggung Jawab&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('devisi') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;nama&quot;&gt;Kepala Penanggung Jawab*&lt;/label&gt;&lt;br/&gt;
+								&lt;select name=&quot;nama&quot;class=&quot;form-control &lt;?php echo form_error('nama') ? 'is-invalid':'' ?&gt;&quot;&gt;
+									&lt;option value=&quot;&quot;&gt;-PILIH-&lt;/option&gt;
+									&lt;?php foreach($devisi as $devisiv):?&gt;
+	                    			&lt;option value=&quot;&lt;?php echo $devisiv-&gt;name;?&gt;&quot;&gt;&lt;?php echo $devisiv-&gt;name;?&gt;&lt;/option&gt;
+	                    			&lt;?php endforeach;?&gt;
+	                    		&lt;/select&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('nama') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;Keterangan...&quot;&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+		
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/devisiv/</code> dengan nama <code>edit_form.php</code>. Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;!-- Card  --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+
+						&lt;a href=&quot;&lt;?php echo site_url('admin/devisi/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt;
+							Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/devisi/edit') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?php echo $devisi-&gt;devisi_id?&gt;&quot; /&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;devisi&quot;&gt;Tanggung Jawab*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('devisi') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;devisi&quot; placeholder=&quot;Jenis Tanggung Jawab&quot; value=&quot;&lt;?php echo $devisi-&gt;devisi ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('devisi') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;nama&quot;&gt;Kepala Penaggung Jawab*&lt;/label&gt;&lt;br/&gt;
+								&lt;select name=&quot;nama&quot;class=&quot;form-control &lt;?php echo form_error('nama') ? 'is-invalid':'' ?&gt;&quot;&gt;
+									&lt;option value=&quot;&lt;?php echo $devisi-&gt;nama;?&gt;&quot;&gt;&lt;?php echo $devisi-&gt;nama;?&gt;&lt;/option&gt;
+									&lt;?php foreach($devisii as $devisiv):?&gt;
+	                    			&lt;option value=&quot;&lt;?php echo $devisiv-&gt;name;?&gt;&quot;&gt;&lt;?php echo $devisiv-&gt;name;?&gt;&lt;/option&gt;
+	                    			&lt;?php endforeach;?&gt;
+	                    		&lt;/select&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('nama') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;devisi keterangan...&quot;&gt;&lt;?php echo $devisi-&gt;keterangan ?&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p></details></p>
+
+<p><details>
+  <summary> <code>staffv</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! -->
+  Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/staffv/</code> dengan nama <code>list.php</code>. Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;!-- DataTables --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/staff/add') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-plus&quot;&gt;&lt;/i&gt; Add New&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;div class=&quot;table-responsive&quot;&gt;
+							&lt;table class=&quot;table table-hover&quot; id=&quot;dataTable&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th&gt;No. Absen&lt;/th&gt;
+										&lt;th&gt;Nama&lt;/th&gt;
+										&lt;th&gt;Status&lt;/th&gt;
+										&lt;th&gt;Jabatan&lt;/th&gt;
+										&lt;th&gt;Keterangan&lt;/th&gt;
+										&lt;th&gt;Action&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;?php foreach ($staff as $staffv): ?&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;no_absen ?&gt;
+										&lt;/td&gt;
+										&lt;td width=&quot;150&quot;&gt;
+											&lt;?php echo $staffv-&gt;name ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;status ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;jabatan ?&gt;
+										&lt;/td&gt;
+										&lt;td class=&quot;small&quot;&gt;
+											&lt;?php echo substr($staffv-&gt;keterangan, 0, 120) ?&gt;...&lt;/td&gt;
+										&lt;td width=&quot;250&quot;&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/staff/edit/'.$staffv-&gt;staff_id) ?&gt;&quot;
+											 class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-edit&quot;&gt;&lt;/i&gt; Edit&lt;/a&gt;
+											&lt;a onclick=&quot;deleteConfirm('&lt;?php echo site_url('admin/staff/delete/'.$staffv-&gt;staff_id) ?&gt;')&quot;
+											 href=&quot;#!&quot; class=&quot;btn btn-small text-danger&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt; Hapus&lt;/a&gt;
+										&lt;/td&gt;
+									&lt;/tr&gt;
+									&lt;?php endforeach; ?&gt;
+
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.container-fluid --&gt;
+
+			&lt;!-- Sticky Footer --&gt;
+			&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /.content-wrapper --&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /#wrapper --&gt;
+
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/modal.php&quot;) ?&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+	&lt;script&gt;
+	function deleteConfirm(url)
+	{
+		$('#btn-delete').attr('href', url);
+		$('#deleteModal').modal();
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/staffv/</code> dengan nama <code>new_form.php</code>. Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/staff/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt; Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/staff/add') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; &gt;
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;name&quot;&gt;Nama*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('name') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Nama Staff&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('name') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;absen&quot;&gt;No. Absen*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('absen') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;number&quot; name=&quot;absen&quot; placeholder=&quot;Nomor Absen Staff&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('absen') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;status&quot;&gt;Status*&lt;/label&gt;&lt;br/&gt;
+								&lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;aktiv&quot; checked/&gt;Aktiv&lt;br/&gt;
+                                 &lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;nonaktiv&quot; /&gt;Non-Aktiv&lt;br/&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('status') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;jabatan&quot;&gt;Jabatan*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('jabatan') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;jabatan&quot; placeholder=&quot;Unit Kerja Staff&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('jabatan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;Keterangan...&quot;&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>Silahkan buat file baru di dalam folder <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/staffv/</code> dengan nama <code>edit_form.php</code>. Setelah itu, isi dengan kode berikut:</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;!-- Card  --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+
+						&lt;a href=&quot;&lt;?php echo site_url('admin/staff/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt;
+							Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/staff/edit') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?php echo $staff-&gt;staff_id?&gt;&quot; /&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;name&quot;&gt;Nama*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('name') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;staff name&quot; value=&quot;&lt;?php echo $staff-&gt;name ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('name') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;absen&quot;&gt;No. Absen*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('absen') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;number&quot; name=&quot;absen&quot; placeholder=&quot;Nomor Absen Staff&quot; value=&quot;&lt;?php echo $staff-&gt;name ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('absen') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;status&quot;&gt;Status*&lt;/label&gt;&lt;br/&gt;
+								&lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;aktiv&quot; checked/&gt;Aktiv&lt;br/&gt;
+                                 &lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;nonaktiv&quot; /&gt;Non-Aktiv&lt;br/&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('status') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;jabatan&quot;&gt;Jabatan*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('jabatan') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;jabatan&quot; placeholder=&quot;staff name&quot; value=&quot;&lt;?php echo $staff-&gt;jabatan ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('jabatan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;staff keterangan...&quot;&gt;&lt;?php echo $staff-&gt;keterangan ?&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p></details></p>
+
+<p>Akhirnya selesai juga… 👏👏👏</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Database</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Konfigurasi Codeigntier</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Model untuk Tabel</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Controller</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat View</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Form Add</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Form Edit</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox1.svg"> Membuat Fitur Hapus Data</li>
+</ol>
+</blockquote>
+
+<p>Tinggal sentuhan terakhir nih.</p>
+
+<p>Tapi sebelum itu, kita coba dulu aplikasinya.</p>
+
+<h1 id="uji-coba-aplikasi">Uji Coba Aplikasi</h1>
+
+<p>Coba buka: <a href="http://localhost/simkep/index.php/admin/staff">http://localhost/simkep/index.php/admin/staff</a></p>
+
+<p>Jika kamu tidak melihat error, maka itu artinya berhasil.</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=1OLaQxBU3kdYnFotPAfOsO9MSlwUoSi9W" alt="ujicoba1" /></p>
+
+<p>Pada tampilan kalian mungkin belum ada data yang ditampilkan di dalam halaman list staff, karena kita belum menambahkan data apapun.</p>
+
+<p>Mari kita coba buat data baru.</p>
+
+<p>Silahkan buka: <a href="http://localhost/tokobuah/index.php/admin/staff/add">http://localhost/tokobuah/index.php/admin/staff/add</a> atau klik link + <strong>Add New</strong>.</p>
+
+<p>Kemudian isi dengan data baru.</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=11UU27__rcmBDGVOotyWoThFa0tl-TzWE" alt="ujicoba2" /></p>
+
+<p>Klik <strong>Save</strong>, jika muncul seperti ini…</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=1sAo3Wh9w4coCqGaW5JQwiXyvuKudD7JH" alt="ujicoba3" /></p>
+
+<p>…artinya data berhasil ditambahkan.</p>
+
+<p>Coba periksa lagi halaman <strong>Staff</strong>.</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=17rZ4KzgyZw2ptBrDYG9Z-jtHc_tBoalG" alt="ujicoba4" /></p>
+
+<p>Berikutnya coba lakukan update data. Klik tombol <strong>Edit</strong> yang ada di dekat tombol <strong>Hapus</strong>.</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=1BbMEZrItbPoH9E1DtlkwHctsjm-Y5Vzz" alt="ujicoba5" /></p>
+
+<p>Hasilnya&hellip;</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=14BFtt_VCxbVQDIAEn2rj0x-oc1-0lakE" alt="ujicoba6" /></p>
+
+<h1 id="fitur-untuk-menghapus-data">Fitur Untuk Menghapus Data</h1>
+
+<p>Terakhir…</p>
+
+<p>Kita belum membuat fungsi konfirmasi pada tombol <strong>Hapus</strong>.</p>
+
+<p>Mengapa kita perlu konfirmasi?</p>
+
+<p>Karena tindakan ini berbahaya.</p>
+
+<p>Bisa saja nanti terjadi salah klik, kalau tidak dikonfirmasi data bisa hilang.</p>
+
+<p>Dan ini tentu akan menjadi pengalaman buruk bagi pengguna.</p>
+
+<p>Sebenarnya pada tahapan ini, kita hanya akan membuat satu fungsi Javascript saja.</p>
+
+<p>Karena kita memanggilnya pada tombol <strong>Hapus</strong>.</p>
+
+<p>Perhatikan view <code>list.php</code>.</p>
+
+<pre><code class="language-html">&lt;a onclick=&quot;deleteConfirm('&lt;?php echo site_url('admin/staff/delete/'.$staffv-&gt;staff_id) ?&gt;')&quot;
+    href=&quot;#!&quot; class=&quot;btn btn-small text-danger&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt; Hapus&lt;/a&gt;
+</code></pre>
+
+<p>Di sana ada <em>event onclick</em> yang akan memanggil fungsi <code>deleteConfirm()</code>. Ini adalah fungsi javascript, bukan PHP.</p>
+
+<p>Fungsi ini nanti akan menampilkan sebuah modal konfirmasi.</p>
+
+<p>Oke, tapi di mana kita akan menulis kode Javascript?</p>
+
+<p>Ada dua tempat yang bisa kita gunakan:</p>
+
+<ol>
+<li>Embed langsung di dalam view.</li>
+<li>Membuat file Javascript terpisah.</li>
+</ol>
+
+<p>Kita akan menggunakan cara yang pertama, karena fungsi yang kita butuhkan hanya akan digunakan pada view <code>staffv/list.php</code> saja.</p>
+
+<p>Jika nanati ada fungsi Javascript yang digunakan di beberapa view, maka sebaiknya membuat file terpisah.</p>
+
+<p>Baiklah, silahkan buka file <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/staffv/list.php</code>, kemduian tambahkan kode berikut di bagian bawah, sebelum tutup <code>&lt;body&gt;</code>.</p>
+
+<pre><code class="language-html">&lt;script&gt;
+function deleteConfirm(url){
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+}
+&lt;/script&gt;
+</code></pre>
+
+<p>Sehingga akan menjadi seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=1lavpNrgSkCwt0qglXi3g4Hn6MkUAAejT" alt="ujicoba7" /></p>
+
+<p>Setelah itu, tambahkan sebuah modal untuk delete di dalam file <img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>views/admin/_partials/modal.php</code>.</p>
+
+<pre><code class="language-html">&lt;!-- Logout Delete Confirmation--&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;deleteModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;h5 class=&quot;modal-title&quot; id=&quot;exampleModalLabel&quot;&gt;Are you sure?&lt;/h5&gt;
+        &lt;button class=&quot;close&quot; type=&quot;button&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;
+          &lt;span aria-hidden=&quot;true&quot;&gt;×&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;Data yang dihapus tidak akan bisa dikembalikan.&lt;/div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot; data-dismiss=&quot;modal&quot;&gt;Cancel&lt;/button&gt;
+        &lt;a id=&quot;btn-delete&quot; class=&quot;btn btn-danger&quot; href=&quot;#&quot;&gt;Delete&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Sehingga akan menjadi seperti ini :</p>
+
+<p><img src="https://drive.google.com/uc?export&amp;id=17SogRp3hCeFYk7UofCTXQqYTHyQqJeL5" alt="ujicoba8" /></p>
+
+<p>Oke, setelah itu coba hapus sebuah data.</p>
+
+<p>Akhirnya selesai juga… 😫</p>
+
+<blockquote>
+<ol>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Database</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Konfigurasi Codeigntier</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Model untuk Tabel</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Controller</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat View</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Form Add</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Form Edit</s></li>
+<li><img class="emoji" draggable="true" alt="check" src="/icon/checkbox2.svg"> <s>Membuat Fitur Hapus Data</s></li>
+</ol>
+</blockquote>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<p>Kita memang sudah selesai membuat CRUD (Create, Read, Update, Delete) untuk products dan sudah dapat ditampilkan dengan baik menggunakan datatables.</p>
+
+<p>Tapi masih ada fitur yang belu kita buat, seperti:</p>
+
+<ul>
+<li>Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Upload Gambar</li>
+<li>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Login</li>
+<li>Tutorial SIMKEP dengan Codeiniter #8: Membuat Fitur Pencarian (Admin)</li>
+<li>Tutorial SIMKEP dengan Codeiniter #9: Membuat Template untuk Landing Page</li>
+<li>Tutorial SIMKEP dengan Codeiniter #10: Membuat Pagination</li>
+<li>Tutorial SIMKEP dengan Codeiniter #11: Cara Menggunakan Databales dan Optimasi</li>
+<li>Tutorial SIMKEP dengan Codeiniter #12: Cara Membuat Laporan dengan DomPDF</li>
+</ul>
+
+<p>Karena itu, jangan berhenti sampai di sini…</p>
+
+<p>Nanti (insya’allah) kita akan lanjutkan lagi.</p>
+
+<p>Oya, buat kamu yang butuh source code dari tutorial ini. Kamu bisa mendownloadnya di Github.</p>
+
+<p>[🎁 <a href="https://github.com/taqwa26/SIMKEP-Sistem-Menejement-Kepanitiaan">Download Source Code</a>]</p>
+
+<p>…dan apabila ada error dan kamu kesulitan mengikuti tutorial ini, silahkan bertanya di komentar.</p>
+
+<h1 id="tutorial-sebelumnya">Tutorial Sebelumnya :</h1>
+
+<ul>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/">Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-2/">Tutorial SIMKEP dengan Codeiniter #2: (Controller) MVC dan Routing, Konsep dasar CI yang Harus Dipahami</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-3/">Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/">Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</a></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-5%2f&t=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%235%3a%20%28Model%29%20Membuat%20CRUD%20yang%20Baik%20dan%20Benar"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-5%2f&text=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%235%3a%20%28Model%29%20Membuat%20CRUD%20yang%20Baik%20dan%20Benar&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-5%2f&title=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%235%3a%20%28Model%29%20Membuat%20CRUD%20yang%20Baik%20dan%20Benar"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-5%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Monday, Jun 29, 2020 11:35</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-1">#Tutorial Project - 1</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter">#Codeigniter</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/" rel="prev">
+          <span>Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2020 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+
