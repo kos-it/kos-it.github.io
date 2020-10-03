@@ -316,7 +316,7 @@ ALTER TABLE `kepanitiaan`
 <p>Kode <strong>SQL</strong>-nya:</p>
 
 <pre><code class="language-sql">CREATE TABLE `staff` (
-  `staff_id` int(10) NOT NULL,
+  `staff_id` varchar(64) NOT NULL,
   `no_absen` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `status` varchar(64) NOT NULL,
@@ -325,14 +325,10 @@ ALTER TABLE `kepanitiaan`
   `prioritas` int(11) NOT NULL,
   `panitia_id` varchar(64) NOT NULL,
   `kep_dev` int(11) NOT NULL
-  `foto` varchar(255) NOT NULL DEFAULT 'default.jpg',
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`staff_id`);
-
-ALTER TABLE `staff`
-  MODIFY `staff_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 </code></pre>
 
 <p>Satu pekerjaan sudah selesai…</p>
@@ -492,8 +488,6 @@ class Devisi_model extends CI_Model
 
     public function getAll()
     {
-        // return $this-&gt;db-&gt;get($this-&gt;_table)-&gt;result();
-
         $query=&quot;SELECT de.devisi_id, de.devisi, de.nama, st.jabatan, de.keterangan
         FROM devisi as de, staff as st 
         WHERE de.nama=st.name order by de.devisi asc&quot;;
@@ -522,8 +516,6 @@ class Devisi_model extends CI_Model
 
     public function save()
     {
-        // $query=&quot;SELECT staff_id FROM staff WHERE name = 'nama'&quot;;
-        // $data[&quot;staff_id&quot;]=$this-&gt;db-&gt;query($query)-&gt;result();
         $post = $this-&gt;input-&gt;post();
         $this-&gt;devisi = $post[&quot;devisi&quot;];
         $this-&gt;nama= $post[&quot;nama&quot;];
@@ -549,12 +541,6 @@ class Devisi_model extends CI_Model
         $this-&gt;nama= $post[&quot;nama&quot;];
         $this-&gt;keterangan = $post[&quot;keterangan&quot;];
         $this-&gt;db-&gt;update($this-&gt;_table, $this, array('devisi_id' =&gt; $post['id']));
-
-        // $nama=$_POST['nama'];
-        // $query=&quot;UPDATE staff 
-        // SET kep_dev=2
-        // WHERE name=$nama&quot;;
-        // $this-&gt;db-&gt;query($query);
 
         $query=&quot;UPDATE staff, devisi 
         SET staff.kep_dev=2
@@ -697,32 +683,9 @@ class Kepanitiaan_model extends CI_Model
 
     public function getAll()
     {
-        // return $this-&gt;db-&gt;get($this-&gt;_table)-&gt;result();
         $query=&quot;SELECT ke.kepanitiaan_id, ke.no_surat, ke.nama, ke.tanggal, ke.keterangan
         FROM kepanitiaan as ke&quot;;
         return $this-&gt;db-&gt;query($query)-&gt;result();
-
-        // $query=&quot;SELECT de.devisi_id, de.devisi, de.nama, st.jabatan, de.keterangan
-        // FROM devisi as de, staff as st 
-        // WHERE de.nama=st.name order by de.devisi asc&quot;;
-        // return $this-&gt;db-&gt;query($query)-&gt;result();
-
-    //     function cariSaldoCustomer($nama)
-    // {
-    //     $this-&gt;db-&gt;distinct();
-    //     $this-&gt;db-&gt;select(&quot;*&quot;);
-    //     $this-&gt;db-&gt;from(&quot;kartu&quot;);
-    //     $this-&gt;db-&gt;join(&quot;user&quot;,&quot;user.id_user=kartu.id_user&quot;);
-    //     $this-&gt;db-&gt;where(&quot;user.id_user&quot;,$nama);
-    //     return $this-&gt;db-&gt;get()-&gt;row();
-    // }
-
-    // function get_data(){
-    //     $this-&gt;db-&gt;select('year,purchase,sale,profit');
-    //     $result = $this-&gt;db-&gt;get('account');
-    //     return $result;
-        
-    // }
     }
 
     //&lt;&lt;------fungsi get----------&gt;&gt;
@@ -821,12 +784,7 @@ class Kepanitiaan_model extends CI_Model
             SET prioritas=prioritas+15
             WHERE kep_dev=1&quot;;
             return $this-&gt;db-&gt;query($query); 
-
-        //     // // query SQL untuk insert data
-        //     // $query=&quot;UPDATE mahasiswa SET
-        //     // nim='$nim',nama='$nama',jurusan='$jurusan',jenis_kelamin='$jenis_kelamin',alamat='$alamat' where
-        //     // id_mahasiswa='$id_mahasiswa'&quot;;
-        //     // mysqli_query($koneksi, $query);    
+ 
     }
 
     public function delete($id)
@@ -907,6 +865,7 @@ class Staff_model extends CI_Model
     public function save()
     {
         $post = $this-&gt;input-&gt;post();
+		$this-&gt;staff_id = uniqid();
         $this-&gt;no_absen = $post[&quot;absen&quot;];
         $this-&gt;name = $post[&quot;name&quot;];
         $this-&gt;status = $post[&quot;status&quot;];
@@ -2826,7 +2785,7 @@ function deleteConfirm(url){
 
 <ul>
 <li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-6/">Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Login</a></li>
-<li>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload Gambar</li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-7/">Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload Gambar</a></li>
 <li>Tutorial SIMKEP dengan Codeiniter #8: Membuat Fitur Pencarian (Admin)</li>
 <li>Tutorial SIMKEP dengan Codeiniter #9: Membuat Template untuk Landing Page</li>
 <li>Tutorial SIMKEP dengan Codeiniter #10: Membuat Pagination</li>

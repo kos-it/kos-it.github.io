@@ -8,10 +8,24 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Sun, 27 Sep 2020 07:10:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2020 21:10:00 +0800</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File</title>
+      <link>https://kos-it.github.io/post/tutorial-projek-1-bagian-7/</link>
+      <pubDate>Fri, 02 Oct 2020 21:10:00 +0800</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/tutorial-projek-1-bagian-7/</guid>
+      <description>Pada tutorial sebelumnya, kita sudah menyelesaikan fitur CRUD. Ini merupakan fitur utama yang harus ada di dalam aplikasi.
+Tetapi, masih ada yang kurang…
+Apa itu?
+Gambar atau photo untuk staff, ini sebenarnya opsional. Kalian bisa memilih ingin menambahkannya atau tidak.
+Jika kalian ingin menambahkannya langsung saja kita ketutorialnya
+Pada tutorial kali ini kita akan mengubah dan menambahkan sedikit pada CRUD(Create, Read, Update and Delete) yang telah kiata buat pada tutorial 5 sebelumnya</description>
+    </item>
     
     <item>
       <title>Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Login</title>

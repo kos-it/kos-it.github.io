@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File'read this article.">
+  <meta property="og:title" content="Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-10-02">
+  
+  <meta property="og:description" content=" 'Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-projek-1-bagian-7/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://drive.google.com//uc?export=view&id=1zKgyxiCm9R2RlIFO8O1cbknZGUN8NrRC">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 1">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-projek-1-bagian-7/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-7/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Friday, Oct 2, 2020 21:10</time>
+        <h1>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-membuat-folder-image">1. Membuat folder Image</a></li>
+<li><a href="#2-menambah-kolom-foto-pada-tabel-staff">2. Menambah Kolom Foto pada Tabel Staff</a></li>
+<li><a href="#3-mengedit-staff-model-php">3. Mengedit Staff_model.php</a></li>
+<li><a href="#4-mengedit-bagian-view">4. Mengedit Bagian View</a>
+<ul>
+<li><a href="#edit-list-php">Edit list.php</a></li>
+<li><a href="#edit-new-form-php">Edit new_form.php</a>
+<ul>
+<li><a href="#percobaan-upload-file">Percobaan Upload File</a></li>
+</ul></li>
+<li><a href="#edit-edit-form-php">Edit edit_form.php</a>
+<ul>
+<li><a href="#percobaan-edit-upload-file">Percobaan Edit Upload File</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#5-menghapus-file-yang-di-upload">5. Menghapus File yang di-upload</a></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+<li><a href="#tutorial-sebelumnya">Tutorial Sebelumnya</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Pada tutorial sebelumnya, kita sudah menyelesaikan fitur CRUD. Ini merupakan fitur utama yang harus ada di dalam aplikasi.</p>
+
+<p>Tetapi, masih ada yang kurang…</p>
+
+<p>Apa itu?</p>
+
+<p>Gambar atau photo untuk staff, ini sebenarnya opsional. Kalian bisa memilih ingin menambahkannya atau tidak.</p>
+
+<p>Jika kalian ingin menambahkannya langsung saja kita ketutorialnya</p>
+
+<p>Pada tutorial kali ini kita akan mengubah dan menambahkan sedikit pada CRUD(<em>Create, Read, Update and Delete</em>) yang telah kiata buat pada <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-5/">tutorial 5 sebelumnya</a></p>
+
+<p>Oke, langsung saja tahap pertama yang perlu kita lakukan</p>
+
+<h1 id="1-membuat-folder-image">1. Membuat folder Image</h1>
+
+<p>Silahkan buat sebuah folder baru pada folder projek kita dengan nama <code>upload</code>, lalu di dalamnya berisi folder lagi bernama <code>staff</code> (<code>simkep/upload/staff</code>).</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1eFkx4vuJXA7iRpKlB9fXkewZOBJGFvtk" alt="tutor7_0" /></p>
+
+<p>Folder ini akan menyimpan file foto yang akan kita upload nantinya</p>
+
+<h1 id="2-menambah-kolom-foto-pada-tabel-staff">2. Menambah Kolom Foto pada Tabel Staff</h1>
+
+<p>kita akan menambah kolom/field dari Tabel <code>staff</code> pada Database <code>simkep</code> yang telah kita buat, kolom baru ini bertujuan untuk menampung nama file foto dari staff.</p>
+
+<p>Ok langsung saja kita buat</p>
+
+<p>Silahkan buka PHPMyadmin, expand database <code>simkep</code> kemudia pilih tabel <code>staff</code> lalu pada menu tab pilih <code>stuktur</code>, tambahkan satu kolom setelah/after <code>no_absen</code>.</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1_vWCx_xlhkaDtgfzqKKSkN_0-QIPHIVP" alt="tutor7_1" /></p>
+
+<p>Sebenarnya kolom baru ini dapat kita simpan dimana saja, tapi untuk estetika ea.. haha kita akan buat setelah <code>no_absen</code> dan atau sebelum <code>name</code>.</p>
+
+<p>Ok lanjut selanjutnya isikan nama kolom dengan <code>foto</code> dengan type srting <code>varchar</code> dan panjang <code>255</code> kemudian untuk default/bawaan isikan denga as definied/seperti yang didefinisiakn lalu isi kolom yang muncul dengan <code>default.jpg</code> fungsi ini adalah untuk mengisi kolom secara otomatis dengan <code>default.jpg</code> jika form yang disi tidak menyertakan foto yang akan diupload.. dan seluruh data yang telah ada, sehingga kita tidak perlu repot update data yang telah ada sebelumnya.. untuk jelasnya perthatikan gambar dibawah&hellip;</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1AKM91-m3Knz_PXL4xbfIL7LtVzPy01qd" alt="tutor7_2" /></p>
+
+<p>Terakhik klik save/simpan untuk menyimpan</p>
+
+<p>sehingga kita sekarang punya tabel <code>staff</code> dengan strutktur sebagai berikut :</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1h9yFZPPlnx52X5IFYLEhZh8usPnMlKNn" alt="tutor7_3" /></p>
+
+<p>kode SQL nya :</p>
+
+<pre><code class="language-sql">ALTER TABLE staff ADD foto varchar(255) NOT NULL DEFAULT 'default.jpg' AFTER no_absen;
+</code></pre>
+
+<p>Berikutnya, kita akan menambah kode untuk <code>Staff_model.php</code>.</p>
+
+<h1 id="3-mengedit-staff-model-php">3. Mengedit Staff_model.php</h1>
+
+<p>Selanjutnya kita akan mulai mengedit kode untuk <code>Staff_model.php</code> dan menambahkan fitur upload file, yang berada di <code>application/model/Staff_model.php</code></p>
+
+<p>Namun sebelum kita membuat fitur upload, kita perlu pahami dulu bagaimana konsep kerjanya.</p>
+
+<p>Upload file memiliki alur proeses seperti ini:</p>
+
+<ol>
+<li>User mengirim file melalui form</li>
+<li>File di-upload ke server dan disimpan dalam folder tmp dulu</li>
+<li>Kita pindahkan file yang ada di direktori tmp ke dalam direktori <code>upload/staff/</code> yang sudah kita buat</li>
+<li>Selesai.</li>
+</ol>
+
+<p>Terdengar sederhana…</p>
+
+<p>Tapi mari kita lihat dalam prekteknya.</p>
+
+<p>Silahkan buka model <code>Staff_model.php</code>, kemudian tambahakan method <code>_uploadImage()</code> tepat di bawah method <code>delete()</code>.</p>
+
+<p>Berikut ini isi kode method <code>_uploadImage()</code>:</p>
+
+<pre><code class="language-php">private function _uploadImage()
+{
+    $config['upload_path']          = './upload/staff/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $config['file_name']            = $this-&gt;staff_id;
+    $config['overwrite']			= true;
+    $config['max_size']             = 1024; // 1MB
+    // $config['max_width']            = 1024;
+    // $config['max_height']           = 768;
+
+    $this-&gt;load-&gt;library('upload', $config);
+
+    if ($this-&gt;upload-&gt;do_upload('foto')) {
+        return $this-&gt;upload-&gt;data(&quot;file_name&quot;);
+    }
+    
+    return &quot;default.jpg&quot;;
+}
+</code></pre>
+
+<p>sehingga <code>Staff_model.php</code> akan menjadi seperti ini</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1eXGzB0Uz8q5f2E4dIJga_7V5-8_dh8y_" alt="tutor7_4" /></p>
+
+<p>Apa yang dilakuakn oleh method ini?</p>
+
+<p>Sederhana…</p>
+
+<ol>
+<li>Kita membuat konfigurasi untuk upload file seperti:
+
+<ul>
+<li><code>upload_path</code> untuk menentukan alamat lokasi file akan terupload</li>
+<li><code>file_name</code> untuk menentukan nama filenya, nama file akan kita ambil dari ID staff. Karena itu, kita mengisinya dengan $this-&gt;staff_id.</li>
+<li><code>overwrite</code> untuk menindih file yang sudah ter-upload saat di-upload file baru (edit data).</li>
+<li><code>allowed_types</code> untuk membatasi tipe file yang boleh di-upload.</li>
+<li><code>max_size</code> untuk menentukan batasan ukuran file.</li>
+<li><code>max_wdith</code> dan <code>max_height</code> sengaja saya komentari agar tidak diaktifkan. Ini fungsinya untuk membatasi ukuran lebar dan tinggi image. Apabila image yang di-upload melebihi dari ukuran yang ditetapkan, maka upload akan gagal.</li>
+</ul></li>
+<li>Kita me-load library <code>upload</code> dengan konfigurasi yang sudah ditentukan</li>
+<li>Kita akan mengembalikan nama file yang sudah di-upload. Apabila upload gagal, maka kembalikan saja <code>default.jpg</code></li>
+</ol>
+
+<p>Mengapa method ini diberikan modifier <code>private</code>?</p>
+
+<p>Bukankah nanti kita akan memanggilnya dari <em>Controller</em>?</p>
+
+<p>Oh tidak-tidak…</p>
+
+<p>Kita tidak akan memanggil method ini dari <em>Controller</em>. Karena itu, kita memberikan modifier <code>priavate</code>.</p>
+
+<p>Method ini nanti akan dipanggil dari class <code>Staff_model</code> (class itu sendiri), pada method <code>save()</code> dan <code>update()</code>.</p>
+
+<p>Nah, sekarang tugas kita adalah mengubah method <code>save()</code> dan <code>update()</code>.</p>
+
+<p>Penggunaan <code>_uploadImage()</code> pada method <code>save()</code> dan <code>update()</code> digunakan untuk mengisi properti <code>$this-&gt;foto</code>.</p>
+
+<p>Silahkan ubah method <code>save()</code> dan <code>update()</code> menjadi seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1KeAcEaKBQEHpxRltLeLCDHP3OvEfcU82" alt="tutor7_5" /></p>
+
+<p>Khusus untuk method <code>update()</code>, kita membuat pengecekan seperti ini:</p>
+
+<pre><code class="language-php">if (!empty($_FILES[&quot;foto&quot;][&quot;name&quot;])) {
+    $this-&gt;foto = $this-&gt;_uploadImage();
+} else {
+    $this-&gt;foto = $post[&quot;old_foto&quot;];
+}
+</code></pre>
+
+<p>Artinya, jika ada file yang di-upload saat mengedit data, maka upload file-nya.</p>
+
+<p>Tapi kalau tidak ada, cukup gunakan nama file yang sudah ada (old_foto).</p>
+
+<p>Nilai <code>old_foto</code> kita dapatkan dari form, karena pada <code>edit_form.php</code> kita akan membuat field ini dengan tipe hidden.</p>
+
+<p>Selanjutnya kiata akan melakukan penambahan code pada bagian <code>view</code> namun sebelum itu tugas kita pada bagian <code>Staff_model</code> belum selesai..</p>
+
+<p>Apa lagi.. ?</p>
+
+<p>Kita belum mendefinisikan variabel <code>foto</code> yang kita gunakan pada method <code>save()</code> dan <code>edit()</code></p>
+
+<p>Silahkan perhtaikan bagian ini:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1KC8AVZ-d_gakguxSwjLbJF-ieCkQ3N0J" alt="tutor7_6" /></p>
+
+<p>Kita menambahkan deklarasi variabel <code>$foto</code> dengan value/nilai <code>default.jpg</code></p>
+
+<p>Kita langsung mengisi nilainya dengan <code>default.jpg</code>. Ini nanti akan menjadi nilai default-nya, sebenarnya kita bisa saja tidak isi demikian. Karena di tabel sudah kita berikan nilai default-nya.</p>
+
+<p>sehingga keseluruhan file <code>Staff_model.php</code> akan menjadi seperti ini :</p>
+
+<p><details>
+  <summary> <code>Staff_model.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<pre><code class="language-php">&lt;?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Staff_model extends CI_Model
+{
+    private $_table = &quot;staff&quot;;
+
+    // nama kolom di tabel, harus sama huruf besar dan huruf kecilnya!
+    public $staff_id;
+    public $no_absen;
+    public $foto = &quot;default.jpg&quot;;
+    public $name;
+    public $status;
+    public $jabatan;
+    public $keterangan;
+
+    public function rules()
+    {
+        return [
+
+            ['field' =&gt; 'absen',
+            'label' =&gt; 'Absen',
+            'rules' =&gt; 'numeric'],
+
+            ['field' =&gt; 'name',
+            'label' =&gt; 'Name',
+            'rules' =&gt; 'required'],
+
+            ['field' =&gt; 'status',
+            'label' =&gt; 'Status',
+            'rules' =&gt; 'required'],
+            
+            ['field' =&gt; 'jabatan',
+            'label' =&gt; 'Jabatan',
+            'rules' =&gt; 'required'],
+
+        ];
+    }
+
+    public function getAll()
+    {
+        return $this-&gt;db-&gt;get($this-&gt;_table)-&gt;result();
+    }
+    
+    public function getById($id)
+    {
+        return $this-&gt;db-&gt;get_where($this-&gt;_table, [&quot;staff_id&quot; =&gt; $id])-&gt;row();
+    }
+
+    public function save()
+    {
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;staff_id = uniqid();
+        $this-&gt;no_absen = $post[&quot;absen&quot;];
+        $this-&gt;foto = $this-&gt;_uploadImage();
+        $this-&gt;name = $post[&quot;name&quot;];
+        $this-&gt;status = $post[&quot;status&quot;];
+        $this-&gt;jabatan = $post[&quot;jabatan&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;prioritas = '100';
+        $this-&gt;db-&gt;insert($this-&gt;_table, $this);
+    }
+
+    public function update()
+    {
+        $post = $this-&gt;input-&gt;post();
+        $this-&gt;staff_id = $post[&quot;id&quot;];
+        $this-&gt;no_absen = $post[&quot;absen&quot;];
+        if (!empty($_FILES[&quot;foto&quot;][&quot;name&quot;])) {
+            $this-&gt;foto = $this-&gt;_uploadImage();
+        } else {
+            $this-&gt;foto = $post[&quot;old_foto&quot;];
+        }
+        $this-&gt;name = $post[&quot;name&quot;];
+        $this-&gt;status = $post[&quot;status&quot;];
+        $this-&gt;jabatan = $post[&quot;jabatan&quot;];
+        $this-&gt;keterangan = $post[&quot;keterangan&quot;];
+        $this-&gt;db-&gt;update($this-&gt;_table, $this, array('staff_id' =&gt; $post['id']));
+    }
+
+    public function delete($id)
+    {
+        return $this-&gt;db-&gt;delete($this-&gt;_table, array(&quot;staff_id&quot; =&gt; $id));
+    }
+
+    private function _uploadImage()
+    {
+    $config['upload_path']          = './upload/staff/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $config['file_name']            = $this-&gt;staff_id;
+    $config['overwrite']			= true;
+    $config['max_size']             = 1024; // 1MB
+    // $config['max_width']            = 1024;
+    // $config['max_height']           = 768;
+
+    $this-&gt;load-&gt;library('upload', $config);
+
+    if ($this-&gt;upload-&gt;do_upload('foto')) {
+        return $this-&gt;upload-&gt;data(&quot;file_name&quot;);
+    }
+    
+    return &quot;default.jpg&quot;;
+    }
+}
+</code></pre>
+
+<p></details></p>
+
+<p>OK.. lanjut</p>
+
+<h1 id="4-mengedit-bagian-view">4. Mengedit Bagian View</h1>
+
+<p>Bagian view yang harus kita edit adalah pada <code>application/views/admin/staffv</code> meliputi file <code>list.php</code>, <code>new_form.php</code> dan <code>edit_form.php</code></p>
+
+<p>Mari kita mulai dengan <code>list.php</code></p>
+
+<h2 id="edit-list-php">Edit list.php</h2>
+
+<p>Silahkan buka terlebih dahulu file <code>list.php</code>-nya.. <code>application/views/admin/staffv/list.php</code></p>
+
+<p>Hal yang akan kita edit/tambahkan pada file ini adalah pada bagain data tabel.. pada penyajian tabel sebelumnya akan kita tambahkan kolom foto, Ok langsung saja..</p>
+
+<p>file <code>list.php</code> akan menjadi seperti berikut</p>
+
+<p><details>
+  <summary> <code>list.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;!-- DataTables --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/staff/add') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-plus&quot;&gt;&lt;/i&gt; Add New&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;div class=&quot;table-responsive&quot;&gt;
+							&lt;table class=&quot;table table-hover&quot; id=&quot;dataTable&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th&gt;No. Absen&lt;/th&gt;
+										&lt;th&gt;Foto&lt;/th&gt;
+										&lt;th&gt;Nama&lt;/th&gt;
+										&lt;th&gt;Status&lt;/th&gt;
+										&lt;th&gt;Jabatan&lt;/th&gt;
+										&lt;th&gt;Keterangan&lt;/th&gt;
+										&lt;th&gt;Action&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;?php foreach ($staff as $staffv): ?&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;no_absen ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;img src=&quot;&lt;?php echo base_url('upload/staff'.$staffv-&gt;foto) ?&gt;&quot; width=&quot;64&quot; /&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;name ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;status ?&gt;
+										&lt;/td&gt;
+										&lt;td&gt;
+											&lt;?php echo $staffv-&gt;jabatan ?&gt;
+										&lt;/td&gt;
+										&lt;td class=&quot;small&quot;&gt;
+											&lt;?php echo substr($staffv-&gt;keterangan, 0, 120) ?&gt;...&lt;/td&gt;
+										&lt;td width=&quot;250&quot;&gt;
+											&lt;a href=&quot;&lt;?php echo site_url('admin/staff/edit/'.$staffv-&gt;staff_id) ?&gt;&quot;
+											 class=&quot;btn btn-small&quot;&gt;&lt;i class=&quot;fas fa-edit&quot;&gt;&lt;/i&gt; Edit&lt;/a&gt;
+											&lt;a onclick=&quot;deleteConfirm('&lt;?php echo site_url('admin/staff/delete/'.$staffv-&gt;staff_id) ?&gt;')&quot;
+											 href=&quot;#!&quot; class=&quot;btn btn-small text-danger&quot;&gt;&lt;i class=&quot;fas fa-trash&quot;&gt;&lt;/i&gt; Hapus&lt;/a&gt;
+										&lt;/td&gt;
+									&lt;/tr&gt;
+									&lt;?php endforeach; ?&gt;
+
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.container-fluid --&gt;
+
+			&lt;!-- Sticky Footer --&gt;
+			&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /.content-wrapper --&gt;
+
+	&lt;/div&gt;
+	&lt;!-- /#wrapper --&gt;
+
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/modal.php&quot;) ?&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+	&lt;script&gt;
+	function deleteConfirm(url)
+	{
+		$('#btn-delete').attr('href', url);
+		$('#deleteModal').modal();
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p></details></p>
+
+<p>Perhatikan bagian yang kita tambahkan :</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1-BWYZGFGISFO_8uaQUYuXteiuIbVX5c_" alt="tutor7_7" /></p>
+
+<p>Pertama pada bagian tabel head (<code>thead</code>) kita tambahkan kolom baru yakni <code>Foto</code>
+kemudian pada bagian tabel body (<code>tbody</code>) kita akan meminta menampilkan gambar <code>img</code> dengan <em>path</em> <code>base_url</code> kemudian <code>/upload/staff/</code> lalu <code>nama_file</code> (yang tersimpan di database).</p>
+
+<p>sekarang mari kita coba buka <a href="http://localhost/simkep/index.php/admin/staff">http://localhost/simkep/index.php/admin/staff</a></p>
+
+<p>maka hasilnya akan seperti gambar dibawah :</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1kLMzaUjmVhfZgTwQDNWrVXHLU4oIPV70" alt="tutor7_8" /></p>
+
+<p>Gambar staff pada path yang dituju belum ada. Sehingga akan ditampilkan <em>broken image</em>.</p>
+
+<p>Gambar untuk staff, kita akan diisi dengan nilai <code>default.jpg</code>. Jika tidak ada gambar yang di-upload.</p>
+
+<p>Kalau kita lihat alamat path yang dipakai, gambar ini akan berlokasi di <code>/upload/staff/default.jpg</code>.</p>
+
+<p>Bagaimana cara mengatasinya?</p>
+
+<p>Sederhana…</p>
+
+<p>kita tinggal menaruh file gambar dengan nama <code>default.jpg</code> pada <em>path</em> yang dimaksud</p>
+
+<p>Gambar <code>default.jpg</code> akan menjadi gambar placeholder apabila tidak ada gambar yang di-upload.</p>
+
+<p>Sebagai contoh, saya akan mengisinya dengan gambar logo kami seperti berikut</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1ZESrlJazKzu2wPujO8B2IuTzrxFV7uer" alt="tutor7_9" /></p>
+
+<p>Setelah itu, silahkan taruh gambar tersebut pada folder <code>upload/staff/</code></p>
+
+<p>Maka hasilnya:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=16UM5R6Ycqql1si3iSRtbgMK5ZNGrsJKo" alt="tutor7_10" /></p>
+
+<p>Bagus!</p>
+
+<p>Tapi masalahanya:</p>
+
+<p>Tidak semua produk akan menggunakan gambar default.jpg.</p>
+
+<p>Karena itu, kita harus membuatkan fitur upload, agar admin bisa menentukan gambar yang ia sukai.</p>
+
+<p>Bagaimana caranya?</p>
+
+<p>Mari kita bahas…</p>
+
+<h2 id="edit-new-form-php">Edit new_form.php</h2>
+
+<p>Silahkan buka terlebih dahulu file <code>new_form.php</code>-nya.. <code>application/views/admin/staffv/new_form.php</code></p>
+
+<p>Hal yang akan kita edit/tambahkan pada file ini adalah pada bagain data form.. pada form akan kita tambahkan input baru yang akan berfungsi sebai tempat kita untuk mengupload file dengan menampilkan window explorer file..</p>
+
+<pre><code class="language-html">&lt;div class=&quot;form-group&quot;&gt;
+	&lt;label for=&quot;foto&quot;&gt;Foto&lt;/label&gt;
+	&lt;input class=&quot;form-control-file &lt;?php echo form_error('foto') ? 'is-invalid':'' ?&gt;&quot;
+	type=&quot;file&quot; name=&quot;foto&quot; /&gt;
+   	&lt;div class=&quot;invalid-feedback&quot;&gt;
+		&lt;?php echo form_error('foto') ?&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1fdeJO_GHCyEs88ePAcPxZEmoq5XtBuow" alt="tutor7_11" /></p>
+
+<p>sehingga keseluruhan file <code>new_form.php</code> akan menjadi seperti berikut :</p>
+
+<p><details>
+  <summary> <code>new_form.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+						&lt;a href=&quot;&lt;?php echo site_url('admin/staff/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt; Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/staff/add') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot; &gt;
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;name&quot;&gt;Nama*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('name') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Nama Staff&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('name') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;absen&quot;&gt;No. Absen*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('absen') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;number&quot; name=&quot;absen&quot; placeholder=&quot;Nomor Absen Staff&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('absen') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;status&quot;&gt;Status*&lt;/label&gt;&lt;br/&gt;
+								&lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;aktiv&quot; checked/&gt;Aktiv&lt;br/&gt;
+                                 &lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;nonaktiv&quot; /&gt;Non-Aktiv&lt;br/&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('status') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;jabatan&quot;&gt;Jabatan*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('jabatan') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;jabatan&quot; placeholder=&quot;Unit Kerja Staff&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('jabatan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;Keterangan...&quot;&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+									&lt;label for=&quot;foto&quot;&gt;Foto&lt;/label&gt;
+									&lt;input class=&quot;form-control-file &lt;?php echo form_error('foto') ? 'is-invalid':'' ?&gt;&quot;
+										type=&quot;file&quot; name=&quot;foto&quot; /&gt;
+									&lt;div class=&quot;invalid-feedback&quot;&gt;
+										&lt;?php echo form_error('foto') ?&gt;
+									&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p></details></p>
+
+<h3 id="percobaan-upload-file">Percobaan Upload File</h3>
+
+<p>Coba tambahkan staff baru dan jangan lupa sertakan gambarnya&hellip;</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1H22jn3IaVkvSsmNduvyr-h0mdaCdBrzX" alt="tutor7_12" /></p>
+
+<p>Setelah itu, klik Save dan buka halaman list Staff dan cari data yang baru saja kita input.</p>
+
+<p>Maka hasilnya:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1-wlxfhDsw3uLdHkGvU2SJPeVi_9RGPz2" alt="tutor7_13" /></p>
+
+<p>Jika kita mengecek pada direktori <code>upload/staff</code>, maka akan ada file baru di sana.</p>
+
+<p>Hasil upload data di dalam direktori <code>upload/staff</code></p>
+
+<h2 id="edit-edit-form-php">Edit edit_form.php</h2>
+
+<p>Silahkan buka terlebih dahulu file <code>edit_form.php</code>-nya.. <code>application/views/admin/staffv/edit_form.php</code></p>
+
+<p>Hal yang akan kita edit/tambahkan pada file ini adalah pada bagain data form.. pada form akan kita tambahkan input baru yang akan berfungsi sebai tempat kita untuk mengupload file dengan menampilkan window explorer file.. sama saja dengan <code>new_form.php</code> tapi dengan sebuah hidden input seperti kita bahas diatas apabila saat update data <code>staff</code> dan tidak mengupload file baru maka nilai dari field akan dikembalikan/ atau diisi kembali dengan nilai yang sudah ada..</p>
+
+<pre><code class="language-html">&lt;div class=&quot;form-group&quot;&gt;
+	&lt;label for=&quot;foto&quot;&gt;Photo&lt;/label&gt;
+	&lt;input class=&quot;form-control-file &lt;?php echo form_error('foto') ? 'is-invalid':'' ?&gt;&quot;
+	type=&quot;file&quot; name=&quot;foto&quot; /&gt;
+	&lt;input type=&quot;hidden&quot; name=&quot;old_foto&quot; value=&quot;&lt;?php echo $staff-&gt;foto ?&gt;&quot; /&gt;
+	&lt;div class=&quot;invalid-feedback&quot;&gt;
+		&lt;?php echo form_error('foto') ?&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1JZGFNwdsw05pp8kM0zl3OuJbrD2geIlM" alt="tutor7_14" /></p>
+
+<p>sehingga keseluruhan file <code>edit_form.php</code> akan menjadi seperti berikut :</p>
+
+<p><details>
+  <summary> <code>new_form.php</code> (*klik untuk lihat)</summary>
+  <!-- have to be followed by an empty line! --></p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/head.php&quot;) ?&gt;
+&lt;/head&gt;
+
+&lt;body id=&quot;page-top&quot;&gt;
+
+	&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/navbar.php&quot;) ?&gt;
+	&lt;div id=&quot;wrapper&quot;&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/sidebar.php&quot;) ?&gt;
+
+		&lt;div id=&quot;content-wrapper&quot;&gt;
+
+			&lt;div class=&quot;container-fluid&quot;&gt;
+
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/breadcrumb.php&quot;) ?&gt;
+
+				&lt;?php if ($this-&gt;session-&gt;flashdata('success')): ?&gt;
+				&lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+					&lt;?php echo $this-&gt;session-&gt;flashdata('success'); ?&gt;
+				&lt;/div&gt;
+				&lt;?php endif; ?&gt;
+
+				&lt;!-- Card  --&gt;
+				&lt;div class=&quot;card mb-3&quot;&gt;
+					&lt;div class=&quot;card-header&quot;&gt;
+
+						&lt;a href=&quot;&lt;?php echo site_url('admin/staff/') ?&gt;&quot;&gt;&lt;i class=&quot;fas fa-arrow-left&quot;&gt;&lt;/i&gt;
+							Back&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;card-body&quot;&gt;
+
+						&lt;form action=&quot;&lt;?php base_url('admin/staff/edit') ?&gt;&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+							&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?php echo $staff-&gt;staff_id?&gt;&quot; /&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;name&quot;&gt;Nama*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('name') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;staff name&quot; value=&quot;&lt;?php echo $staff-&gt;name ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('name') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;absen&quot;&gt;No. Absen*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('absen') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;number&quot; name=&quot;absen&quot; placeholder=&quot;Nomor Absen Staff&quot; value=&quot;&lt;?php echo $staff-&gt;no_absen ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('absen') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;status&quot;&gt;Status*&lt;/label&gt;&lt;br/&gt;
+								&lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;aktiv&quot; checked/&gt;Aktiv&lt;br/&gt;
+                                 &lt;input class=&quot;form-control-1 &lt;?php echo form_error('status') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;radio&quot; name=&quot;status&quot; value=&quot;nonaktiv&quot; /&gt;Non-Aktiv&lt;br/&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('status') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;jabatan&quot;&gt;Jabatan*&lt;/label&gt;
+								&lt;input class=&quot;form-control &lt;?php echo form_error('jabatan') ? 'is-invalid':'' ?&gt;&quot;
+								 type=&quot;text&quot; name=&quot;jabatan&quot; placeholder=&quot;staff name&quot; value=&quot;&lt;?php echo $staff-&gt;jabatan ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('jabatan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;keterangan&quot;&gt;Keterangan&lt;/label&gt;
+								&lt;textarea class=&quot;form-control &lt;?php echo form_error('keterangan') ? 'is-invalid':'' ?&gt;&quot;
+								 name=&quot;keterangan&quot; placeholder=&quot;staff keterangan...&quot;&gt;&lt;?php echo $staff-&gt;keterangan ?&gt;&lt;/textarea&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('keterangan') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;div class=&quot;form-group&quot;&gt;
+								&lt;label for=&quot;foto&quot;&gt;Photo&lt;/label&gt;
+								&lt;input class=&quot;form-control-file &lt;?php echo form_error('foto') ? 'is-invalid':'' ?&gt;&quot;
+								type=&quot;file&quot; name=&quot;foto&quot; /&gt;
+								&lt;input type=&quot;hidden&quot; name=&quot;old_foto&quot; value=&quot;&lt;?php echo $staff-&gt;foto ?&gt;&quot; /&gt;
+								&lt;div class=&quot;invalid-feedback&quot;&gt;
+									&lt;?php echo form_error('foto') ?&gt;
+								&lt;/div&gt;
+							&lt;/div&gt;
+
+							&lt;input class=&quot;btn btn-success&quot; type=&quot;submit&quot; name=&quot;btn&quot; value=&quot;Save&quot; /&gt;
+						&lt;/form&gt;
+
+					&lt;/div&gt;
+
+					&lt;div class=&quot;card-footer small text-muted&quot;&gt;
+						* required fields
+					&lt;/div&gt;
+
+
+				&lt;/div&gt;
+				&lt;!-- /.container-fluid --&gt;
+
+				&lt;!-- Sticky Footer --&gt;
+				&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/footer.php&quot;) ?&gt;
+
+			&lt;/div&gt;
+			&lt;!-- /.content-wrapper --&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /#wrapper --&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/scrolltop.php&quot;) ?&gt;
+
+		&lt;?php $this-&gt;load-&gt;view(&quot;admin/_partials/js.php&quot;) ?&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p></details></p>
+
+<h3 id="percobaan-edit-upload-file">Percobaan Edit Upload File</h3>
+
+<p>Coba Edit data staff yang baru kita buat tadi dan jangan lupa sertakan gambar yang baru&hellip;</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1v9artMFLdKnf1WpLrX7WQYksEoRu677-" alt="tutor7_15" /></p>
+
+<p>Setelah itu, klik Save dan buka halaman list Staff dan cari data yang baru saja kita edit.</p>
+
+<p>Maka hasilnya:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1EtpvuDRg4fjTVe0kyWm7UXx_g_hYr53m" alt="tutor7_16" /></p>
+
+<p>Jika kita mengecek pada direktori <code>upload/staff</code>, maka file lama di sana telah terganti dengan file yang baru.</p>
+
+<p>Selamat, kita sudah berhasil membuat fitur upload 👏👏👏…</p>
+
+<p>…Tapi masih ada yang kurang.</p>
+
+<p>Apa itu?</p>
+
+<p>Ketika kita menghapus data, filenya akan tetap ada di dalam direktori. Karena belum ada fungsi untuk menghapus file.</p>
+
+<p>Mari kita perbaiki…</p>
+
+<h1 id="5-menghapus-file-yang-di-upload">5. Menghapus File yang di-upload</h1>
+
+<p>Kita membutuhkan sebuah method khusus untuk menghapus file yang telah di-upload.</p>
+
+<p>Silahkan tambahkan method berikut pada class <code>Staff_model</code>, tepat di bawah method <code>_uploadImage()</code>.</p>
+
+<pre><code class="language-php">private function _deleteImage($id)
+{
+    $staff = $this-&gt;getById($id);
+    if ($staff-&gt;foto != &quot;default.jpg&quot;) {
+	    $filename = explode(&quot;.&quot;, $staff-&gt;foto)[0];
+		return array_map('unlink', glob(FCPATH.&quot;upload/staff/$filename.*&quot;));
+    }
+}
+</code></pre>
+
+<p>Sehingga akan menjadi seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=101aoBpDe4QQRGEMj6bZ4ccXGiZ7fQGYp" alt="tutor7_17" /></p>
+
+<p>Terakhir, panggil method <code>_deleteImage()</code> pada method <code>delete()</code>.</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1VKGvqb-wiBqkdUFRVySpT5dHgWMlNh1W" alt="tutor7_18" /></p>
+
+<p>Oke, sekarang kita sudah bisa menghapus data dan juga file yang terupload.</p>
+
+<p>Mari kita coba…</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1qNn4v3wPc-30ibmSVCRZZZbUPI2d9f3U" alt="tutor7_19" /></p>
+
+<p>Yep! berhasil 🎉</p>
+
+<p>Mungkin kamu akan bertanya,</p>
+
+<p>Mengapa ada dua file yang terhapus?</p>
+
+<p>Jadi gini…</p>
+
+<p>Coba perhatikan method-nya, khususnya kode yang ada di dalam if.</p>
+
+<pre><code class="language-php">if ($product-&gt;image != &quot;default.jpg&quot;) {
+    $filename = explode(&quot;.&quot;, $product-&gt;image)[0];
+	return array_map('unlink', glob(FCPATH.&quot;upload/product/$filename.*&quot;));
+}
+</code></pre>
+
+<p>Di sana kita mengambil nama file dengan fungsi <code>exlode()</code>. Lalu kita cari file berdasarkan nama tersbut dengan fungsi <code>glob()</code>.</p>
+
+<p>Setelah file-file ditemukan, lalu kita gunakan fungsi <code>array_map()</code> untuk mengeksekusi fungsi <code>unlink()</code> pada tiap file yang ditemukan.</p>
+
+<p>Tanda bitang (*) setelah <code>$filename</code>artinya semua ektensi dipilih.</p>
+
+<p>Ini nanti akan menghapus semua file dengan nama yang sama dan apapun ekstensinya.</p>
+
+<p>Mengapa demikian?</p>
+
+<p>Karena pada fungsi upload yang kita buat, di sana kita membolehkan untuk upload file dengan ekstensi <code>jpg</code>, <code>gif</code>, dan <code>png</code>.</p>
+
+<p>Ketika data diedit dan gambar yang di-upload berekstensi berbeda dengan yang sudah ada di server…</p>
+
+<p>…maka ia akan membuat file baru.</p>
+
+<p>Misalnya di server sudah ada <code>123.jpg</code>, lalu di-upload lagi—misal file <code>.png</code>— maka nanti akan dibuat lagi <code>123.png</code>.</p>
+
+<p>Mengapa bisa begitu? Bukankah kita sudah memberikan konfigurasi overwrite = true?</p>
+
+<p>overwrite pada konfigurasi upload, hanya akan menindih file dengan nama dan ekstensi yang sama.</p>
+
+<p>Misal:</p>
+
+<p>Di server sudah ada <code>123.jpg</code>. Ketika kita upload file lagi dengan ekstensi yang sama, maka <code>123.jpg</code> akan ditindih dengan file yang baru.</p>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<ul>
+<li>Tutorial SIMKEP dengan Codeiniter #8: Membuat Fitur Pencarian (Admin)</li>
+<li>Tutorial SIMKEP dengan Codeiniter #9: Membuat Template untuk Landing Page</li>
+<li>Tutorial SIMKEP dengan Codeiniter #10: Membuat Pagination</li>
+<li>Tutorial SIMKEP dengan Codeiniter #11: Cara Menggunakan Databales dan Optimasi</li>
+<li>Tutorial SIMKEP dengan Codeiniter #12: Cara Membuat Laporan dengan DomPDF</li>
+</ul>
+
+<h1 id="tutorial-sebelumnya">Tutorial Sebelumnya</h1>
+
+<ul>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-1/">Tutorial SIMKEP dengan Codeiniter #1 : Pengenalan Codeigniter</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-2/">Tutorial SIMKEP dengan Codeiniter #2: (Controller) MVC dan Routing, Konsep dasar CI yang Harus Dipahami</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-3/">Tutorial SIMKEP dengan Codeiniter #3: (View) Cara Menggunakan Bootstrap pada Codeiniger</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-4/">Tutorial SIMKEP dengan Codeiniter #4: (View) Membuat Template Admin</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-5/">Tutorial SIMKEP dengan Codeiniter #5: (Model) Membuat CRUD yang Baik</a></li>
+<li><a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-6/">Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Login</a></li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-7%2f&t=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%237%3a%20Membuat%20Fitur%20Upload%20File"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-7%2f&text=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%237%3a%20Membuat%20Fitur%20Upload%20File&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-7%2f&title=Tutorial%20SIMKEP%20dengan%20Codeiniter%20%237%3a%20Membuat%20Fitur%20Upload%20File"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-1-bagian-7%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Friday, Oct 2, 2020 21:10</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-1">#Tutorial Project - 1</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter">#Codeigniter</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-6/" rel="prev">
+          <span>Tutorial SIMKEP dengan Codeiniter #6: Membuat Fitur Login</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2020 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+
