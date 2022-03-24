@@ -8,10 +8,25 @@
     <language>id-id</language>
     <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
     <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
-    <lastBuildDate>Fri, 02 Oct 2020 21:10:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Mar 2022 14:54:13 +0800</lastBuildDate>
     
 	<atom:link href="https://kos-it.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cara Membuat Blog Dengan Hugo</title>
+      <link>https://kos-it.github.io/post/cara-membuat-blog-dengan-hugo/</link>
+      <pubDate>Thu, 24 Mar 2022 14:54:13 +0800</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/cara-membuat-blog-dengan-hugo/</guid>
+      <description>Pada panduan ini, kita akan belajar cara ngeblog dengan Hugo dari awal hingga tahap deploy atau hosting.
+Mari kita mulai…
+Langkah-langkah membuat blog dengan Hugo:
+1 Instalasi Git, Go, dan Hugo “Mari kita persiapkan semua alat-alat yang diperlukan”
+Diantaranya:
+ Git — untuk upload dan deploy Hugo ke repositori git. Go — bahasa pemrograman Go. Hugo — Mesin SSG untuk membuat blog.  Berikut cara menginstalnya:
+Install Git di Linux: Untuk menginstal Git di Linux, silahkan ketik perintah berikut.</description>
+    </item>
     
     <item>
       <title>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File</title>

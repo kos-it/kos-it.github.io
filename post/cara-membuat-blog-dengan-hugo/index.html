@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cara Membuat Blog Dengan Hugo  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Cara Membuat Blog Dengan Hugo'read this article.">
+  <meta property="og:title" content="Cara Membuat Blog Dengan Hugo">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2022-03-24">
+  
+  <meta property="og:description" content=" 'Cara Membuat Blog Dengan Hugo'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/cara-membuat-blog-dengan-hugo/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://kos-it.github.io/img/hugo.svg">
+  
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="HTML">
+  
+  <meta property="og:tags" content="Hugo">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/cara-membuat-blog-dengan-hugo/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/cara-membuat-blog-dengan-hugo/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Thursday, Mar 24, 2022 14:54</time>
+        <h1>Cara Membuat Blog Dengan Hugo</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#1-instalasi-git-go-dan-hugo">1 Instalasi Git, Go, dan Hugo</a>
+<ul>
+<li><a href="#install-git-di-linux">Install Git di Linux:</a></li>
+<li><a href="#install-go-di-linux">Install Go di Linux:</a></li>
+<li><a href="#install-hugo-di-linux">Install Hugo di Linux:</a></li>
+</ul></li>
+<li><a href="#2-membuat-blog-baru-dengan-hugo">2. Membuat Blog Baru dengan Hugo</a></li>
+<li><a href="#3-mengenal-struktur-direktori-hugo">3. Mengenal Struktur Direktori Hugo</a>
+<ul>
+<li><a href="#direktori-archetype">direktori <em>archetype</em></a></li>
+<li><a href="#direktoori-content">direktoori <em>content</em></a></li>
+<li><a href="#direktori-data">direktori <em>data</em></a></li>
+<li><a href="#direktori-layout">direktori <em>layout</em></a></li>
+<li><a href="#direktori-static">direktori <em>static</em></a></li>
+<li><a href="#direktori-themes">direktori <em>themes</em></a></li>
+<li><a href="#file-config-toml">File <code>config.toml</code></a></li>
+</ul></li>
+<li><a href="#4-menambahkan-tema-hugo">4. Menambahkan Tema Hugo</a></li>
+<li><a href="#5-menulis-artikel-di-blog-hugo">5. Menulis Artikel di Blog Hugo</a></li>
+<li><a href="#4-deploy-hugo-ke-server">4. Deploy Hugo ke Server</a></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Pada panduan ini, kita akan belajar cara ngeblog dengan Hugo dari awal hingga tahap deploy atau hosting.</p>
+
+<p>Mari kita mulai…</p>
+
+<p>Langkah-langkah membuat blog dengan Hugo:</p>
+
+<h1 id="1-instalasi-git-go-dan-hugo">1 Instalasi Git, Go, dan Hugo</h1>
+
+<p>“Mari kita persiapkan semua alat-alat yang diperlukan”</p>
+
+<p>Diantaranya:</p>
+
+<ol>
+<li><code>Git</code> — untuk upload dan deploy Hugo ke repositori git.</li>
+<li><code>Go</code> — bahasa pemrograman Go.</li>
+<li><code>Hugo</code> — Mesin SSG untuk membuat blog.</li>
+</ol>
+
+<p>Berikut cara menginstalnya:</p>
+
+<h2 id="install-git-di-linux">Install Git di Linux:</h2>
+
+<p>Untuk menginstal Git di Linux, silahkan ketik perintah berikut.</p>
+
+<pre><code>apt install git
+</code></pre>
+
+<p>Setelah itu, periksa versi yang terinstal dengan perintah:</p>
+
+<pre><code>git --version
+</code></pre>
+
+<h2 id="install-go-di-linux">Install Go di Linux:</h2>
+
+<p>Ada dua cara yang bisa dilakukan untuk menginstal Go di Linux.</p>
+
+<ol>
+<li><p>Menginstal melalui apt atau manajemen paket yang lainnya;</p></li>
+
+<li><p>Menginstal manual dengan men-download dari website resminya.</p></li>
+</ol>
+
+<p>Untuk menginstal melalui apt, silahkan ketik perintah berukut:</p>
+
+<pre><code>apt install go
+</code></pre>
+
+<p>Setelah itu periksa versi yang terinstal dengan perintah:</p>
+
+<pre><code>go version
+</code></pre>
+
+<h2 id="install-hugo-di-linux">Install Hugo di Linux:</h2>
+
+<p>Hugo juga bisa diinstal melalui apt dan manual…</p>
+
+<p>…tapi saya lebih menyarankan menginstal manual.</p>
+
+<p>Karena versi yang di repositori apt, masih versi lama.</p>
+
+<p>Donwload Hugo:</p>
+
+<p>Silahkan buka repositori hugo, ambil versi Hugo yang akan diinstal.</p>
+
+<p>Sebagai contoh:</p>
+
+<p>Saya akan menginstal versi Hugo 0.24.1 di Linux 64-bit:</p>
+
+<pre><code>wget https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-64bit.deb
+</code></pre>
+
+<p>Setelah itu instal dengan dpkg atau apt deb:</p>
+
+<pre><code>apt deb hugo_0.24.1_Linux-64bit.deb
+</code></pre>
+
+<p>Setelah itu…</p>
+
+<p>buka terimal baru dan ketik perintah:</p>
+
+<pre><code>hugo version
+</code></pre>
+
+<p>Semua sudah beres…</p>
+
+<p>Selanjutnya mari kita mulai membuat blog.</p>
+
+<h1 id="2-membuat-blog-baru-dengan-hugo">2. Membuat Blog Baru dengan Hugo</h1>
+
+<p>Hugo menyediakan perintah berikut untuk membuat blog baru:</p>
+
+<pre><code>hugo new site [nama-blog]
+</code></pre>
+
+<p>Sebagai contoh Saya akan membuat blog bernama TempeTahu:</p>
+
+<pre><code>hugo new site TempeTahu
+</code></pre>
+
+<p>Maka Hugo akan membuatkan direktori baru beserta strukturnya.
+<img src="https://drive.google.com/uc?expand&amp;id=146ouHKXvm2ZfrVFIrJ9toFwB8lsAO0Vr" alt="hugo_site" />
+Silahkan dibuka direktori tersebut dengan teks editor dan coba jelajahi isinya.</p>
+
+<p>Masih kosong?</p>
+
+<p>Ya benar sekali, kita harus membut isinya dari nol 😄.</p>
+
+<p>Tenang saja…</p>
+
+<p>Tidak sulit kok.</p>
+
+<p>Tapi sebelumnya mari kita kenalan dulu dengan direktori-direktori tersebut.</p>
+
+<h1 id="3-mengenal-struktur-direktori-hugo">3. Mengenal Struktur Direktori Hugo</h1>
+
+<p>Ada enam buah direktori dan satu file yang dibuatkan oleh Hugo.</p>
+
+<h2 id="direktori-archetype">direktori <em>archetype</em></h2>
+
+<p>Direktori ini berisi <em>archetype</em> atau template <em>Front Matter</em> dari konten.
+<img src="https://drive.google.com/uc?expand&amp;id=18Ily8DxyxNQR5yV1W1fvKIqMD17aPsgI" alt="hugo_site" />
+Misalkan kita punya lebih dari satu jenis konten:</p>
+
+<p>Ada artikel, portofolio, produk, proyek, podcast, dll.</p>
+
+<p>Maka kita harus membuatkan <em>archetype</em> untuk masing-masing jenis konten tersebut.</p>
+
+<p>Mari kita coba membuat archetype default.</p>
+
+<p>Silahkan tambahak file <code>default.md</code> di dalamnya, kemudian isi dengan kode berikut.</p>
+
+<pre><code class="language-md">+++
+title = &quot;{{ replace .TranslationBaseName &quot;-&quot; &quot; &quot; | title }}&quot;
+date = &quot;{{ .Date }}&quot;
+draft = true
++++
+</code></pre>
+
+<p>archetype ini akan menjadi archetype default setiap kali kita membuat konten.</p>
+
+<h2 id="direktoori-content">direktoori <em>content</em></h2>
+
+<p>Sudah bisa ditebak, isi dari direktori ini adalah konten dari blog kita.</p>
+
+<p>Format kontennya adalah markdown.</p>
+
+<p>Contoh konten milik Kos-IT:
+<img src="https://drive.google.com/uc?expand&amp;id=1hpBGheBhKM5gv58qy2J93I43BRejQQfV" alt="hugo_site" />
+Kos-IT menggunakan <em>archetype</em> post dan project untuk artikel biasa, sedangkan untuk halaman seperti about, contact, portofolio, dll…</p>
+
+<p>…Kos-IT menggunakan <em>archetype</em> page.</p>
+
+<h2 id="direktori-data">direktori <em>data</em></h2>
+
+<p>Direktori ini berisi data-data dalam format JSON, YAML, TOML dan lain-lain.</p>
+
+<p>Data ini bisa kita manfaatkan pada tema.</p>
+
+<p>Misal:</p>
+
+<p>Agar tidak repot mengetik link sosial media pada tema, kita bisa membuatkan datanya.</p>
+
+<pre><code class="language-md">facebook = &quot;https://facebook.com/kos-it&quot;
+twitter = &quot;https://twitter.com/kos-it&quot;
+instagram = &quot;https://instagram.com/kos-it&quot;
+googleplus = &quot;https://google.com/+kos-it&quot;
+</code></pre>
+
+<p>Nanti pada pembuatan tema, kita bisa panggil seperti ini:</p>
+
+<pre><code class="language-html">&lt;a href=&quot;{{ .Data.facebook }}&quot;&gt;Facebook&lt;/a&gt;
+</code></pre>
+
+<h2 id="direktori-layout">direktori <em>layout</em></h2>
+
+<p>Direktori ini berisi file HTML untuk tema atau layout blognya.</p>
+
+<p>Jika kita ingin membuat tema <em>default</em>-nya, kita bisa letakkan di sini.</p>
+
+<h2 id="direktori-static">direktori <em>static</em></h2>
+
+<p>Direktori ini berisi file-file statis seperti CSS, javascript, Gambar, dan sebagainya.</p>
+
+<p>Nanti kita akan pakai direktori ini untuk menyimpan gambar dan file aset lainnya.</p>
+
+<h2 id="direktori-themes">direktori <em>themes</em></h2>
+
+<p>Seperti namanya, direktori ini tempat menyimpan tema-tema Hugo.</p>
+
+<p>Kita bisa menaruh beberapa tema di dalamnya, kemudian untuk menggunakannya…</p>
+
+<p>…kita harus menentukannya di file konfigurasi <code>config.toml</code>.</p>
+
+<h2 id="file-config-toml">File <code>config.toml</code></h2>
+
+<p>File ini berisi konfigurasi blognya.</p>
+
+<p>Contoh konfigurasi milik Kos-IT:</p>
+
+<pre><code>baseurl = &quot;https://kos-it.github.io&quot;
+title = &quot;KOS-IT — Making and Developing&quot;
+languageCode = &quot;id-id&quot;
+
+theme = &quot;programmer&quot;
+themesdir = &quot;themes&quot;
+
+paginate = 4
+
+disqusShortname = &quot;kos-it-github-io&quot;
+googleAnalytics = &quot;UA-XXXXXXXX-X&quot;
+
+[author]
+    name = &quot;Karcaqs&quot;
+    homepage = &quot;https://web.facebook.com/taqwa.prakoso&quot;
+    bio = &quot;Sejenis Terong&quot;
+    image = &quot;/img/karcaqs.svg&quot;
+    email = &quot;taqwaalmutawakkil97@gmail.com&quot;
+
+pygmentsstyle = &quot;monokai&quot;
+pygmentsuseclasses = true
+</code></pre>
+
+<p>Sekarang coba ganti konfigurasi blog yang sudah dibuat…</p>
+
+<pre><code>baseURL = &quot;https://www.tempetahu.com/&quot;
+languageCode = &quot;id-id&quot;
+tite = &quot;TempeTahu&quot;
+</code></pre>
+
+<p>Variabel baseURL dan title wajib diisi.</p>
+
+<p>Silahkan isi dengan alamat blog-nya.</p>
+
+<h1 id="4-menambahkan-tema-hugo">4. Menambahkan Tema Hugo</h1>
+
+<p>Hugo memiliki banyak kontributor yang membuat tema dan disebarkan secara gratis.</p>
+
+<p>Silahkan cari tema yang kalian sukai di: <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
+
+<p>Pilih tema yang mana saja.</p>
+
+<p>Tapi perlu diingat:</p>
+
+<p>“Baca dulu dokumentasi tema-nya, karena di sana ada konfigurasi yang harus diikuti agar temanya bisa digunakan sesuai harapan”</p>
+
+<p>Contoh:</p>
+
+<p>Saya akan memilih tema <a href="https://themes.gohugo.io/themes/hugo-hello-programmer-theme/">Hello Programmer</a>…</p>
+
+<p>…maka kita harus membuat konfigurasi seperti ini:</p>
+
+<pre><code class="language-md">baseURL = &quot;https://www.tempetahu.com/&quot;
+languageCode = &quot;id-id&quot;
+tite = &quot;TempeTahu&quot;
+theme = &quot;programmer&quot;
+disqusShortname = &quot;XXXX&quot;
+googleAnalytics = &quot;UA-XXXXXXXX-X&quot;
+paginate = 7
+
+[author]
+    name = &quot;your-name&quot;
+    email = &quot;your-email&quot;
+
+[params]
+    description = &quot;desribe-your-site&quot;
+</code></pre>
+
+<p>Setelah itu kita tambahkan temanya…</p>
+
+<p>Silahkan masuk ke direktori <code>tempetahu/themes</code> melalui terminal (sesuaikan dengan nama blog-mu).</p>
+
+<pre><code class="language-bash">cd tempetahu/themes/
+</code></pre>
+
+<p>Setelah itu, gunakan Git untuk klon repositori temanya.</p>
+
+<pre><code class="language-bash">git clone https://github.com/parsiya/Hugo-Octopress.git
+</code></pre>
+
+<p>Tunggu sampai selesai…</p>
+
+<p>Setelah itu, pindah ke direktori root blognya dan jalankan server hugo.</p>
+
+<pre><code class="language-bash">cd ..
+hugo server
+</code></pre>
+
+<p>Maka hugo akan membuat server baru pada alamat <a href="http://localhost:1313">http://localhost:1313</a>.
+<img src="https://drive.google.com/uc?expand&amp;id=18QXNymzk44DNdbIaaMQ-dkBIT3ia9NQI" alt="hugo_server" />
+Silahkan buka alamat tersebut…
+<img src="https://drive.google.com/uc?expand&amp;id=1VllY24eErE1pqAx2SZnz3EWO-9ju0H50" alt="hugo_view" /></p>
+
+<p>🎉 berhasil…</p>
+
+<p>Kita sudah berhasil menambahkan temanya, selanjutnya kita akan coba menambahkan konten.</p>
+
+<h1 id="5-menulis-artikel-di-blog-hugo">5. Menulis Artikel di Blog Hugo</h1>
+
+<p>Jika pada CMS seperti Wordpress, kita mengisi konten melalui halaman admin…</p>
+
+<p>…maka pada Hugo kita gunakan teks editor.</p>
+
+<p>Pertama:</p>
+
+<p>Silahkan buat kotennya melalui terminal.</p>
+
+<p>Hugo sudah menyediakan perintah hugo new untuk membuat konten.</p>
+
+<pre><code>hugo new post/[nama-file-konten].md
+</code></pre>
+
+<p>Contoh:</p>
+
+<pre><code>hugo new post/tempe-vs-tahu.md
+</code></pre>
+
+<p>Maka file baru akan dibuat pada direktori <code>content/post/</code> dengan nama <code>tempe-vs-tahu.md</code>.
+<img src="https://drive.google.com/uc?expand&amp;id=1iE_wAB3WBbsu4QaIwvBRV0kIJB00NzVh" alt="hugo_post" />
+Silahkan buka file tersebut, modifikasi dan tambahkan isinya:
+<img src="https://drive.google.com/uc?expand&amp;id=12mjK4H156XYpm4-COIIhnJbaTI5GdFEB" alt="hugo_post" />
+Jangan lupa mengubah nilai <code>draft</code> pada <em>Front Matter</em> menjadi <code>false</code>.</p>
+
+<p>Setelah itu, simpan, jalankan server…</p>
+
+<p>…dan coba lihat perubahannya sekarang.</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1YRC9fJlP0GhpjceRi2I_6y5juO_35Spz" alt="hugo_artikel" /></p>
+
+<h1 id="4-deploy-hugo-ke-server">4. Deploy Hugo ke Server</h1>
+
+<p>Hugo bisa di-<em>deploy</em> di mana saja:</p>
+
+<p>Github, Gitlab, BitBucket, Heroku, Google Cloud, Shared Hosting, dan sebagainya.</p>
+
+<p>Berbagai cara deploy hugo bisa dibaca di <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">dokumentasinya</a>.</p>
+
+<p>Tapi, bila belum paham…</p>
+
+<p>Coba baca catatan saya: <a href="#">Cara Deploy Hugo di Github Pages.</a></p>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<p>Sepertinya terlihat susah ya…</p>
+
+<p>Tapi tenang saja, karena ini masih awal.</p>
+
+<p>Saya juga seperti itu, waktu pertama kali mencoba…</p>
+
+<p>…banyak sekali error dan masalah yang didapatkan.</p>
+
+<p>Namun, masalah itu akan membuat kita lebih paham.</p>
+
+<p>Selanjutnya, mungkin kamu tertarik:</p>
+
+<ul>
+<li>[Membuat Tema Hugo Sendiri dari Nol]()</li>
+</ul>
+
+<p>Atau masih bingung?</p>
+
+<p>Silahkan tanyakan di komentar!</p>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2fcara-membuat-blog-dengan-hugo%2f&t=Cara%20Membuat%20Blog%20Dengan%20Hugo"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2fcara-membuat-blog-dengan-hugo%2f&text=Cara%20Membuat%20Blog%20Dengan%20Hugo&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2fcara-membuat-blog-dengan-hugo%2f&title=Cara%20Membuat%20Blog%20Dengan%20Hugo"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2fcara-membuat-blog-dengan-hugo%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Thursday, Mar 24, 2022 14:54</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/html">#HTML</a>
+        
+        <a href="https://kos-it.github.iotags/hugo">#Hugo</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-1-bagian-7/" rel="prev">
+          <span>Tutorial SIMKEP dengan Codeiniter #7: Membuat Fitur Upload File</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2022 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+

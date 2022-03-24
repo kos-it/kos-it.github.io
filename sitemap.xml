@@ -3,8 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kos-it.github.io/post/cara-membuat-blog-dengan-hugo/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kos-it.github.io/categories/</loc>
-    <lastmod>2020-10-02T21:10:00+08:00</lastmod>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/html/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/hugo/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/post/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/categories/website/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kos-it.github.io/tags/website/</loc>
+    <lastmod>2022-03-24T14:54:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -15,25 +62,7 @@
   </url>
   
   <url>
-    <loc>https://kos-it.github.io/</loc>
-    <lastmod>2020-10-02T21:10:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://kos-it.github.io/tags/php/</loc>
-    <lastmod>2020-10-02T21:10:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/post/</loc>
-    <lastmod>2020-10-02T21:10:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/</loc>
     <lastmod>2020-10-02T21:10:00+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -47,18 +76,6 @@
   <url>
     <loc>https://kos-it.github.io/post/tutorial-projek-1-bagian-7/</loc>
     <lastmod>2020-10-02T21:10:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/categories/website/</loc>
-    <lastmod>2020-10-02T21:10:00+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/website/</loc>
-    <lastmod>2020-10-02T21:10:00+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -84,12 +101,6 @@
   <url>
     <loc>https://kos-it.github.io/post/cara-menampilkan-gambar-di-website-menggunakan-penyimpanan-data-dari-google-drive/</loc>
     <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kos-it.github.io/tags/html/</loc>
-    <lastmod>2020-02-02T23:35:00+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
