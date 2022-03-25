@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial Project - 2 on KOS-IT — Making and Developing</title>
+    <link>https://kos-it.github.io/tags/tutorial-project-2/</link>
+    <description>Recent content in Tutorial Project - 2 on KOS-IT — Making and Developing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>id-id</language>
+    <managingEditor>taqwaalmutawakkil97@gmail.com (Karcaqs)</managingEditor>
+    <webMaster>taqwaalmutawakkil97@gmail.com (Karcaqs)</webMaster>
+    <lastBuildDate>Fri, 25 Mar 2022 19:16:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://kos-it.github.io/tags/tutorial-project-2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorial SIDAS dengan Codeiniter #1 : Pengenalan Codeigniter untuk Pemula</title>
+      <link>https://kos-it.github.io/post/tutorial-projek-2-bagian-1/</link>
+      <pubDate>Fri, 25 Mar 2022 19:16:46 +0800</pubDate>
+      <author>taqwaalmutawakkil97@gmail.com (Karcaqs)</author>
+      <guid>https://kos-it.github.io/post/tutorial-projek-2-bagian-1/</guid>
+      <description>Kamu sudah belajar basic PHP dan OOP?
+Bagus.
+Kini saatnya belajar framework.
+Framework telah terbukti banyak membantu web developer dalam mengembangkan web.
+Proyek web yang diperkirakan bisa jadi dalam satu bulan, dengan framework..
+..mungkin bisa jadi dalam seminggu.
+Hebat kan.
+Karena itu, kamu harus menggunakan framework agar bisa membuat web lebih cepat dan juga hemat biaya dan tenaga.
+Baiklah…
+Framework yang akan kita pelajari di tutorial ini adalah Codeigniter.</description>
+    </item>
+    
+  </channel>
+</rss>
