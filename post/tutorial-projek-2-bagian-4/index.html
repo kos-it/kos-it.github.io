@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIDAS dengan Codeiniter #4 : Memahami Routing dan Controller  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIDAS dengan Codeiniter #4 : Memahami Routing dan Controller'read this article.">
+  <meta property="og:title" content="Tutorial SIDAS dengan Codeiniter #4 : Memahami Routing dan Controller">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2022-03-27">
+  
+  <meta property="og:description" content=" 'Tutorial SIDAS dengan Codeiniter #4 : Memahami Routing dan Controller'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-projek-2-bagian-4/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://kos-it.github.io/img/codeigniter.svg">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 2">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter4">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-projek-2-bagian-4/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-4/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Sunday, Mar 27, 2022 15:31</time>
+        <h1>Tutorial SIDAS dengan Codeiniter #4 : Memahami Routing dan Controller</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#apa-itu-routing-dan-controller">Apa itu Routing dan Controller?</a></li>
+<li><a href="#membuat-routes-di-codeigniter">Membuat Routes di Codeigniter</a></li>
+<li><a href="#membuat-controller">Membuat Controller</a></li>
+<li><a href="#autoroute-di-codeigniter-4">Autoroute di Codeigniter 4</a></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Routing dan Controller..</p>
+
+<p>Kedua hal ini wajib kamu pahami.</p>
+
+<p>Mengapa?</p>
+
+<p>Karena kedua hal inilah yang menjadi ‘penggerak’ dalam aplikasi.</p>
+
+<p>Pada tutorial ini, kita akan belajar seputar Routing dan Controller pada Codeigniter 4.</p>
+
+<p>Pastikan kamu menyimaknya sampai selesai agar benar-benar paham.</p>
+
+<p>Baiklah…</p>
+
+<p>Mari kita mulai!</p>
+
+<h1 id="apa-itu-routing-dan-controller">Apa itu Routing dan Controller?</h1>
+
+<p><strong>Routing</strong> adalah proses menentukan arah atau rute yang harus dilalui.</p>
+
+<p>Pada framework CI4, <em>routing</em> bertujuan untuk menentukan Controller mana yang harus merespon sebuah request.</p>
+
+<p>Controller adalah class atau script yang bertanggung jawab merespon sebuah <em>request</em>.</p>
+
+<p>Ia bisa saja merespon dengan mengirimkan view, data JSON, data XML, atau bahkan tidak mengirimkan respon apapun.</p>
+
+<p>Karena ada juga bagian dari Controller yang harnya bertugas menerima data dan menyimpannya ke database.</p>
+
+<p>Coba perhatikan lagi gambar ini:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1bsrADdi1r9KuoAMuv3NglZXjeFJXheaK" alt="mvc1" /></p>
+
+<p>File <code>index.php</code> adalah file <em>entri point</em> yang akan dieksekusi pertamakali saat aplikasi dibuka.</p>
+
+<p><em>Request</em> yang diterima oleh <code>index.php</code> akan diserahkan ke <em>Router</em>. Lalu si <em>Router</em> akan menentukan Controller yang akan meresponnya.</p>
+
+<p>Oh iya, jangan bingung dengan istilah routes, router, dan routing..</p>
+
+<p>Berikut ini penjelasannya:</p>
+
+<ul>
+<li><em>Routes</em> adalah kumpulan definisi routing</li>
+<li><em>Router</em> adalah script yang menentukan routing</li>
+<li><em>Routing</em> adalah proses menentukan rute.</li>
+</ul>
+
+<p>Lalu, bagaimana cara kita membuat Routes di Codeigniter?</p>
+
+<p>Mari kita bahas:</p>
+
+<h1 id="membuat-routes-di-codeigniter">Membuat Routes di Codeigniter</h1>
+
+<p>Oke, sekarang coba lihat kembali kode aplikasi sidas.</p>
+
+<p>Buka file <code>app/config/Routes.php</code>.</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1UwWO3UQS3UuyI1X0e23rxHyjoMENrvIk" alt="ci4-routes" /></p>
+
+<p>Pada file <code>Routes.php</code>, kita bisa mendefinisikan rute untuk aplikasi.</p>
+
+<p>Coba perhatikan bagian ini:</p>
+
+<pre><code>$routes-&gt;get('/', 'Home::index');
+</code></pre>
+
+<p>Ini adalah rute untuk home page.</p>
+
+<p>Bingung?</p>
+
+<p>Coba perhatikan gambar berikut:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1piklUNkfKPceDowNiSZ8gkkoBVqvTSOJ" alt="ci4_4.10_" /></p>
+
+<p>Sudah paham?</p>
+
+<p>Bagus..</p>
+
+<p>Sekarang mari kita coba membuat sebuah rute baru.</p>
+
+<p>Tambahkan kode berikut di dalam <code>Routes.php</code>:</p>
+
+<pre><code>$routes-&gt;get('/about', 'Page::about');
+$routes-&gt;get('/contact', 'Page::contact');
+$routes-&gt;get('/faqs', 'Page::faqs');
+</code></pre>
+
+<p>Nah, di sini kita membuat tiga buat rute baru. Pada rute ini kita memberikan tugas kepada controller Page untuk merespon request pada rute tersebut.</p>
+
+<p>Untuk memastikan rute sudah dibuat dengan benar, coba ketik perintah:</p>
+
+<pre><code>php spark routes
+</code></pre>
+
+<p>Jika muncul seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1bv1XBxy-3N-izv5Adtkidu2RDj9icxlV" alt="ci4_4.11_" /></p>
+
+<p>Maka pembuatan rute berhasil.</p>
+
+<p>Selanjutnya kita harus membuat Controller <code>Page.php</code>.</p>
+
+<h1 id="membuat-controller">Membuat Controller</h1>
+
+<p>Silahkan buat file baru di dalam folder <code>app/Controllers</code> dengan nama <code>Page.php</code>.</p>
+
+<p>Pastikan kamu menggunakan huruf kapital di awal nama file. Karena ini sudah menjadi aturan pada Codeigniter.</p>
+
+<p>Kemudian isi file <code>Page.php</code> dengan kode berikut:</p>
+
+<pre><code class="language-php">&lt;?php namespace App\Controllers;
+
+class Page extends BaseController
+{
+	public function about()
+	{
+		echo &quot;about page&quot;;
+	}
+    
+    public function contact()
+	{
+		echo &quot;contact page&quot;;
+	}
+    
+    public function faqs()
+	{
+		echo &quot;Faqs page&quot;;
+	}
+
+}
+</code></pre>
+
+<p>Controller Page memiliki tiga method, yakni <code>about()</code>, <code>contact()</code>, dan <code>faqs()</code>.</p>
+
+<p>Nama method ini mengikuti nama yang sudah kita tentukan di dalam rute. Jika kita menggunakan nama yang berbeda, maka ia tidak akan bisa dibuka.</p>
+
+<p>Pada setiap method di Controller <code>Page</code>, kita membuat respon dengan perintah <code>echo</code>. Kita juga nanti bisa merespon dengan view.</p>
+
+<p>Oke, sekarang mari kita tes hasilnya.</p>
+
+<p>jalankan pertintah cli pada project dengan</p>
+
+<pre><code>php spark serve
+</code></pre>
+
+<p>Silahkan buka halaman berikut:</p>
+
+<ul>
+<li><code>localhost:8080/about</code></li>
+<li><code>localhost:8080/contact</code></li>
+<li><code>localhost:8080/faqs</code></li>
+</ul>
+
+<p>Hasilnya :</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1mPDtjNCRUc8IQHoFK5123zSQ7cr3tM8T" alt="ci4_4.12" /></p>
+
+<p>Bagus..</p>
+
+<p>Rute yang kita buat berhasil dibuka.</p>
+
+<h1 id="autoroute-di-codeigniter-4">Autoroute di Codeigniter 4</h1>
+
+<p>Pada Codeigniter 3, routing dilakukan secara otomatis dengan mengikuti nama Controller dan method-nya.</p>
+
+<p>Pada Codeigniter 4, kita juga bisa mengaktifkan fitur ini pada app/config/Routes.php dengan kode:</p>
+
+<pre><code class="language-php">$routes-&gt;setAutoRoute(true);
+</code></pre>
+
+<p>Jika ingin menonaktifkan autoroute, tinggal ganti true menjadi false.</p>
+
+<pre><code class="language-php">$routes-&gt;setAutoRoute(false);
+</code></pre>
+
+<p>Secara default, fitur autoroute sudah aktif.</p>
+
+<p>Mari kita coba..</p>
+
+<p>Tambahkan method tos() pada Controller Page dengan isi seperti ini:</p>
+
+<pre><code class="language-php">public function tos()
+{
+    echo &quot;Halaman Term of Service&quot;;
+}
+</code></pre>
+
+<p>Sehingga sekarang kode Controller Page menjadi seperti ini:</p>
+
+<pre><code class="language-php">&lt;?php namespace App\Controllers;
+
+class Page extends BaseController
+{
+	public function about()
+	{
+		echo &quot;about page&quot;;
+	}
+    
+    public function contact()
+	{
+		echo &quot;contact page&quot;;
+	}
+    
+    public function faqs()
+	{
+		echo &quot;Faqs page&quot;;
+    }
+    
+    public function tos()
+    {
+        echo &quot;Halaman Term of Service&quot;;
+    }
+
+}
+</code></pre>
+
+<p>Ingat:</p>
+
+<p>Method tos() belum kita daftarkan di dalam <code>Routes.php</code>. Namun, karena autoroute aktif, maka method ini bisa kita akses melalui:</p>
+
+<p><code>localhost:8080/index.php/page/tos</code></p>
+
+<p>Hasilnya:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1zUGepeJry91iT9e97FKSBY78pNpSEtIs" alt="ci4_4.13" /></p>
+
+<p>Sekarang coba matika fitur <em>autoroute</em>.</p>
+
+<p>Pada kode <code>app/Config/Routes.php</code>, berikan nilai false pada <code>setAutoRoute()</code>.</p>
+
+<pre><code class="language-php">$routes-&gt;setAutoRoute(false);
+</code></pre>
+
+<p>Maka sekarang method <code>tos()</code> tidak akan bisa dibuka.</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=13FDBfqYPlBjTn_4fQ6N5xdvbWB5pxhhp" alt="ci4_4.14" /></p>
+
+<p>Ini karena kita mematikan fitur <em>autoroute</em>.</p>
+
+<p>Sebaiknya pakai <em>autoroute</em> atau manual route?</p>
+
+<p>Sebenarnya ini tergantung kita sebagai developer, jika tidak ingin repot-repot membuat rute maka baiknya pakai autoroute. Namun atuoroute akan membuat semua method public di Controller akan bisa diakses.</p>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<p>Sebenarnya masih banyak lagi hal tentang routing yang harus diketahui. Namun, untuk tutorial basic.. saya cukupkan sampai di sini.</p>
+
+<p>Nanti kita akan pelajari routing lebih lenjut, bersamaan dengan dengan pembahasan fitur Codeigniter lainnya.</p>
+
+<p>Barikutnya kita akan belajar tentang View di Codeigniter.</p>
+
+<p>Silahkan lanjutkan ke:</p>
+
+<ul>
+<li>➡️ <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-5/">Tutorial Codeigniter: Memahami View di Codeigniter</a></li>
+</ul>
+
+<blockquote>Untuk tutorial CI lainnya, cek di 📚 <a href=https://kos-it.github.io/tags/codeigniter4>[List Tutorial Codeigntier]</a></blockquote>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-4%2f&t=Tutorial%20SIDAS%20dengan%20Codeiniter%20%234%20%3a%20Memahami%20Routing%20dan%20Controller"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-4%2f&text=Tutorial%20SIDAS%20dengan%20Codeiniter%20%234%20%3a%20Memahami%20Routing%20dan%20Controller&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-4%2f&title=Tutorial%20SIDAS%20dengan%20Codeiniter%20%234%20%3a%20Memahami%20Routing%20dan%20Controller"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-4%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Sunday, Mar 27, 2022 15:31</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-2">#Tutorial Project - 2</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter4">#Codeigniter4</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-3/" rel="prev">
+          <span>Tutorial SIDAS dengan Codeiniter #3 : Konsep Dasar CI4 yang Harus dipahami</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2022 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+

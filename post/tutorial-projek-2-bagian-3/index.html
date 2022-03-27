@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script data-ad-client="ca-pub-8849948012681915" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial SIDAS dengan Codeiniter #3 : Konsep Dasar CI4 yang Harus dipahami  | KOS-IT — Making and Developing</title>
+  <link rel="icon" href="https://kos-it.github.io/images/icon.svg" />
+  <meta name="description" content=" 'Tutorial SIDAS dengan Codeiniter #3 : Konsep Dasar CI4 yang Harus dipahami'read this article.">
+  <meta property="og:title" content="Tutorial SIDAS dengan Codeiniter #3 : Konsep Dasar CI4 yang Harus dipahami">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2022-03-27">
+  
+  <meta property="og:description" content=" 'Tutorial SIDAS dengan Codeiniter #3 : Konsep Dasar CI4 yang Harus dipahami'read this article.">
+  <meta property="og:url" content="https://kos-it.github.io/post/tutorial-projek-2-bagian-3/">
+  <meta property="og:site_name" content="KOS-IT — Making and Developing">
+  
+  <meta property="og:image" content="https://kos-it.github.io/img/codeigniter.svg">
+  
+  
+  <meta property="og:tags" content="Tutorial Project - 2">
+  
+  <meta property="og:tags" content="Website">
+  
+  <meta property="og:tags" content="PHP">
+  
+  <meta property="og:tags" content="Codeigniter4">
+  
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">  
+  <link rel="canonical" href="https://kos-it.github.io/post/tutorial-projek-2-bagian-3/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+  </script>
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo3.svg" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#KOS-IT — Making and Developing</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">   
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-3/">
+      <img src="/images/post-title-icon.png" height="43"/>
+      <div class="post-meta">
+        <time>Sunday, Mar 27, 2022 14:38</time>
+        <h1>Tutorial SIDAS dengan Codeiniter #3 : Konsep Dasar CI4 yang Harus dipahami</h1>
+      </div>
+    </a>
+  </div>
+  <div class="post-toc">
+    <span class="title">TOC</span>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#struktur-direktori-codeigniter-4">Struktur Direktori Codeigniter 4</a></li>
+<li><a href="#mengenal-konsep-mvc-codeigniter-4">Mengenal Konsep MVC Codeigniter 4</a></li>
+<li><a href="#apa-itu-model">Apa itu Model?</a></li>
+<li><a href="#apa-itu-view">Apa itu View?</a></li>
+<li><a href="#apa-itu-controller">Apa itu Controller?</a></li>
+<li><a href="#router-di-codeigniter-4">Router di Codeigniter 4</a></li>
+<li><a href="#apa-selanjutnya">Apa Selanjutnya?</a></li>
+</ul>
+</nav>
+  </div>
+  <section class="post-content">
+    
+
+<p>Kali ini kita akan berkenalan lebih dekat dengan CI4.</p>
+
+<p>Harapannya, kamu bisa terbiasa denga lingkungan kerja atau codebase CI4.</p>
+
+<p>Kita akan mulai dengan mengenal struktur direktorinya terlebih dahulu, lalu membahas konsep MVC yang ada di Codeigniter 4.</p>
+
+<p>Baiklah..</p>
+
+<p>Mari kita mulai!</p>
+
+<h1 id="struktur-direktori-codeigniter-4">Struktur Direktori Codeigniter 4</h1>
+
+<p>Jika kamu baru pertama kali belajar Codeigniter, maka wajib hukumnya mengetahui apa saja isi direktori dan file yang ada di dalam project codeigniter.</p>
+
+<p>Silahkan buka teks Editor VS Code, lalu pilih <strong>File-&gt;Open Folder</strong>. Cari folder <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>sidas</code>.</p>
+
+<p>Maka kita akan mendapatan struktur direktori seperti ini:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1hXfw6tU9BP1lR03jPOuoeeCXMS2lpsug" alt="ci4_3.10" /></p>
+
+<p>Terdapat beberapa direktori dan file di sana. Mari kita bahas satu persatu. Mulai dari direktori dulu ya.</p>
+
+<div class="figure">
+    <img draggable="true" alt="folder-ci4" src="https://drive.google.com/uc?expand&id=1CWi3PjB_TVAOu6Ba7kt9Ppg5I-_hL08h">
+    <p>Struktur direktori Codeigniter 4</p>
+</div>
+
+<ul>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>.github</code> folder ini kita butuhkan untuk konfigurasi repo github, seperti konfigurasi untuk build dengan <em>github action</em></li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>app</code> folder ini akan berisi kode dari aplikasi yang kita kembangkan</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>public</code> folder ini berisi file yang bisa diakses oleh publik, seperti <code>file index.php</code>, <code>robots.txt</code>, <code>favicon.ico</code>, <code>ads.txt</code>, dll;</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>tests</code> folder ini berisi kode untuk melakukan testing dengan PHPunit</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>vendor</code> folder ini berisi library yang dibutuhkan oleh aplikasi, isinya juga termasuk kode core dari system CI.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg"> <code>writable</code> folder ini berisi file yang ditulis oleh aplikasi. Nantinya, kita bisa pakai untuk menyimpan file yang di-upload, logs, session, dll.</li>
+</ul>
+
+<p>Berikutnya, kita akan bahas tentang file-file yang ada di direktori CI 4.</p>
+
+<ul>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>.env</code> adalah file yang berisi variabel environment yang dibutuhkan oleh aplikasi.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/file-icon.svg"> <code>.gitignore</code> adalah file yang berisi daftar nama file dan folder yang akan diabaikan oleh <a href="*cooming_soon!*">Git</a>.</li>
+<li>⚙️ <code>build</code> adalah script untuk mengubah versi codeigniter yang digunakan. Ada versi <code>release</code> (stabil) dan <code>development</code> (labil).</li>
+<li>📜 <code>composer.json</code> adalah file JSON yang berisi informasi tentang proyek dan daftar library yang dibutuhkannya. File ini digunakan oleh Composer sebagai acuan.</li>
+<li>📜 <code>composer.lock</code> adalah file yang berisi informasi versi dari libraray yang digunakan aplikasi.</li>
+<li>©️ <code>license.txt</code> adalah file yang berisi penjelasan tentang lisensi Codeigniter,</li>
+<li>📜 <code>phpunit.xml.dist</code> adalah file XML yang berisi konfigurasi untuk PHPunit.</li>
+<li>📖 <code>README.md</code> adalah file keterangan tentang codebase CI. Ini biasanya akan dibutuhkan pada repo github atau gitlab.</li>
+<li>⚙️ <code>spark</code> adalah program atau script yang berfungsi untuk menjalankan server, generate kode, dll.</li>
+</ul>
+
+<p>Kemudian, coba kita fokus ke folder <img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>app</code>, di sana ada beberapa fodler dan file yang perlu kita ketahui.</p>
+
+<ul>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Config</code> adalah folder yang berisi konfigurasi untuk aplikasi,</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Controllers</code> adalah folder yang berisi kode Controller dari aplikasi</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Database</code> adalah folder yang berisi kode untuk migrasi database</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Filters</code> adalah folder yang berisi kode untuk filter atau middleware</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Helpers</code> adalah folder yang berisi kode untuk fungsi-fungsi helper</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Language</code> adalah folder yang berisi kamus bahasa untuk aplikasi.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Libraries</code> adalah folder yang berisi library tambahan untuk aplikasi</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Models</code> adalah folder yang berisi kode untuk model.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>ThridParty</code> adalah folder yang berisi library dari pihak ketiga.</li>
+<li><img class="emoji" draggable="true" alt="folder" src="/icon/icons8-folder.svg">  <code>Views</code> adalah folder yang berisi kode untuk view.</li>
+<li>📜 <code>.htaccess</code> adalah file yang berisi konfigurasi akses untuk web server</li>
+<li>📜 <code>Common.php</code> adalah file yang berisi definisi fungsi untuk menindih fungsi core dari CI.</li>
+<li>📜 <code>index.html</code> adalah file placeholder untuk mencegah direct access.</li>
+</ul>
+
+<p>Nah, itulah beberapa file dan folder yang harus dipahami. Sebenarnya masih banyak lagi file di dalam folder app yang harus kamu ketahui.</p>
+
+<p>Namun, karena terlalu banyak.. nanti kita bahas barengan dengan tutorial berikutnya.</p>
+
+<h1 id="mengenal-konsep-mvc-codeigniter-4">Mengenal Konsep MVC Codeigniter 4</h1>
+
+<p>Codeigniter sejak awal menganut konsep MVC. Karena itu, ia begitu terkenal. Soalnya, implementasi MVC di CI mudah dipahami.</p>
+
+<p>Apa itu MVC?</p>
+
+<p>MVC adalah singkatan dari <em>Model–View–Controller</em>. MVC merupakan sebuah pola desain arsitektur yang umum digunakan dalam pengembangan aplikasi.</p>
+
+<p>Masih ingat latar belakang mengapa kita harus pakai framework?</p>
+
+<p>Yap, biar kode program lebih konsisten dan tersetruktur. Sehingga kita akan mudah kolaborasi dengan tim.</p>
+
+<p>Nah, si MVC ini adalah pola penulisan kode yang umum dipakai.. dimana kode untuk <em>Model</em> di taruh dalam folder yang sama, begitu juga dengan kode untuk <em>View</em> dan <em>Controller</em>.</p>
+
+<p>Coba perhatikan gambar berikut:</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1y4m87B3DIOffTWBlpoefnQOvPnAbekuv" alt="mvc1" /></p>
+
+<p>Gambar ini menyatakan bagaimana hubungan kode pada MVC.</p>
+
+<h1 id="apa-itu-model">Apa itu Model?</h1>
+
+<p>Model adalah kode yang bertugas untuk membuat pemodelan data. Kadang juga dipakai untuk pemodelan bisnis.</p>
+
+<p>Model bisa mengakses data dari Database dan juga sumber lainnya.</p>
+
+<p>Intinya:</p>
+
+<p>Kalau berkaitan tentang data, itu tugasnya model.</p>
+
+<h1 id="apa-itu-view">Apa itu View?</h1>
+
+<p>View adalah kode yang bertugas untuk membuat tampilan aplikasi.</p>
+
+<p>Ingat:</p>
+
+<p>Fokusnya untuk membuat tampilan aplikasi, bukan yang lain. Kita tidak boleh query data dari view, meskipun itu bisa dilakukan.</p>
+
+<p>Kadang juga kita akan membuat sedikit logika di dalam view, seperti logika untuk menampilkan dan menghilangkan elemen tertentu.</p>
+
+<p>Apa yang kita lihat di aplikasi, itu adalah kode dari View.</p>
+
+<h1 id="apa-itu-controller">Apa itu Controller?</h1>
+
+<p>Nah, si Controller inilah yang bertugas menyatukan Model dan View.</p>
+
+<p>Jadi, setiap ada <em>request</em>..</p>
+
+<p>Controller akan bertanggung jawab untuk membalas <em>reques</em> tersebut.</p>
+
+<p>Jika itu <em>request</em> untuk menyimpan data ke database, maka Controller harus memanggil Model yang bertanggung jawab untuk data tersebut. Lalu meminta model untuk menyimpannya ke database.</p>
+
+<p>Jika itu <em>request</em> untuk view data, maka Controller akan mencari kode View yang bertanggung jawab untuk menampilkan data tersebut.</p>
+
+<p>Kadang juga Controller akan membutuhkan beberapa library dan helper untuk memproses <em>request</em>.</p>
+
+<p>Intinya:</p>
+
+<p>Controller bertanggung jawab untuk membalas <em>reques</em> dari client.</p>
+
+<p>Tapi sebelum itu.. ada <strong>router</strong> di depan controller yang bertanggung jawab untuk menentukan Controller mana yang akan dieksekusi.</p>
+
+<h1 id="router-di-codeigniter-4">Router di Codeigniter 4</h1>
+
+<p>Coba buka file <code>app/Config/Routes.php</code>. File ini adalah file router yang bertugas untuk menentukan, Controller mana yang akan bertanggung jawab pada <em>request</em> tertentu.</p>
+
+<p><img src="https://drive.google.com/uc?expand&amp;id=1bsrADdi1r9KuoAMuv3NglZXjeFJXheaK" alt="mvc1" /></p>
+
+<p>Sebagai contoh:</p>
+
+<p>Perhatikan kode ini.</p>
+
+<pre><code>$routes-&gt;get('/', 'Home::index');
+</code></pre>
+
+<p>Saat ada <em>request</em> ke halaman root (/) atau alamat domain dari aplikasi, maka Controller yang akan bertugas adalah Home dan method yang akan dipakai adalah index.</p>
+
+<p>Intinya:</p>
+
+<p>Router akan memberikan tugas pada Controller tertentu untuk membalas sebuah <em>request</em>.</p>
+
+<h1 id="apa-selanjutnya">Apa Selanjutnya?</h1>
+
+<p>Jadi kesimpulannya:</p>
+
+<p>Codeigniter 4, menggunakan konsep MVC. <em>request</em> pada Codeigniter pertamakali akan diterima oleh file <code>public/index.php</code> kemudian diteruskan ke router dan diproses oleh Controller.</p>
+
+<p>Berikutnya, silahkan pelajari:</p>
+
+<ul>
+<li>➡️ <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-4/">Tutorial CI 4: Memahami Router dan Controller</a></li>
+</ul>
+
+<blockquote>Untuk tutorial CI lainnya, cek di 📚 <a href=https://kos-it.github.io/tags/codeigniter4>[List Tutorial Codeigntier]</a></blockquote>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-3%2f&t=Tutorial%20SIDAS%20dengan%20Codeiniter%20%233%20%3a%20Konsep%20Dasar%20CI4%20yang%20Harus%20dipahami"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-3%2f&text=Tutorial%20SIDAS%20dengan%20Codeiniter%20%233%20%3a%20Konsep%20Dasar%20CI4%20yang%20Harus%20dipahami&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-3%2f&title=Tutorial%20SIDAS%20dengan%20Codeiniter%20%233%20%3a%20Konsep%20Dasar%20CI4%20yang%20Harus%20dipahami"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fkos-it.github.io%2fpost%2ftutorial-projek-2-bagian-3%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:taqwaalmutawakkil97@gmail.com">Karcaqs</a>
+      
+      wrotes this article at
+      <span class="highlight">Sunday, Mar 27, 2022 14:38</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://kos-it.github.io/categories/website">#Website</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://kos-it.github.iotags/tutorial-project-2">#Tutorial Project - 2</a>
+        
+        <a href="https://kos-it.github.iotags/website">#Website</a>
+        
+        <a href="https://kos-it.github.iotags/php">#PHP</a>
+        
+        <a href="https://kos-it.github.iotags/codeigniter4">#Codeigniter4</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kos-it-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>    
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-2/" rel="prev">
+          <span>Tutorial SIDAS dengan Codeiniter #2 : Pengenalan Codeigniter untuk Pemula</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://kos-it.github.io/post/tutorial-projek-2-bagian-4/" rel="next">
+          <span>Tutorial SIDAS dengan Codeiniter #4 : Memahami Routing dan Controller</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  <img src="https://kos-it.github.io/images/icon.svg" height="15"> &copy; 2022 <a href="https://kos-it.github.io">KOS-IT — Making and Developing</a> | 
+  <a href="https://kos-it.github.io" target="blank"><img src="https://kos-it.github.io/images/logo2.svg" height="15"></a>
+</footer>
+</body>
+</html>
+
